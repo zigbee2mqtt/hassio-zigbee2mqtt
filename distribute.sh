@@ -14,7 +14,6 @@ fi
 
 git status
 
-echo "$DOCKER_PASSWORD" | docker login -u ${DOCKER_USERNAME} --password-stdin
 docker run -it --rm --privileged --name "${ADDON_NAME}" \
     -v ~/.docker:/root/.docker \
     -v "$(pwd)":/docker \
@@ -25,4 +24,6 @@ docker run -it --rm --privileged --name "${ADDON_NAME}" \
     --push \
     --from "homeassistant/{arch}-base" \
     --author "Daniel Welch <dwelch2102@gmail.com>" \
-    --doc-url "${GITHUB_URL}"
+    --doc-url "${GITHUB_URL}" \
+    --login ${DOCKER_USERNAME} \
+    --password ${DOCKER_PASSWORD}

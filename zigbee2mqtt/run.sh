@@ -14,10 +14,10 @@ mqtt_user=$(jq --raw-output ".mqtt_user" // empty $CONFIG_PATH)
 mqtt_pass=$(jq --raw-output ".mqtt_pass" // empty $CONFIG_PATH)
 
 if [[ -z "$mqtt_user" ]]; then
-    echo "[Info] Setting configuraiton with MQTT user and password..."
+    echo "[Info] Setting configuration with MQTT user and password..."
     python3 /app/set_config.py --homeassistant "$homeassistant" --permit_join "$permit_join" --mqtt_base_topic "$mqtt_base_topic" --mqtt_server "$mqtt_server" --serial_port "$serial_port"
 else
-echo "[Info] Setting configuraiton.yaml..."
+echo "[Info] Setting configuration.yaml..."
     python3 /app/set_config.py --homeassistant "$homeassistant" --permit_join "$permit_join" --mqtt_base_topic "$mqtt_base_topic" --mqtt_server "$mqtt_server" --serial_port "$serial_port" --mqtt_user="$mqtt_user" --mqtt_pass="$mqtt_pass"
 fi
 
