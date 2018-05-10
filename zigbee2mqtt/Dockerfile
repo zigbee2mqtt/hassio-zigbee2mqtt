@@ -10,7 +10,10 @@ RUN apk add --update --no-cache git jq nodejs nodejs-npm python3 python3-dev && 
 
 COPY run.sh /app/run.sh
 COPY set_config.py /app/set_config.py
-RUN ["chmod", "a+x", "/app/run.sh"]
+
 WORKDIR /app
+
+RUN ["chmod", "a+x", "/app/run.sh"]
 RUN ["npm", "install"]
+
 CMD [ "/app/run.sh" ]

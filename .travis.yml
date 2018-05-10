@@ -2,9 +2,9 @@ sudo: required
 services:
 - docker
 script:
-- "$TRAVIS_BUILD_DIR/build.sh"
+- $TRAVIS_BUILD_DIR/build.sh
 after_success:
-- "$TRAVIS_BUILD_DIR/distribute.sh"
+- $TRAVIS_BUILD_DIR/distribute.sh
 env:
   global:
     secure: c5WCROhJdrdpP7eAfKxirqStVK8lBxm0Wzm8m2EzPxqaFyjBeRZcl/ox01x9xXXqnCRklalmxP/6qLpPWiexUU26o7SKNunSkVjmqPMpAVlBDB5fnEIjJCzDH84ATVGj0da5bCgbstTj9Xmq12VoIBVcRBPMWL1wIiSeyB6Jpp/509M+UamMMZzM73BydOArOIU4ioR8k+3ZfJ7dD+3JYeeriltwwb63XyTq1jBD4pypTPbOBuuhYdTO5Pe2tF6jnIzoQwPHnjE0PRsv4+N3HAMAZV3CLoPPdLFFC7m2yltKN42URBWavLV/zGfDUnxOMB9VEr/lxuQ84s6oj9HS17nUs3nHQG+mA2r4UH4FkzmszDeyNGH+t4O7GjnN8gWQQTY5FkPUy3S0MVjfyipGCrpgEc4GGwSlthEtXeMHyVe4G8DXZUy+44VLsI3dUJLX2rIW8Obs3p2RFDfz4hoCORWAW+35kfdtbgeWfxDHlPx2US0rYnkVy4d8L/xVj3NYU2OuWWeY++hadbHgutc8y/Ckh30EAGGOsfBz7s6YAHlHWPv9fkxBRnV45/iZqaFrweISKYa5uJZPsBo+kjaUrgOoeDZhJ/xL7YStEElFS4TO6c/sLO4UwNG+sS8/WWjilFmO0kkDDO76PZgZDQkf7ECahS89MKrlULluZVlRJRo=
