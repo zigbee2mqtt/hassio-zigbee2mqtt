@@ -1,0 +1,26 @@
+{
+  "name": "zigbee2mqtt",
+  "version": "dev",
+  "slug": "zigbee2mqtt",
+  "description": "Zigbee to MQTT Bridge",
+  "devices": ["/dev/ttyACM0:/dev/ttyACM0:rwm"],
+  "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
+  "startup": "before",
+  "boot": "auto",
+  "options": {
+    "homeassistant": true,
+    "permit_join": true,
+    "mqtt_base_topic": "zigbee2mqtt",
+    "mqtt_server": "mqtt://localhost",
+    "serial_port": "/dev/ttyACM0"
+  },
+  "schema": {
+    "homeassistant": "bool",
+    "permit_join": "bool",
+    "mqtt_base_topic": "str",
+    "mqtt_server": "str",
+    "serial_port": "str",
+    "mqtt_user": "str?",
+    "mqtt_pass": "str?"
+  }
+}
