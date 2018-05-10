@@ -24,3 +24,4 @@
     "mqtt_pass": "str?"
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
+}
