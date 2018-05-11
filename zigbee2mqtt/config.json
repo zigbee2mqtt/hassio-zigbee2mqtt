@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "dev",
+  "version": "test",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "devices": ["/dev/ttyACM0:/dev/ttyACM0:rwm"],
