@@ -34,4 +34,5 @@ Feel free to create a PR for fixes and enhancements.
 
 ## Credits
 - [danielwelch](https://github.com/danielwelch)
+- [ciotlosm](https://github.com/ciotlosm)
 - [Koenkk](https://github.com/Koenkk) for [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt)
