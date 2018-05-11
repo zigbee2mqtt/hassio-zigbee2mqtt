@@ -21,4 +21,4 @@ else
     python3 /app/set_config.py --homeassistant "$homeassistant" --permit_join "$permit_join" --mqtt_base_topic "$mqtt_base_topic" --mqtt_server "$mqtt_server" --serial_port "$serial_port"
 fi
 
-npm run
+npm start
