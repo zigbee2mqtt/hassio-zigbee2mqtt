@@ -28,7 +28,7 @@ permit_join: true
 mqtt:
   # MQTT base topic for zigbee2mqtt MQTT messages
   base_topic: zigbee2mqtt
-  # MQTT server URL
+  # MQTT server URL, will need to be changed
   server: 'mqtt://localhost'
   # MQTT server authentication, uncomment if required:
   # user: my_user
@@ -48,6 +48,8 @@ advanced:
 |Parameter|Required|Description|
 |---------|--------|-----------|
 |`data_path`|Yes|Set this to the path you'd like the add-on to persist data. Must be within the `/share` directory. Defaults to `/share/zigbee2mqtt`|
+
+Note: Depending on your configuration, the MQTT server URL is likely to include the internal Docker host IP address (`172.17.0.1`) and the port specified elsewhere, typically `1883` or `8883` for SSL communications. For example, `mqtt://172.17.0.1:1883`.
 
 Warning: `port` can't be changed yet as it's part of the docker mapping:
 ```
