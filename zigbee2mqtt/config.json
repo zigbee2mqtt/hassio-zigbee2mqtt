@@ -7,21 +7,12 @@
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
   "boot": "auto",
+  "map": ["share:rw"],
   "options": {
-    "homeassistant": true,
-    "permit_join": true,
-    "mqtt_base_topic": "zigbee2mqtt",
-    "mqtt_server": "mqtt://localhost",
-    "serial_port": "/dev/ttyACM0"
+    "data_path": "/share/zigbee2mqtt"
   },
   "schema": {
-    "homeassistant": "bool",
-    "permit_join": "bool",
-    "mqtt_base_topic": "str",
-    "mqtt_server": "str",
-    "serial_port": "str",
-    "mqtt_user": "str?",
-    "mqtt_pass": "str?"
+    "data_path": "str"
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
 }
