@@ -13,13 +13,13 @@ Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass
 The addon should now be available for installation.
 
 ### Configuration
-To configure this add-on, you must create a file named `configuration.yaml` within the directory you specify via the `data_path` add-on option. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) (indcluded below) for more information.
+To configure this add-on, you must create a file named `configuration.yaml` within the directory you specify via the `data_path` add-on option. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) (included below) for more information.
 
 For example, to use the default configuration used in zigbee2mqtt, create the following file in your Hass.io instance at `/share/zigbee2mqtt/configuration.yaml`: 
 
 ```yaml
 # Home Assistant integration (MQTT discovery)
-homeassistant: false
+homeassistant: true
 
 # allow new devices to join
 permit_join: true
@@ -29,7 +29,7 @@ mqtt:
   # MQTT base topic for zigbee2mqtt MQTT messages
   base_topic: zigbee2mqtt
   # MQTT server URL, will need to be changed
-  server: 'mqtt://localhost'
+  server: 'mqtt://homeassitant'
   # MQTT server authentication, uncomment if required:
   # user: my_user
   # password: my_password
@@ -51,7 +51,7 @@ advanced:
 
 Note: Depending on your configuration, the MQTT server URL is likely to include the internal Docker host IP address (`172.17.0.1`) and the port specified elsewhere, typically `1883` or `8883` for SSL communications. For example, `mqtt://172.17.0.1:1883`.
 
-Warning: `port` can't be changed yet as it's part of the docker mapping:
+Warning: Serial `port` can't be changed yet as it's part of the docker mapping:
 ```
   "devices": ["/dev/ttyACM0:/dev/ttyACM0:rwm"]
 ```
