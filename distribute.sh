@@ -1,6 +1,11 @@
 #!/bin/bash
 set -ev
 
+if [ "$TRAVIS_PULL_REQUEST"} != "false" ]; then
+    echo "This build is a pull request, aborting distribution script."
+    exit 0
+fi
+
 if [ ! -z ${TRAVIS_TAG} ]; then
     echo "Tagged build found. Pushing to Docker with tag 'latest'."
 else
