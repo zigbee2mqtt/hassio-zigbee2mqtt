@@ -9,10 +9,22 @@
   "boot": "auto",
   "map": ["share:rw"],
   "options": {
-    "data_path": "/share/zigbee2mqtt"
+    "data_path": "/share/zigbee2mqtt",
+    "homeassistant": true,
+    "permit_join": true,
+    "mqtt_base_topic": "zigbee2mqtt",
+    "mqtt_server": "mqtt://localhost",
+    "serial_port": "/dev/ttyACM0"
   },
   "schema": {
-    "data_path": "str"
+    "data_path": "str",
+    "homeassistant": "bool",
+    "permit_join": "bool",
+    "mqtt_base_topic": "str",
+    "mqtt_server": "str",
+    "serial_port": "str",
+    "mqtt_user": "str?",
+    "mqtt_pass": "str?"
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
 }
