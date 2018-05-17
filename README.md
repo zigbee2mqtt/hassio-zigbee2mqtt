@@ -26,6 +26,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
+|`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 
 Note: Depending on your configuration, the MQTT server URL is likely to include the internal Docker host IP address (`172.17.0.1`) and the port specified elsewhere, typically `1883` or `8883` for SSL communications. For example, `mqtt://172.17.0.1:1883`.
 
