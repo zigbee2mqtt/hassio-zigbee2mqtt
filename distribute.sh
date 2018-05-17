@@ -1,12 +1,12 @@
 #!/bin/bash
 set -ev
 
-if [ "$TRAVIS_PULL_REQUEST"} != "false" ]; then
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
     echo "This build is a pull request, aborting distribution script."
     exit 0
 fi
 
-if [ ! -z ${TRAVIS_TAG} ]; then
+if [ ! -z "$TRAVIS_TAG" ]; then
     echo "Tagged build found. Pushing to Docker with tag 'latest'."
 else
     # DIFF="$(git diff HEAD^ HEAD dropbox-sync)"
@@ -30,5 +30,5 @@ docker run -it --rm --privileged --name "${ADDON_NAME}" \
     --from "homeassistant/{arch}-base" \
     --author "Daniel Welch <dwelch2102@gmail.com>" \
     --doc-url "${GITHUB_URL}" \
-    --login ${DOCKER_USERNAME} \
-    --password ${DOCKER_PASSWORD}
+    --login "${DOCKER_USERNAME}" \
+    --password "${DOCKER_PASSWORD}"
