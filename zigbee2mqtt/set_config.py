@@ -36,9 +36,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description='Construct an appropriate yaml configuration file.')
     parser.add_argument(
-        '--options_path', dest='options_path', type=str, required=True)
-    parser.add_argument(
-        '--data_path', dest='data_path', type=str, required=True)
+        'options_path', dest='options_path', type=str, required=True)
+    parser.add_argument('data_path', dest='data_path', type=str, required=True)
     parser.set_defaults(mqtt_user=None, mqtt_pass=None)
     args = parser.parse_args()
     main(args.options_path, args.data_path)
