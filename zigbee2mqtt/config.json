@@ -25,7 +25,8 @@
     "serial_port": "str",
     "mqtt_user": "str?",
     "mqtt_pass": "str?",
-    "debug": "bool?"
+    "debug": "bool?",
+    "err": "bool?"
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
 }
