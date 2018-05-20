@@ -3,7 +3,7 @@
   "version": "test",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
-  "devices": ["/dev/ttyACM0:/dev/ttyACM0:rwm"],
+  "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
   "boot": "auto",
