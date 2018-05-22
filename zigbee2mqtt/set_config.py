@@ -6,7 +6,7 @@ import yaml
 
 def main(options_path, data_path):
 
-    config = {}
+    config = dict()
     config_path = Path(data_path).joinpath('configuration.yaml')
     if config_path.is_file():
         print("[Info] Configuration file found. Will overwrite configurable \
@@ -19,11 +19,17 @@ def main(options_path, data_path):
 
     config['homeassistant'] = options["homeassistant"]
     config['permit_join'] = options["permit_join"]
+    if config.get('mqtt', None) is None:
+        config['mqtt'] = dict()
     config['mqtt']['base_topic'] = options["mqtt_base_topic"]
     config['mqtt']['server'] = options["mqtt_server"]
+
     if options["mqtt_user"] or options["mqtt_pass"]:
         config['mqtt']['user'] = options["mqtt_user"]
         config['mqtt']['password'] = options["mqtt_pass"]
+
+    if config.get('serial', None) is None:
+        config['serial'] = dict()
     config['serial']['port'] = options["serial_port"]
 
     with open('/app/data/configuration.yaml', 'w') as f:
