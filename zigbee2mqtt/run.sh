@@ -6,7 +6,7 @@ DATA_PATH=$(jq --raw-output ".data_path" $CONFIG_PATH)
 DEBUG_ZIGBEE2MQTT=$(jq --raw-output ".debug // empty" $CONFIG_PATH)
 ERR_LOG=$(jq --raw-output ".err // empty" $CONFIG_PATH)
 
-python3 "$CONFIG_PATH" "$DATA_PATH"
+python3 set_config.py "$CONFIG_PATH" "$DATA_PATH"
 
 if [[ ! -z "$DEBUG_ZIGBEE2MQTT" ]]; then
     export DEBUG=*
