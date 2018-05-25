@@ -1,5 +1,3 @@
-# WORK IN PROGRESS!
-
 # Hass.io Add-on: zigbee2mqtt
 
 Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass.io](https://github.com/home-assistant/hassio).
@@ -8,7 +6,7 @@ Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass
 
 ### Installation
 
-- Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your Hass.io > Add-on Store
+- Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your **Hass.io > Add-on Store**
 
 The addon should now be available for installation.
 
@@ -29,12 +27,9 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 |`err`|bool|no|Set to true to redirect zigbee2mqtt `stdout` to `out.log` and `stderr` to `err.log`. Both `out.log` and `err.log` will be located within `data_path` above.|
 
-Note: Depending on your configuration, the MQTT server URL is likely to include the internal Docker host IP address (`172.17.0.1`) and the port specified elsewhere, typically `1883` or `8883` for SSL communications. For example, `mqtt://172.17.0.1:1883`.
+Note: Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
 
-Warning: Serial `port` can't be changed yet as it's part of the docker mapping:
-```
-  "devices": ["/dev/ttyACM0:/dev/ttyACM0:rwm"]
-```
+Note: To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
 
 ### Issues
 

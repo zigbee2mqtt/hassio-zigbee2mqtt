@@ -11,9 +11,9 @@
   "options": {
     "data_path": "/share/zigbee2mqtt",
     "homeassistant": true,
-    "permit_join": true,
+    "permit_join": false,
     "mqtt_base_topic": "zigbee2mqtt",
-    "mqtt_server": "mqtt://localhost",
+    "mqtt_server": "mqtt://homeassistant",
     "serial_port": "/dev/ttyACM0"
   },
   "schema": {
