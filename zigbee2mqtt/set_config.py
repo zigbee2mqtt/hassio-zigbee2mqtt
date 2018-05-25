@@ -36,7 +36,7 @@ def main(options_path, data_path):
     config['serial']['port'] = options["serial_port"]
 
     with open(config_path, 'w') as f:
-        yaml.safe_dump(config, f)
+        yaml.safe_dump(config, f, default_flow_style=False)
 
     print('[Info] Configuration written to {}'.format(config_path))
 
