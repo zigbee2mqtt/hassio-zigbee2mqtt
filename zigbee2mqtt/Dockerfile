@@ -15,6 +15,7 @@ COPY set_config.py /app/set_config.py
 WORKDIR /app
 
 RUN ["chmod", "a+x", "/app/run.sh"]
+RUN ["npm", "install", "--unsafe-perm", "-g", "pm2"]
 RUN ["npm", "install", "--unsafe-perm"]
 RUN apk del make gcc g++ python2 linux-headers udev git
 
