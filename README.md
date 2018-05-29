@@ -31,6 +31,45 @@ Note: Depending on your configuration, the MQTT server URL will need to include 
 
 Note: To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
 
+### Pairing
+
+To allow pairing in a better way, it's recommended you leave `permit_join` to false, and use the following code to get a pairing button inside **Home Assistant**:
+
+```
+input_boolean:
+  zigbee_permit_join:
+    name: Allow Zigbee joining
+    initial: off
+    icon: mdi:cellphone-wireless
+
+mqtt:
+  broker: homeassistant # This will have to be your mqtt broker
+  discovery: true
+
+
+automation:
+  - alias: Enable Zigbee joining
+    trigger:
+       platform: state
+       entity_id: input_boolean.zigbee_permit_join
+       to: 'on'
+    action:
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/bridge/config/permit_join
+          payload: "true"
+  - alias: Disable Zigbee joining
+    trigger:
+       platform: state
+       entity_id: input_boolean.zigbee_permit_join
+       to: 'off'
+    action:
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/bridge/config/permit_join
+          payload: "false"
+```
+
 ### Issues
 
 This addon is currently still work in progress. If you find any issues with it, please check first the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues). 
