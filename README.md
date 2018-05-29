@@ -33,7 +33,7 @@ Note: To find out which serial ports you have exposed go to **Hass.io > System >
 
 ### Pairing
 
-To allow pairing in a better way, it's recommended you leave `permit_join` to false, and use the following code to get a pairing button inside **Home Assistant**:
+The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` option from within Home Assistant using MQTT rather than through the add-on's User Interface. Below is an example configuration that will allow you to enable and disable device pairing from the Home Assistant front end:
 
 ```
 input_boolean:
