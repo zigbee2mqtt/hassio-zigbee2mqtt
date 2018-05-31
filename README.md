@@ -70,6 +70,12 @@ automation:
           payload: "false"
 ```
 
+### Updating the Add-on and `zigbee2mqtt` Library
+
+Currently, `zigbee2mqtt` is adding new features and functionality quite quickly, and is not using versioned releases. This makes it difficult to increment versioning for this add-on, as we simply pull the latest master branch when building the Docker image. Until `zigbee2mqtt` stabilizes, we will likely not use versioned releases. Therefore, in order to update the add-on and to update `zigbee2mqtt`, you must uninstall and reinstall the add-on via the Hassio UI.
+
+Note: If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
+
 ### Issues
 
 This addon is currently still work in progress. If you find any issues with it, please check first the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues). 
