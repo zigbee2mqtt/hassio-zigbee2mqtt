@@ -26,7 +26,8 @@
     "mqtt_user": "str?",
     "mqtt_pass": "str?",
     "debug": "bool?",
-    "err": "bool?"
+    "err": "bool?",
+    "commit": "str?"
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
 }

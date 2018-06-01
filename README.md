@@ -26,6 +26,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 |`err`|bool|no|Set to true to redirect zigbee2mqtt `stdout` to `out.log` and `stderr` to `err.log`. Both `out.log` and `err.log` will be located within `data_path` above.|
+|`commit`|string|no|Set this to a specific `zigbee2mqtt` commit SHA hash to use a specific version of `zigbee2mqtt` (in case of regressions)|
 
 Note: Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
 
