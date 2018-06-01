@@ -27,15 +27,17 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 |`err`|bool|no|Set to true to redirect zigbee2mqtt `stdout` to `out.log` and `stderr` to `err.log`. Both `out.log` and `err.log` will be located within `data_path` above.|
 
-Note: Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
-
-Note: To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
+Notes:
+- Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
+- To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
 
 ### Pairing
 
 The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` option from within Home Assistant using MQTT rather than through the add-on's User Interface. Below is an example configuration that will allow you to enable and disable device pairing from the Home Assistant front end:
 
-```
+<img width="500" alt="screen shot 2018-06-01 at 18 29 45" src="https://user-images.githubusercontent.com/7738048/40849401-8898bbc2-65ca-11e8-80d3-98e11b8f41bd.png">
+
+```yaml
 input_boolean:
   zigbee_permit_join:
     name: Allow Zigbee joining
@@ -46,9 +48,10 @@ mqtt:
   broker: homeassistant # This will have to be your mqtt broker
   discovery: true
 
-
 automation:
-  - alias: Enable Zigbee joining
+  - id: enable_zigbee_join
+    alias: Enable Zigbee joining
+    hide_entity: true
     trigger:
        platform: state
        entity_id: input_boolean.zigbee_permit_join
@@ -58,7 +61,9 @@ automation:
         data:
           topic: zigbee2mqtt/bridge/config/permit_join
           payload: "true"
-  - alias: Disable Zigbee joining
+  - id: disable_zigbee_join
+    alias: Disable Zigbee joining
+    hide_entity: true
     trigger:
        platform: state
        entity_id: input_boolean.zigbee_permit_join
@@ -69,6 +74,8 @@ automation:
           topic: zigbee2mqtt/bridge/config/permit_join
           payload: "false"
 ```
+Note: There is a [gist](https://gist.github.com/ciotlosm/59d160ad49c695a801d9a940a2a387d2) with the above code
+
 
 ### Updating the Add-on and `zigbee2mqtt` Library
 
@@ -78,7 +85,7 @@ Note: If you have reinstalled the add-on and believe that the latest version has
 
 ### Issues
 
-This addon is currently still work in progress. If you find any issues with it, please check first the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues). 
+If you find any issues with the addon, please check first the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues).
 
 Feel free to create a PR for fixes and enhancements. 
 
