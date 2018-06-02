@@ -18,7 +18,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |---------|----|--------|-----------|
 |`data_path`|string|Yes|Set this to the path you'd like the add-on to persist data. Must be within the `/share` directory. Defaults to `/share/zigbee2mqtt`.|
 |`homeassistant`|bool|yes|Set this to `true` if you want MQTT autodiscovery. See [Integrating with Home Assistant](https://github.com/Koenkk/zigbee2mqtt/wiki/Integrating-with-Home-Assistant) for details.|
-|`permit_join`|bool|yes|Set this to `true` when you setup new devices - make sure you set it back to `false` when done.|
+|`permit_join`|bool|yes|Recommended to leave this to `false` and use [runtime pairing](https://github.com/danielwelch/hassio-zigbee2mqtt#pairing). Set this to `true` when you setup new devices - make sure you set it back to `false` when done.|
 |`mqtt_server`|string|yes|Prefix for your MQTT topic|
 |`mqtt_base_topic`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
@@ -36,46 +36,89 @@ Notes:
 
 The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` option from within Home Assistant using MQTT rather than through the add-on's User Interface. Below is an example configuration that will allow you to enable and disable device pairing from the Home Assistant front end:
 
-<img width="500" alt="screen shot 2018-06-01 at 18 29 45" src="https://user-images.githubusercontent.com/7738048/40849401-8898bbc2-65ca-11e8-80d3-98e11b8f41bd.png">
+<img width="503" alt="screen shot 2018-06-02 at 14 41 42" src="https://user-images.githubusercontent.com/7738048/40874668-bdd1645a-667a-11e8-88ff-03b78212910b.png">
 
 ```yaml
-input_boolean:
-  zigbee_permit_join:
-    name: Allow Zigbee joining
-    initial: off
-    icon: mdi:cellphone-wireless
-
 mqtt:
   broker: homeassistant # This will have to be your mqtt broker
   discovery: true
+
+input_boolean:
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
+
+sensor:
+  - platform: mqtt
+    name: Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+
+group:
+  zigbee_group:
+    name: Zigbee
+    entities:
+      - input_boolean.zigbee_permit_join
+      - timer.zigbee_permit_join
+      - sensor.bridge_state
 
 automation:
   - id: enable_zigbee_join
     alias: Enable Zigbee joining
     hide_entity: true
     trigger:
-       platform: state
-       entity_id: input_boolean.zigbee_permit_join
-       to: 'on'
+      platform: state
+      entity_id: input_boolean.zigbee_permit_join
+      to: 'on'
     action:
-      - service: mqtt.publish
-        data:
-          topic: zigbee2mqtt/bridge/config/permit_join
-          payload: "true"
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/bridge/config/permit_join
+        payload: 'true'
+    - service: timer.start
+      data:
+        entity_id: timer.zigbee_permit_join
   - id: disable_zigbee_join
     alias: Disable Zigbee joining
+    trigger:
+    - entity_id: input_boolean.zigbee_permit_join
+      platform: state
+      to: 'off'
+    action:
+    - data:
+        payload: 'false'
+        topic: zigbee2mqtt/bridge/config/permit_join
+      service: mqtt.publish
+    - data:
+        entity_id: timer.zigbee_permit_join
+      service: timer.cancel
+    hide_entity: true
+  - id: disable_zigbee_join_timer
+    alias: Disable Zigbee joining by timer
     hide_entity: true
     trigger:
-       platform: state
-       entity_id: input_boolean.zigbee_permit_join
-       to: 'off'
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.zigbee_permit_join
     action:
-      - service: mqtt.publish
-        data:
-          topic: zigbee2mqtt/bridge/config/permit_join
-          payload: "false"
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/bridge/config/permit_join
+        payload: 'false'
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.zigbee_permit_join
 ```
-Note: There is a [gist](https://gist.github.com/ciotlosm/59d160ad49c695a801d9a940a2a387d2) with the above code
+Notes:
+- There is a [gist](https://gist.github.com/ciotlosm/59d160ad49c695a801d9a940a2a387d2) with the above code
+- `permit_join` will be enabled for 10 minutes (based on code automation)
 
 
 ### Updating the Add-on and `zigbee2mqtt` Library
