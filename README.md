@@ -32,6 +32,9 @@ Notes:
 - Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
 - To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
 
+##### Modifying zigbee2mqtt's `configuration.yaml`
+In some cases, you may wish to modify zigbee2mqtt's `configuration.yaml` file directly (for example, to add or modify device specific configuration](https://github.com/Koenkk/zigbee2mqtt/wiki/Device-specific-configuration)). The `configuration.yaml` file used by this add-on can be modified within the data directory specified via the add-on configuration (see above). By default, therefore, the configuration file is saved to `/share/zigbee2mqtt/configuration.yaml` on your Hass.io host. Suggested ways to edit your `configuration.yaml` file include the official [Samba share](https://www.home-assistant.io/addons/samba/) add-on and the [official](https://www.home-assistant.io/addons/ssh/) or [community SSH add-ons](https://github.com/hassio-addons/addon-ssh).
+
 ### Pairing
 
 The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` option from within Home Assistant using MQTT rather than through the add-on's User Interface. Below is an example configuration that will allow you to enable and disable device pairing from the Home Assistant front end:
