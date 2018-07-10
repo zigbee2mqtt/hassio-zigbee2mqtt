@@ -12,7 +12,6 @@ if [[ ! -z "$DEBUG_ZIGBEE2MQTT" ]]; then
     export DEBUG=*
 fi
 
-
 if [[ ! -z "$ERR_LOG" ]]; then
     ZIGBEE2MQTT_DATA="$DATA_PATH" npm start 1> "$DATA_PATH"/out.log 2> "$DATA_PATH"/err.log
 else

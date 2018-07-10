@@ -1,8 +1,8 @@
 {
-  "name": "zigbee2mqtt",
-  "version": "0.1.0",
-  "slug": "zigbee2mqtt",
-  "description": "Zigbee to MQTT Bridge",
+  "name": "zigbee2mqtt-edge",
+  "version": "test",
+  "slug": "zigbee2mqtt-edge",
+  "description": "Development build of the zigbee2mqtt add-on.",
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
@@ -28,5 +28,5 @@
     "debug": "bool?",
     "err": "bool?"
   },
-  "image": "dwelch2101/zigbee2mqtt-{arch}"
+  "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }
