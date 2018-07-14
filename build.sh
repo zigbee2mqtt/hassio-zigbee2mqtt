@@ -1,5 +1,9 @@
 #!/bin/bash
 set -ev
+
+cp "${TRAVIS_BUILD_DIR}"/zigbee2mqtt/run.sh "${TRAVIS_BUILD_DIR}"/zigbee2mqtt-edge/run.sh
+cp "${TRAVIS_BUILD_DIR}"/zigbee2mqtt/set_config.py "${TRAVIS_BUILD_DIR}"/zigbee2mqtt-edge/set_config.py
+
 if [ -z "${TRAVIS_TAG}" ]; then
     echo "Untagged build found. Building zigbee2mqtt with tag 'test' and zigbee2mqtt with tag 'test'."
     # build zigbee2mqtt
