@@ -8,7 +8,7 @@ Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass
 
 - Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your **Hass.io > Add-on Store**
 
-The addon should now be available for installation.
+The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the master branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the master branch not yet released.
 
 ### Configuration
 
@@ -26,7 +26,6 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 |`err`|bool|no|Set to true to redirect zigbee2mqtt `stdout` to `out.log` and `stderr` to `err.log`. Both `out.log` and `err.log` will be located within `data_path` above.|
-|`commit`|string|no|Set this to a specific `zigbee2mqtt` commit SHA hash to use a specific version of `zigbee2mqtt` (in case of regressions)|
 
 Notes:
 - Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
@@ -126,9 +125,9 @@ Notes:
 
 ### Updating the Add-on and `zigbee2mqtt` Library
 
-Currently, `zigbee2mqtt` is adding new features and functionality quite quickly, and is not using versioned releases. This makes it difficult to increment versioning for this add-on, as we simply pull the latest master branch when building the Docker image. Until `zigbee2mqtt` stabilizes, we will likely not use versioned releases. Therefore, in order to update the add-on and to update `zigbee2mqtt`, you must uninstall and reinstall the add-on via the Hassio UI.
+The stable, versioned zigbee2mqtt can be updated using the standard Hass.io update functionality within the user interface. This add-on will be updated with bug fixes and as the underlying `zigbee2mqtt` library is updated.
 
-Note: If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
+To update the edge version of the add-on, you will need to uninstall and re-install the add-on. If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
 
 ### Issues
 
