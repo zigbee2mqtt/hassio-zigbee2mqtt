@@ -19,8 +19,8 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`data_path`|string|Yes|Set this to the path you'd like the add-on to persist data. Must be within the `/share` directory. Defaults to `/share/zigbee2mqtt`.|
 |`homeassistant`|bool|yes|Set this to `true` if you want MQTT autodiscovery. See [Integrating with Home Assistant](https://github.com/Koenkk/zigbee2mqtt/wiki/Integrating-with-Home-Assistant) for details.|
 |`permit_join`|bool|yes|Recommended to leave this to `false` and use [runtime pairing](https://github.com/danielwelch/hassio-zigbee2mqtt#pairing). Set this to `true` when you setup new devices - make sure you set it back to `false` when done.|
-|`mqtt_server`|string|yes|Prefix for your MQTT topic|
-|`mqtt_base_topic`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
+|`mqtt_server`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
+|`mqtt_base_topic`|string|yes|Prefix for your MQTT topic|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
