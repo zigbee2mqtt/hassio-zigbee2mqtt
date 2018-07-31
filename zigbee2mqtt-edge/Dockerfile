@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 RUN apk add --update --no-cache jq nodejs nodejs-npm python3 python3-dev \
         python2 make gcc g++ linux-headers udev git && \
         pip3 install PyYAML==3.12 && \
-        git clone -b '0.1.0' --single-branch --depth 1 https://github.com/Koenkk/zigbee2mqtt.git /app
+        git clone -b master --single-branch --depth 1 https://github.com/Koenkk/zigbee2mqtt.git /app
 
 COPY run.sh /app/run.sh
 COPY set_config.py /app/set_config.py
