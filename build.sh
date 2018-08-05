@@ -5,7 +5,7 @@ cp "${TRAVIS_BUILD_DIR}"/zigbee2mqtt/run.sh "${TRAVIS_BUILD_DIR}"/zigbee2mqtt-ed
 cp "${TRAVIS_BUILD_DIR}"/zigbee2mqtt/set_config.py "${TRAVIS_BUILD_DIR}"/zigbee2mqtt-edge/set_config.py
 
 if [ -z "${TRAVIS_TAG}" ]; then
-    echo "Untagged build found. Building zigbee2mqtt with tag 'test' and zigbee2mqtt with tag 'test'."
+    echo "Untagged build found. Testing building zigbee2mqtt with tag 'test' and zigbee2mqtt-edge with tag 'test'."
     # build zigbee2mqtt
     docker run -it --rm --privileged --name "${ADDON_NAME}" \
         -v ~/.docker:/root/.docker \
@@ -35,7 +35,7 @@ if [ -z "${TRAVIS_TAG}" ]; then
         --password "${DOCKER_PASSWORD}" \
         --parallel
 else
-    echo "New git tagged build found. Building zigbee2mqtt with tag 'latest'."
+    echo "New git tagged build found. Testing building zigbee2mqtt with tag 'latest'."
     docker run -it --rm --privileged --name "${ADDON_NAME}" \
         -v ~/.docker:/root/.docker \
         -v "$(pwd)":/docker \
