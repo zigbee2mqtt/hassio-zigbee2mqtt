@@ -22,6 +22,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`mqtt_server`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
 |`mqtt_base_topic`|string|yes|Prefix for your MQTT topic|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
+|`serial_disable_led`|bool|no|Disable the LED of your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|

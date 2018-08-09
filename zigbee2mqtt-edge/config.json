@@ -23,6 +23,7 @@
     "mqtt_base_topic": "str",
     "mqtt_server": "str",
     "serial_port": "str",
+    "serial_disable_led": "bool?",
     "mqtt_user": "str?",
     "mqtt_pass": "str?",
     "debug": "bool?",
