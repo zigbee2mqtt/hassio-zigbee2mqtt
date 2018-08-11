@@ -8,7 +8,7 @@ Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass
 
 - Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your **Hass.io > Add-on Store**
 
-The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the master branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the master branch not yet released.
+The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the dev branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
 
 ### Configuration
 
