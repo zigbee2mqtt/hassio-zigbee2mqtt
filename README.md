@@ -8,7 +8,7 @@ Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass
 
 - Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your **Hass.io > Add-on Store**
 
-The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the master branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the master branch not yet released.
+The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the dev branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
 
 ### Configuration
 
@@ -22,6 +22,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`mqtt_server`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
 |`mqtt_base_topic`|string|yes|Prefix for your MQTT topic|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
+|`serial_disable_led`|bool|no|Disable the LED of your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`debug`|bool|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
