@@ -25,7 +25,7 @@ To configure this add-on, you must set the following parameters via the Hass.io 
 |`disable_led`|bool|no|Disable the LED of your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
-|`log_level`|"debug"\|"info"\|"warn"\|"error"|no|Set to true to enable debug mode for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
+|`log_level`|enum|no|Set to "debug"\,"info"\,"warn"\ or "error". Defaults to \"info\". The log level for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
 |`log_directory`|string|no|If set, zigbee2mqtt will store logs in this directory. The directory will be a sub-directory of the `data_path` in `/share` (set above). This option must be set to a directory (for example: `"log_directory": "logs/"` will store logs in `/share/zigbee2mqtt/logs/` by default).|
 |`rtscts`|bool|no|RTS / CTS Hardware Flow Control for serial port|
 |`cache_state`|bool|no|Optional state caching. See [here](https://github.com/Koenkk/zigbee2mqtt/commit/9396bde1f3b022e0f634487d1a37d2a5127c8cb3#diff-f68567477d803b49930337bf7fe1556bR16).|
