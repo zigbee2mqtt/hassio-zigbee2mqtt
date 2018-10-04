@@ -31,7 +31,7 @@
     "log_directory": "str?",
     "log_level": "match(^info|debug|warn|error$)?",
     "rtscts": "bool?",
-    "zigbee_shepherd_devices": "str?"
+    "zigbee_shepherd_devices": "bool?"
   },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }
