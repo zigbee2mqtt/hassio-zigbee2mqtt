@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -31,6 +31,8 @@
     "log_directory": "str?",
     "log_level": "match(^info|debug|warn|error$)?",
     "rtscts": "bool?",
+    "include_device_information": "bool?",
+    "soft_reset_timeout": "int?"
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?"
   },
