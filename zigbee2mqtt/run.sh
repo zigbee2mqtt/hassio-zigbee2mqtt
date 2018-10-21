@@ -18,7 +18,7 @@ if [[ ! -z "$ZIGBEE_SHEPHERD_DEVICES" ]]; then
     if [[ -f "$DATA_PATH"/devices.js ]]; then
         cp -f "$DATA_PATH"/devices.js ./node_modules/zigbee-shepherd-converters/devices.js
     else
-        echo "[Error] File $DATA_PATH/$ZIGBEE_SHEPHERD_DEVICES_PATH not found! Starting with default devices.js"
+        echo "[Error] File $DATA_PATH/devices.js not found! Starting with default devices.js"
     fi
 fi
 
