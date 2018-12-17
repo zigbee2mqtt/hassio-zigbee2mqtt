@@ -74,6 +74,7 @@ def main(options_path, data_path):
     cfg.set_option(
         'mqtt_client_id', category='mqtt', alt_config_name='client_id')
     cfg.set_option('include_device_information', category='mqtt')
+    cfg.set_option('reject_unauthorized', category='mqtt')
 
     if options.get("mqtt_user", None) or options.get("mqtt_pass", None):
         cfg.set_option('mqtt_user', category='mqtt', alt_config_name='user')
@@ -89,8 +90,11 @@ def main(options_path, data_path):
 
     cfg.set_option('log_level', category='advanced')
     cfg.set_option('rtscts', category='advanced')
-    
-    cfg.set_option('soft_reset_timeout', category='advanced') 
+
+    cfg.set_option('soft_reset_timeout', category='advanced')
+
+    cfg.set_option('pan_id', catgory='advanced')
+    cfg.set_option('channel', catgory='advanced')
 
     cfg.dump(config_path)
     print('[Info] Configuration written to {}'.format(config_path))

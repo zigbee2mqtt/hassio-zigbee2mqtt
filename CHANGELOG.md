@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## [1.0.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.0.1) - 2018-12-17
+### Changed
+- update zigbee2mqtt to version 1.0.1
+
+## [1.0.0](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.0.0) - 2018-12-17
+### Changed
+- update zigbee2mqtt to version 1.0.0
+### Added
+- Includes new or changed options for zigbee2mqtt:
+    - `reject_unauthorized`
+    - `pan_id`
+    - `channel`
+
 ## [0.1.6](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v0.1.6) - 2018-09-26
 ### Changed
 - update zigbee2mqtt to version 0.1.6
@@ -19,7 +32,7 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
 - update zigbee2mqtt to version 0.1.5
 
 ## [0.1.3.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v0.1.3.1) - 2018-09-17
-### Changed
+### Added
 - Includes new or changed options for zigbee2mqtt:
     - `mqtt_client_id`
     - `disable_led` (*renamed from `serial_disable_led`*)

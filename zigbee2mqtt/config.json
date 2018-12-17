@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "0.2.0",
+  "version": "1.0.1",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -26,6 +26,7 @@
     "mqtt_user": "str?",
     "mqtt_pass": "str?",
     "mqtt_client_id": "str?",
+    "reject_unauthorized": "bool?",
     "disable_led": "bool?",
     "cache_state": "bool?",
     "log_directory": "str?",
@@ -33,6 +34,8 @@
     "rtscts": "bool?",
     "include_device_information": "bool?",
     "soft_reset_timeout": "int?",
+    "pan_id": "str?",
+    "channel": "int?",
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?"
   },
