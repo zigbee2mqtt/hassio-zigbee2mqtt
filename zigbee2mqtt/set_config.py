@@ -93,8 +93,8 @@ def main(options_path, data_path):
 
     cfg.set_option('soft_reset_timeout', category='advanced')
 
-    cfg.set_option('pan_id', catgory='advanced')
-    cfg.set_option('channel', catgory='advanced')
+    cfg.set_option('pan_id', category='advanced')
+    cfg.set_option('channel', category='advanced')
 
     cfg.dump(config_path)
     print('[Info] Configuration written to {}'.format(config_path))
