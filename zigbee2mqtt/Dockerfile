@@ -7,9 +7,11 @@ ENV LANG C.UTF-8
 ENV ZIGBEE2MQTT_VERSION=1.0.1
 ENV ARCHIVE=zigbee2mqtt-$ZIGBEE2MQTT_VERSION
 
+COPY requirements.txt /$ARCHIVE/requirements.txt
+
 RUN apk add --update --no-cache curl jq nodejs nodejs-npm python3 python3-dev \
         python2 make gcc g++ linux-headers udev git && \
-        pip3 install PyYAML
+        pip3 install -r /$ARCHIVE/requirements.txt
         
 RUN curl -sL -o "/$ARCHIVE.tar.gz" \
     "https://github.com/Koenkk/zigbee2mqtt/archive/$ZIGBEE2MQTT_VERSION.tar.gz" && \
