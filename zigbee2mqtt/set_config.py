@@ -96,6 +96,8 @@ def main(options_path, data_path):
     cfg.set_option('pan_id', category='advanced')
     cfg.set_option('channel', category='advanced')
 
+    cfg.set_option('availability_timeout', category='experimental')
+
     cfg.dump(config_path)
     print('[Info] Configuration written to {}'.format(config_path))
 

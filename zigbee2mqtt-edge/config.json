@@ -37,7 +37,8 @@
     "channel": "int?",
     "soft_reset_timeout": "int?",
     "zigbee_shepherd_devices": "bool?",
-    "zigbee_shepherd_debug": "bool?"
-},
+    "zigbee_shepherd_debug": "bool?",
+    "availability_timeout": "int?"
+  },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }
