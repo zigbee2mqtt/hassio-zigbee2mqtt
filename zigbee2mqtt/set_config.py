@@ -34,6 +34,10 @@ class ConfigBuilder:
         else:
             return self.config.get(config_name, None)
 
+    def get_device_config(self, device_id, setting):
+        # return a device configuration variable, for testing purposes
+        return self.config.get("devices").get(device_id).get(setting, None)
+
     def dump(self, config_path):
         with open(config_path, 'w') as f:
             yaml.safe_dump(self.config, f, default_flow_style=False)
@@ -45,6 +49,14 @@ class ConfigBuilder:
             log_dir = Path(data_path).joinpath(
                 self.options.get("log_directory"))
             self.config["advanced"]["log_directory"] = log_dir
+
+    def set_devices_config(self, devices):
+        self.config["devices"] = dict()
+        for device in devices:
+            self.config["devices"][device["id"]] = {
+                k: v
+                for k, v in device.items()
+            }
 
 
 def main(options_path, data_path):
@@ -97,6 +109,10 @@ def main(options_path, data_path):
     cfg.set_option('channel', category='advanced')
 
     cfg.set_option('availability_timeout', category='experimental')
+
+    # set device-specific settings
+    if options.get("devices", None):
+        cfg.set_devices_config(options.get("devices"))
 
     cfg.dump(config_path)
     print('[Info] Configuration written to {}'.format(config_path))

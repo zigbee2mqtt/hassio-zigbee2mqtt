@@ -14,7 +14,8 @@
     "permit_join": false,
     "mqtt_base_topic": "zigbee2mqtt",
     "mqtt_server": "mqtt://homeassistant",
-    "serial_port": "/dev/ttyACM0"
+    "serial_port": "/dev/ttyACM0",
+    "devices": []
   },
   "schema": {
     "data_path": "str",
@@ -38,7 +39,16 @@
     "soft_reset_timeout": "int?",
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
-    "availability_timeout": "int?"
+    "availability_timeout": "int?",
+    "devices": [
+      {
+        "id": "str",
+        "friendly_name": "str?",
+        "retain": "bool?",
+        "occupancy_timeout": "int?",
+        "qos": "int?"
+      }
+    ]
   },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }

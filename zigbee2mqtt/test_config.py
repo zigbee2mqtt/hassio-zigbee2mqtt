@@ -17,7 +17,15 @@ TEST_JSON = '''
   "log_level": "debug",
   "log_directory": "logs/",
   "rtscts": false,
-  "cache_state": true
+  "cache_state": true,
+  "devices": [
+    {
+        "id": "12345x",
+        "friendly_name": "My Device",
+        "retain": true,
+        "qos": 42
+    }
+  ]
 }
 '''
 
@@ -140,3 +148,16 @@ def test_config_set_log_dir():
     assert cfg.get_config(
         "log_directory",
         category="advanced") == Path("/share/zigbee2mqtt/logs/")
+
+
+def test_config_set_devices_config():
+    from set_config import ConfigBuilder
+    config = {}
+    options = json.loads(TEST_JSON)
+    devices = options.get("devices")
+    cfg = ConfigBuilder(config, options)
+    cfg.set_devices_config(devices)
+    assert cfg.get_device_config("12345x", "friendly_name") == "My Device"
+    assert cfg.get_device_config("12345x", "retain") is True
+    assert cfg.get_device_config("12345x", "qos") == 42
+    assert cfg.get_device_config("12345x", "occupancy_timeout") is None
