@@ -15,6 +15,7 @@ jobs:
       script:
         - $TRAVIS_BUILD_DIR/build.sh
     - stage: Deploy Docker Images to Docker Hub
+      script:
         - $TRAVIS_BUILD_DIR/distribute.sh
 
 env:
