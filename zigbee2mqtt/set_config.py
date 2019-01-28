@@ -10,25 +10,26 @@ class ConfigBuilder:
         self.options = options
 
     def set_option(self, option_name, category=None, alt_config_name=None):
+        # if overwrite is disabled, check if set and, if so, skip
+        if self.overwrite:
+            name = self._config_name(option_name, alt_config_name)
+            if self.get_config(name, category) is not None:
+                return
+
         # some options are optional, skip them if it's not set
         if self.options.get(option_name, None) is not None:
+
             if category:
                 if self.config.get(category, None) is None:
                     self.config[category] = dict()
-                if alt_config_name is None:
-                    self.config[category][option_name] = self.options[
-                        option_name]
-                else:
-                    self.config[category][alt_config_name] = self.options[
-                        option_name]
+                self.config[category][self._config_name(
+                    option_name, alt_config_name)] = self.options[option_name]
             else:
-                if alt_config_name is None:
-                    self.config[option_name] = self.options[option_name]
-                else:
-                    self.config[alt_config_name] = self.options[option_name]
+                self.config[self._config_name(
+                    option_name, alt_config_name)] = self.options[option_name]
 
     def get_config(self, config_name, category=None):
-        # return a configuraiton variable, for testing purposes.
+        # return a configuraiton variable.
         if category:
             return self.config.get(category).get(config_name, None)
         else:
@@ -57,6 +58,19 @@ class ConfigBuilder:
                 k: v
                 for k, v in device.items()
             }
+
+    @property
+    def overwrite(self):
+        if self.config.get("overwrite", None):
+            return True
+        else:
+            return False
+
+    def _config_name(self, name, alt=None):
+        if alt is None:
+            return name
+        else:
+            return alt
 
 
 def main(options_path, data_path):

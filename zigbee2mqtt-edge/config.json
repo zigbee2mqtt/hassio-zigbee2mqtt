@@ -40,6 +40,7 @@
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
     "availability_timeout": "int?",
+    "overwrite": "bool?",
     "devices": [
       {
         "id": "str",
