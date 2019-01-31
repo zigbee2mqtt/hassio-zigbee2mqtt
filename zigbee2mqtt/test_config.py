@@ -25,7 +25,8 @@ TEST_JSON = '''
         "retain": true,
         "qos": 42
     }
-  ]
+  ],
+  "network_key": []
 }
 '''
 
@@ -175,3 +176,13 @@ def test_config_set_devices_config():
     assert cfg.get_device_config("12345x", "retain") is True
     assert cfg.get_device_config("12345x", "qos") == 42
     assert cfg.get_device_config("12345x", "occupancy_timeout") is None
+
+
+def test_network_key_not_set():
+    from set_config import ConfigBuilder
+    config = {}
+    options = json.loads(TEST_JSON)
+    cfg = ConfigBuilder(config, options)
+    if options.get("network_key", None):
+        cfg.set_option('network_key', category='advanced')
+    assert cfg.get_config('network_key', category='advanced') is None
