@@ -134,11 +134,16 @@ def main(options_path, data_path):
     cfg.set_option('pan_id', category='advanced')
     cfg.set_option('channel', category='advanced')
 
-    cfg.set_option('availability_timeout', category='experimental')
+    cfg.set_option('availability_timeout', category='advanced')
+    cfg.set_option('last_seen', category='advanced')
+    cfg.set_option('elapsed', category='advanced')
 
-    # set device-specific settings
+    # set device-specific settings. skips if empty list
     if options.get("devices", None):
         cfg.set_devices_config(options.get("devices"))
+    # set network key. skips if empty list
+    if options.get("network_key", None):
+        cfg.set_option('network_key', category='advanced')
 
     cfg.dump(config_path)
     print('[Info] Configuration written to {}'.format(config_path))
