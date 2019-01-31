@@ -1,18 +1,28 @@
-# Hass.io Add-on: zigbee2mqtt
+<div align="center">
+<img src="https://github.com/Koenkk/zigbee2mqtt/blob/master/images/logo.png?raw=true"/>
+<h1>Zigbee2mqtt Hass.io Add-on</h1>
+<div style="display: flex; justify-content: center;">
+  <a style="margin-right: 0.5rem;" href="https://travis-ci.org/danielwelch/hassio-zigbee2mqtt">
+    <img src="https://img.shields.io/travis/danielwelch/hassio-zigbee2mqtt.svg?style=flat-square&logo=travis">
+  </a>
+  <a style="margin-left: 0.5rem;" href="https://cloud.docker.com/u/dwelch2101/repository/docker/dwelch2101/zigbee2mqtt-armhf">
+    <img src="https://img.shields.io/docker/pulls/dwelch2101/zigbee2mqtt-armhf.svg?style=flat-square&logo=docker">
+  </a>
+</div>
+<br>
+<p>Run Zigbee2mqtt as a Hass.io Add-on</p>
+</div>
 
-Add-on for running [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) in [Hass.io](https://github.com/home-assistant/hassio).
 
-## Usage
+## Installation
 
-### Installation
+Add the repository URL via the Hassio Add-on Store Tab: `https://github.com/danielwelch/hassio-zigbee2mqtt`
 
-- Add the [repository URL](https://github.com/danielwelch/hassio-zigbee2mqtt) in your **Hass.io > Add-on Store**
+The repository includes two add-ons: **zigbee2mqtt** and **zigbee2mqtt-edge**. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the dev branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
 
-The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a stable release that tracks the released versions of zigbee2mqtt, install zigbee2mqtt. zigbee2mqtt-edge tracks the dev branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
+## Configuration
 
-### Configuration
-
-To configure this add-on, you must set the following parameters via the Hass.io user interface. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) for more information.
+The following table describes all available options. To run this add-on, you must set the **required** parameters via the Hass.io user interface. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) for more information.
 
 |Parameter|Type|Required|Description|
 |---------|----|--------|-----------|
