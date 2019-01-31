@@ -14,9 +14,6 @@ The repository includes two add-ons: zigbee2mqtt and zigbee2mqtt-edge. For a sta
 
 To configure this add-on, you must set the following parameters via the Hass.io user interface. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) for more information.
 
-# TODO:  (list(int)),  ( bool ), last_seen (str), elapsed (bool),  (list(dict))
-# CHANGELOG
-
 |Parameter|Type|Required|Description|
 |---------|----|--------|-----------|
 |`data_path`|string|yes|Set this to the path you'd like the add-on to persist data. Must be within the `/share` directory. Defaults to `/share/zigbee2mqtt`.|
