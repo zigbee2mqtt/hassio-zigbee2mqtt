@@ -150,6 +150,20 @@ def test_config_set_log_dir():
         category="advanced") == Path("/share/zigbee2mqtt/logs/")
 
 
+def test_config_disable_overwrite():
+    from set_config import ConfigBuilder
+    options_path = Path('./zigbee2mqtt/test_hassio_options.json')
+    with open(options_path) as f:
+        options = json.load(f)
+    # set_option should do nothing when overwrite set to True
+    options["overwrite"] = True
+    options["mqtt_base_topic"] = "neversetme"
+    cfg = ConfigBuilder({"mqtt": {"base_topic": "zigbee2mqtt"}}, options)
+    cfg.set_option(
+        'mqtt_base_topic', category='mqtt', alt_config_name='base_topic')
+    assert cfg.get_config('base_topic', category="mqtt") == "zigbee2mqtt"
+
+
 def test_config_set_devices_config():
     from set_config import ConfigBuilder
     config = {}

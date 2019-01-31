@@ -40,6 +40,8 @@
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
     "availability_timeout": "int?",
+    "last_seen": "str?",
+    "elapsed": "bool?",
     "overwrite": "bool?",
     "devices": [
       {
@@ -49,7 +51,8 @@
         "occupancy_timeout": "int?",
         "qos": "int?"
       }
-    ]
+    ],
+    "network_key": ["int?"]
   },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }

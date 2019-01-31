@@ -10,13 +10,13 @@ class ConfigBuilder:
         self.options = options
 
     def set_option(self, option_name, category=None, alt_config_name=None):
-        # if overwrite is disabled, check if set and, if so, skip
+        # if overwrite is disabled (False), check if set and, if so, skip
         if self.overwrite:
             name = self._config_name(option_name, alt_config_name)
             if self.get_config(name, category) is not None:
                 return
 
-        # some options are optional, skip them if it's not set
+        # some options are optional, skip them if not set
         if self.options.get(option_name, None) is not None:
 
             if category:
@@ -29,9 +29,12 @@ class ConfigBuilder:
                     option_name, alt_config_name)] = self.options[option_name]
 
     def get_config(self, config_name, category=None):
-        # return a configuraiton variable.
+        # return a configuration variable.
         if category:
-            return self.config.get(category).get(config_name, None)
+            try:
+                return self.config.get(category).get(config_name, None)
+            except AttributeError:
+                return None
         else:
             return self.config.get(config_name, None)
 
@@ -61,10 +64,14 @@ class ConfigBuilder:
 
     @property
     def overwrite(self):
-        if self.config.get("overwrite", None):
+        # overwrite is enabled by default. Only return false if the option is
+        # explicitly set to false
+        overwrite = self.options.get("overwrite", None)
+        if overwrite is None:  # not set, return True
             return True
         else:
-            return False
+            # return False only if overwrite is set to False
+            return True if overwrite is True else False
 
     def _config_name(self, name, alt=None):
         if alt is None:
@@ -78,8 +85,8 @@ def main(options_path, data_path):
     config = dict()
     config_path = Path(data_path).joinpath('configuration.yaml')
     if config_path.is_file():  # check if config file exists in data path
-        print("[Info] Configuration file found. Will overwrite configurable \
-              fields with values from add-on configuration")
+        # TODO: Change this to accomodate overwrite option
+        print("[Info] Configuration file found: {}".format(config_path))
         with open(config_path) as f:
             config = yaml.safe_load(f)
     else:  # make sure the data_path folder exists; if not, create it
@@ -90,6 +97,11 @@ def main(options_path, data_path):
         options = json.load(f)
 
     cfg = ConfigBuilder(config, options)
+
+    if not cfg.overwrite:
+        print(
+            "[Info] overwrite is disabled, will not overwrite options defined in {}"
+            .format(config_path))
 
     cfg.set_option('homeassistant')
     cfg.set_option('permit_join')

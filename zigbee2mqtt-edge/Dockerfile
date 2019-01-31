@@ -12,7 +12,7 @@ COPY run.sh /app/run.sh
 COPY set_config.py /app/set_config.py
 COPY requirements.txt /app/requirements.txt
 
-RUN pip3 install -r /app/requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 WORKDIR /app
 

@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -40,15 +40,22 @@
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
     "availability_timeout": "int?",
+    "last_seen": "str?",
+    "elapsed": "bool?",
+    "overwrite": "bool?",
     "devices": [
       {
         "id": "str",
         "friendly_name": "str?",
         "retain": "bool?",
+        "qos": "int?",
         "occupancy_timeout": "int?",
-        "qos": "int?"
+        "temperature_precision": "int?",
+        "humidity_precision": "int?",
+        "pressure_precision": "int?"
       }
-    ]
+    ],
+    "network_key": ["int?"]
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"
 }
