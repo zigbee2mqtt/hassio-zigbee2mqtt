@@ -32,7 +32,7 @@ The following table describes all available options. To run this add-on, you mus
 |`mqtt_server`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
 |`mqtt_base_topic`|string|yes|Prefix for your MQTT topic|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
-|`network_key`|list(int)|yes|Specify an encyrption key for your zigbee network. See [this section of the Zigbee2mqtt docs](https://koenkk.github.io/zigbee2mqtt/how_tos/how_to_secure_network.html) for more details and example usage. Leave this option empty (i.e. leave the default) if you don't want to use a network key. Note that changing this requires repairing of all device connections.|
+|`network_key`|list(int)|yes|Specify an encryption key for your zigbee network. See [this section of the Zigbee2mqtt docs](https://koenkk.github.io/zigbee2mqtt/how_tos/how_to_secure_network.html) for more details and example usage. Leave this option empty (i.e. leave the default) if you don't want to use a network key. Note that changing this requires repairing of all device connections.|
 |`devices`|list(object)|yes|See section regarding device-specific configuration below. Leave this empty if not using device-sepcific configuration.|
 |`disable_led`|bool|no|Disable the LED of your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
