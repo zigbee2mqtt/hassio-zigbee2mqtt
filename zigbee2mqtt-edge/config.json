@@ -35,9 +35,9 @@
     "log_level": "match(^info|debug|warn|error$)?",
     "rtscts": "bool?",
     "include_device_information": "bool?",
+    "soft_reset_timeout": "int?",
     "pan_id": "str?",
     "channel": "int?",
-    "soft_reset_timeout": "int?",
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
     "availability_timeout": "int?",
@@ -49,8 +49,12 @@
         "id": "str",
         "friendly_name": "str?",
         "retain": "bool?",
+        "report": "bool?",
+        "qos": "int?",
         "occupancy_timeout": "int?",
-        "qos": "int?"
+        "temperature_precision": "int?",
+        "humidity_precision": "int?",
+        "pressure_precision": "int?"
       }
     ],
     "network_key": ["int?"]

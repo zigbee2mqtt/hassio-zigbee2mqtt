@@ -23,6 +23,7 @@ TEST_JSON = '''
         "id": "12345x",
         "friendly_name": "My Device",
         "retain": true,
+        "report": true,
         "qos": 42
     }
   ],
@@ -174,6 +175,7 @@ def test_config_set_devices_config():
     cfg.set_devices_config(devices)
     assert cfg.get_device_config("12345x", "friendly_name") == "My Device"
     assert cfg.get_device_config("12345x", "retain") is True
+    assert cfg.get_device_config("12345x", "report") is True
     assert cfg.get_device_config("12345x", "qos") == 42
     assert cfg.get_device_config("12345x", "occupancy_timeout") is None
 
