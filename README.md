@@ -108,14 +108,6 @@ sensor:
     state_topic: "zigbee2mqtt/bridge/state"
     icon: mdi:router-wireless
 
-group:
-  zigbee_group:
-    name: Zigbee
-    entities:
-      - input_boolean.zigbee_permit_join
-      - timer.zigbee_permit_join
-      - sensor.bridge_state
-
 automation:
   - id: enable_zigbee_join
     alias: Enable Zigbee joining
@@ -164,8 +156,19 @@ automation:
       data:
         entity_id: input_boolean.zigbee_permit_join
 ```
+And add something like the following to your lovelace YAML file (if using YAML mode):
+```yaml
+type: entities
+entities:
+  - entity: input_boolean.zigbee_permit_join
+  - entity: timer.zigbee_permit_join
+  - entity: sensor.bridge_state
+show_header_toggle: false
+title: Zigbee
+```
+
+
 Notes:
-- There is a [gist](https://gist.github.com/ciotlosm/59d160ad49c695a801d9a940a2a387d2) with the above code
 - `permit_join` will be enabled for 10 minutes (based on code automation)
 
 ---
