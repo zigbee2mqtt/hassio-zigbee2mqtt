@@ -20,6 +20,7 @@ RUN apk add --update --no-cache \
 
 COPY run.sh /app/run.sh
 COPY set_config.py /app/set_config.py
+
 RUN ["chmod", "a+x", "/app/run.sh"]
 WORKDIR /app
 CMD [ "/app/run.sh" ]
