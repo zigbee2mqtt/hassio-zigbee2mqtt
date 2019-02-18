@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 # Add env
 ENV LANG C.UTF-8
 
-COPY requirements.txt /requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 RUN apk add --update --no-cache \
     jq nodejs nodejs-npm python3 python3-dev \
@@ -19,7 +19,7 @@ RUN apk add --update --no-cache \
 
 COPY run.sh /app/run.sh
 COPY set_config.py /app/set_config.py
-COPY requirements.txt /app/requirements.txt
+
 RUN ["chmod", "a+x", "/app/run.sh"]
 WORKDIR /app
 CMD [ "/app/run.sh" ]
