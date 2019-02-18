@@ -3,7 +3,6 @@ set -ev
 
 echo "Running local build test."
 
-
 # build zigbee2mqtt
 docker run -it --rm --privileged --name "zigbee2mqtt" \
     -v ~/.docker:/root/.docker \
