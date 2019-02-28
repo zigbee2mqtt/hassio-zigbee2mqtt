@@ -12,10 +12,11 @@ jobs:
         - pip install -r $TRAVIS_BUILD_DIR/zigbee2mqtt/requirements.txt
         - pytest
     - stage: Build Docker Images
+      if:
       script:
         - $TRAVIS_BUILD_DIR/build.sh
     - stage: Deploy Docker Images to Docker Hub
-      if: type != pull_request
+      if: type != pull_request AND branch = master
       script:
         - $TRAVIS_BUILD_DIR/distribute.sh
 
