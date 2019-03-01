@@ -22,24 +22,24 @@ The repository includes two add-ons: **zigbee2mqtt** and **zigbee2mqtt-edge**. F
 
 ## Configuration
 
-The following table describes all available options. To run this add-on, you must set the **required** parameters via the Hass.io user interface. See the [zigbee2mqtt docs](https://github.com/Koenkk/zigbee2mqtt/wiki/Running-the-bridge) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) for more information.
+The following table describes all available options. To run this add-on, you must set the **required** parameters via the Hass.io user interface. See the [zigbee2mqtt docs](https://www.zigbee2mqtt.io/configuration/configuration.html) and the [default configuration file](https://github.com/Koenkk/zigbee2mqtt/blob/master/data/configuration.yaml) for more information.
 
 |Parameter|Type|Required|Description|
 |---------|----|--------|-----------|
 |`data_path`|string|yes|Set this to the path you'd like the add-on to persist data. Must be within the `/share` directory. Defaults to `/share/zigbee2mqtt`.|
-|`homeassistant`|bool|yes|Set this to `true` if you want MQTT autodiscovery. See [Integrating with Home Assistant](https://github.com/Koenkk/zigbee2mqtt/wiki/Integrating-with-Home-Assistant) for details.|
+|`homeassistant`|bool|yes|Set this to `true` if you want MQTT autodiscovery. See [Integrating with Home Assistant](https://www.zigbee2mqtt.io/integration/home_assistant.html) for details.|
 |`permit_join`|bool|yes|Recommended to leave this to `false` and use [runtime pairing](https://github.com/danielwelch/hassio-zigbee2mqtt#pairing). Set this to `true` when you setup new devices - make sure you set it back to `false` when done.|
 |`mqtt_server`|string|yes|The MQTT server address. Make sure you include the protocol. Example: `mqtt://homeassistant`|
 |`mqtt_base_topic`|string|yes|Prefix for your MQTT topic|
 |`serial_port`|string|yes|Serial port for your CC2531 stick.|
-|`network_key`|list(int)|yes|Specify an encryption key for your zigbee network. See [this section of the Zigbee2mqtt docs](https://koenkk.github.io/zigbee2mqtt/how_tos/how_to_secure_network.html) for more details and example usage. Leave this option empty (i.e. leave the default) if you don't want to use a network key. Note that changing this requires repairing of all device connections. Hex values are not supported, only integer values (although hex values can be used by manually editing your `configuration.yaml` file and disabling `overwrite`).|
+|`network_key`|list(int)|yes|Specify an encryption key for your zigbee network. See [this section of the Zigbee2mqtt docs](https://www.zigbee2mqtt.io/how_tos/how_to_secure_network.html) for more details and example usage. Leave this option empty (i.e. leave the default) if you don't want to use a network key. Note that changing this requires repairing of all device connections. Hex values are not supported, only integer values (although hex values can be used by manually editing your `configuration.yaml` file and disabling `overwrite`).|
 |`devices`|list(object)|yes|See section regarding device-specific configuration below. Leave this empty if not using device-sepcific configuration.|
 |`disable_led`|bool|no|Disable the LED of your CC2531 stick.|
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`include_device_information`|bool|no|Include device information to mqtt messages (default: false)|
 |`reject_unauthorized`|bool|no|Disable self-signed SSL certificates|
-|`log_level`|enum|no|Set to `debug`, `info`, `warn`, or `error`. Defaults to `info`. The log level for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://github.com/Koenkk/zigbee2mqtt/wiki/How-to-debug) for more information.|
+|`log_level`|enum|no|Set to `debug`, `info`, `warn`, or `error`. Defaults to `info`. The log level for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://www.zigbee2mqtt.io/how_tos/how_to_debug.html) for more information.|
 |`log_directory`|string|no|If set, zigbee2mqtt will store logs in this directory. The directory will be a sub-directory of the `data_path` in `/share` (set above). This option must be set to a directory (for example: `"log_directory": "logs/"` will store logs in `/share/zigbee2mqtt/logs/` by default).|
 |`pan_id`|string|no|Optional ZigBee pan ID|
 |`channel`|int|no|Optional Zigbee Channel|
@@ -58,7 +58,7 @@ The following table describes all available options. To run this add-on, you mus
 
 #### Device-specific Configuration
 
-Zigbee2mqtt allows certain [device-specific configuration options](https://koenkk.github.io/zigbee2mqtt/configuration/device_specific_configuration.html). These can be configured in the add-on via the `devices` option. If you aren't using this feature, you can leave the `devices` option empty as it appears by default. See below for anexample device-specific configuration entry, adapted from the Zigbee2mqtt docs:
+Zigbee2mqtt allows certain [device-specific configuration options](https://www.zigbee2mqtt.io/configuration/device_specific_configuration.html). These can be configured in the add-on via the `devices` option. If you aren't using this feature, you can leave the `devices` option empty as it appears by default. See below for anexample device-specific configuration entry, adapted from the Zigbee2mqtt docs:
 
 ```json
 "devices": [
@@ -75,7 +75,7 @@ Zigbee2mqtt allows certain [device-specific configuration options](https://koenk
 
 
 #### Modifying zigbee2mqtt's `configuration.yaml`
-In some cases, you may wish to modify zigbee2mqtt's `configuration.yaml` file directly (for example, to add or modify device specific configuration](https://github.com/Koenkk/zigbee2mqtt/wiki/Device-specific-configuration)). The `configuration.yaml` file used by this add-on can be modified within the data directory specified via the add-on configuration (see above). By default, therefore, the configuration file is saved to `/share/zigbee2mqtt/configuration.yaml` on your Hass.io host. Suggested ways to edit your `configuration.yaml` file include the official [Samba share](https://www.home-assistant.io/addons/samba/) add-on and the [official](https://www.home-assistant.io/addons/ssh/) or [community SSH add-ons](https://github.com/hassio-addons/addon-ssh).
+In some cases, you may wish to modify zigbee2mqtt's `configuration.yaml` file directly (for example, to add or modify [device specific configuration](https://www.zigbee2mqtt.io/configuration/device_specific_configuration.html)). The `configuration.yaml` file used by this add-on can be modified within the data directory specified via the add-on configuration (see above). By default, therefore, the configuration file is saved to `/share/zigbee2mqtt/configuration.yaml` on your Hass.io host. Suggested ways to edit your `configuration.yaml` file include the official [Samba share](https://www.home-assistant.io/addons/samba/) add-on and the [official](https://www.home-assistant.io/addons/ssh/) or [community SSH add-ons](https://github.com/hassio-addons/addon-ssh).
 
 - Note: Be sure to set the `overwrite` option to `false` if you want to manually modify your configuration file. Otherwise, the settings defined via the Hass.io frontend will overwrite and replace their respective fields in the configuration file on add-on startup.
 
