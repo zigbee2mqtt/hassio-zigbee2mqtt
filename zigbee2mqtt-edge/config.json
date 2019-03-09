@@ -62,5 +62,6 @@
       "elapsed": "bool?",
       "availability_timeout": "int?"
     }
-  }
+  },
+  "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }
