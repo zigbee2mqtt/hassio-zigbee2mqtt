@@ -7,10 +7,6 @@ services:
 
 jobs:
   include:
-    - stage: Test Python Module
-      script:
-        - pip install -r $TRAVIS_BUILD_DIR/zigbee2mqtt/requirements.txt
-        - pytest
     - stage: Build Docker Images
       script:
         - $TRAVIS_BUILD_DIR/build.sh
