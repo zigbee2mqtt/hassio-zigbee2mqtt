@@ -6,6 +6,12 @@
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "i386"
+  ],
   "boot": "auto",
   "map": ["share:rw"],
   "options": {
