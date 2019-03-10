@@ -38,6 +38,7 @@ The following table describes all available options. To run this add-on, you mus
 |`mqtt_user`|string|no|Your MQTT username, if set.|
 |`mqtt_pass`|string|no|Your MQTT Password, if set.|
 |`include_device_information`|bool|no|Include device information to mqtt messages (default: false)|
+|`report`|bool|no|Enable [the state reporting feature](https://www.zigbee2mqtt.io/information/report.html) of zigbee2mqtt|
 |`reject_unauthorized`|bool|no|Disable self-signed SSL certificates|
 |`log_level`|enum|no|Set to `debug`, `info`, `warn`, or `error`. Defaults to `info`. The log level for zigbee-shepherd and zigbee2mqtt. See [the wiki](https://www.zigbee2mqtt.io/how_tos/how_to_debug.html) for more information.|
 |`log_directory`|string|no|If set, zigbee2mqtt will store logs in this directory. The directory will be a sub-directory of the `data_path` in `/share` (set above). This option must be set to a directory (for example: `"log_directory": "logs/"` will store logs in `/share/zigbee2mqtt/logs/` by default).|

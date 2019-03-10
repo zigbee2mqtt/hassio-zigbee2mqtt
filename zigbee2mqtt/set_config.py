@@ -134,6 +134,8 @@ def main(options_path, data_path):
     cfg.set_option('pan_id', category='advanced')
     cfg.set_option('channel', category='advanced')
 
+    cfg.set_option('report', category='advanced')
+
     cfg.set_option('availability_timeout', category='advanced')
     cfg.set_option('last_seen', category='advanced')
     cfg.set_option('elapsed', category='advanced')

@@ -43,6 +43,7 @@
     "include_device_information": "bool?",
     "soft_reset_timeout": "int?",
     "pan_id": "str?",
+    "report": "bool?",
     "channel": "int?",
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
