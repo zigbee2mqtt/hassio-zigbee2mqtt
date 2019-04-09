@@ -31,8 +31,8 @@
   },
   "schema": {
     "data_path": "str",
-    "devices": "str",
-    "groups": "str",
+    "devices": "str?",
+    "groups": "str?",
     "homeassistant": "bool",
     "permit_join": "bool",
     "mqtt": {
