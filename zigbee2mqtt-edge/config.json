@@ -6,12 +6,7 @@
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armhf",
-    "i386"
-  ],
+  "arch": ["aarch64", "amd64", "armhf", "i386"],
   "boot": "auto",
   "map": ["share:rw"],
   "options": {
@@ -51,6 +46,7 @@
     "last_seen": "str?",
     "elapsed": "bool?",
     "overwrite": "bool?",
+    "homeassistant_discovery_topic": "str?",
     "devices": [
       {
         "id": "str",
@@ -61,7 +57,8 @@
         "occupancy_timeout": "int?",
         "temperature_precision": "int?",
         "humidity_precision": "int?",
-        "pressure_precision": "int?"
+        "pressure_precision": "int?",
+        "debounce": "float?"
       }
     ],
     "network_key": ["int?"]

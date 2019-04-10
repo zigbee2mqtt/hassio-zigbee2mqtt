@@ -11,7 +11,7 @@ class ConfigBuilder:
 
     def set_option(self, option_name, category=None, alt_config_name=None):
         # if overwrite is disabled (False), check if set and, if so, skip
-        if self.overwrite:
+        if not self.overwrite:
             name = self._config_name(option_name, alt_config_name)
             if self.get_config(name, category) is not None:
                 return
