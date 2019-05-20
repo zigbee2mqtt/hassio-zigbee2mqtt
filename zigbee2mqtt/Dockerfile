@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 # Add env
 ENV LANG C.UTF-8
 
-ENV ZIGBEE2MQTT_VERSION=1.3.1
+ENV ZIGBEE2MQTT_VERSION=1.4.0
 ENV ARCHIVE=zigbee2mqtt-$ZIGBEE2MQTT_VERSION
 
 COPY requirements.txt /requirements.txt
@@ -24,6 +24,7 @@ RUN apk add --update --no-cache curl jq nodejs>10.14.2 npm python3 python3-dev \
 
 COPY run.sh /$ARCHIVE/run.sh
 COPY set_config.py /$ARCHIVE/set_config.py
+COPY README.md /$ARCHIVE/README.md
 WORKDIR /$ARCHIVE
 
 RUN ["chmod", "a+x", "./run.sh"]
