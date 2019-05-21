@@ -8,7 +8,7 @@ ENV ZIGBEE2MQTT_VERSION=1.4.0
 ENV ARCHIVE=zigbee2mqtt-$ZIGBEE2MQTT_VERSION
 
 RUN apk add --update --no-cache curl jq nodejs npm \
-    python2 make gcc g++ linux-headers udev python2 && \
+    python2 make gcc g++ linux-headers udev git python2 && \
   curl -sL -o "/$ARCHIVE.tar.gz" \
   "https://github.com/Koenkk/zigbee2mqtt/archive/$ZIGBEE2MQTT_VERSION.tar.gz" && \
   tar xzvf "/$ARCHIVE.tar.gz" && \
