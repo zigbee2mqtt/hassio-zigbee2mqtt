@@ -19,7 +19,8 @@ RUN apk add --update --no-cache curl jq nodejs npm \
   apk del make gcc g++ python2 linux-headers udev && \
   rm -rf docs test images scripts data docker LICENSE README.md update.sh
 
-COPY run.sh /$ARCHIVE/run.sh
-RUN ["chmod", "a+x", "/$ARCHIVE/run.sh"]
-WORKDIR /$ARCHIVE
+COPY run.sh "/$ARCHIVE/run.sh"
+WORKDIR "/$ARCHIVE"
+
+RUN ["chmod", "a+x", "./run.sh"]
 CMD [ "./run.sh" ]

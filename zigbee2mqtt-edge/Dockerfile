@@ -14,7 +14,8 @@ RUN apk add --update --no-cache \
   apk del make gcc g++ linux-headers udev git python2 && \
   rm -rf /app/docs /app/test /app/images /app/scripts /app/data /app/docker /app/LICENSE /app/README.md /app/update.sh
 
-COPY run.sh /run.sh
-RUN ["chmod", "a+x", "run.sh"]
+COPY run.sh /app/run.sh
 WORKDIR /app
-CMD [ "/run.sh" ]
+
+RUN ["chmod", "a+x", "./run.sh"]
+CMD [ "./run.sh" ]
