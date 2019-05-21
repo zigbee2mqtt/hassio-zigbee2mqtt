@@ -1,13 +1,16 @@
 {
   "name": "zigbee2mqtt-edge",
   "version": "test",
-  "slug": "zigbee2mqtt-edge",
+  "slug": "zigbee2mqtt_edge",
   "description": "Development build of the zigbee2mqtt add-on",
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
   "boot": "auto",
-  "map": ["share:rw"],
+  "map": [
+    "share:rw",
+    "config:rw"
+  ],
   "options": {
     "data_path": "/share/zigbee2mqtt",
     "devices": "decices.yaml",
@@ -26,7 +29,7 @@
     "advanced": {
       "pan_id": 6754,
       "channel": 11,
-      "network_key": [1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 13]
+      "network_key": []
     }
   },
   "schema": {
@@ -57,7 +60,9 @@
       "baudrate": "int?",
       "rtscts": "bool?",
       "soft_reset_timeout": "int?",
-      "network_key": ["int?"],
+      "network_key": [
+        "int?"
+      ],
       "last_seen": "match(^disable|ISO_8601|epoch)?",
       "elapsed": "bool?",
       "availability_timeout": "int?"
