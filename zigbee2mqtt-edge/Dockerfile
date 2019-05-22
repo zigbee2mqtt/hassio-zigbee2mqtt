@@ -14,7 +14,6 @@ RUN apk add --update --no-cache \
   pip3 install --no-cache-dir -r /app/requirements.txt && \
   cd /app && \
   echo "Installed zigbee2mqtt @ version $(eval git rev-parse --short HEAD)" && \
-  rm ./npm-shrinkwrap.json && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
   apk del make gcc g++ python2 linux-headers udev git
