@@ -13,9 +13,9 @@
 <p>Run Zigbee2mqtt as a Hass.io Add-on</p>
 </div>
 
-## Warning: Breaking Changes in version 1.5.0
+## Warning: Breaking Changes in version 1.5.1
 
-Version 1.5.0 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation.
+Version 1.5.1 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation below.
 
 
 ## Installation

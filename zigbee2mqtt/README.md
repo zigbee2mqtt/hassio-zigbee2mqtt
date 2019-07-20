@@ -15,4 +15,4 @@
 
 # WARNING! Breaking Changes Notice
 
-Breaking changes are planned for the add-on configuration in the upcoming v1.5.0 release. *There are no breaking changes to the configuration in v1.4.0*. The changes will require some slight re-structuring of your configuration in the Hass.io frontend, but will ultimately move the configuration structure and syntax closer to that of zigbee2mqtt itself. See https://github.com/danielwelch/hassio-zigbee2mqtt/pull/144 for more information. Of course, the documentation will be updated to reflect the changes in v.1.5.0.
+Version 1.5.1 contains breaking changes! See the documentation on https://github.com/danielwelch/hassio-zigbee2mqtt for more information.
