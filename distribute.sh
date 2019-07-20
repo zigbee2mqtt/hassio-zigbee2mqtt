@@ -65,5 +65,6 @@ else
         --doc-url "${GITHUB_URL}" \
         --login "${DOCKER_USERNAME}" \
         --password "${DOCKER_PASSWORD}" \
-        --parallel
+        --parallel \
+        --arg COMMIT "${TRAVIS_COMMIT}"
 fi

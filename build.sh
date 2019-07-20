@@ -34,7 +34,8 @@ if [ -z "${TRAVIS_TAG}" ]; then
         --doc-url "${GITHUB_URL}" \
         --login "${DOCKER_USERNAME}" \
         --password "${DOCKER_PASSWORD}" \
-        --parallel
+        --parallel \
+        --arg COMMIT "${TRAVIS_COMMIT}"
 else
     echo "New git tagged build found. Testing building zigbee2mqtt with tag 'latest'."
     docker run -it --rm --privileged --name "${ADDON_NAME}" \
@@ -49,6 +50,7 @@ else
         --doc-url "${GITHUB_URL}" \
         --login "${DOCKER_USERNAME}" \
         --password "${DOCKER_PASSWORD}" \
-        --parallel
+        --parallel \
+        --arg COMMIT "${TRAVIS_COMMIT}"
 fi
 echo "Local Docker build successful."
