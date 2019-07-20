@@ -8,6 +8,7 @@ services:
 jobs:
   include:
     - stage: Build Docker Images
+      if:
       script:
         - $TRAVIS_BUILD_DIR/build.sh
     - stage: Deploy Docker Images to Docker Hub

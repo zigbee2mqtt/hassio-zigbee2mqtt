@@ -12,6 +12,7 @@ RUN apk add --update --no-cache \
     make gcc g++ linux-headers udev git python2 && \
   git clone -b dev --single-branch --depth 1 https://github.com/Koenkk/zigbee2mqtt.git /app && \
   cd /app && \
+  echo "Installed zigbee2mqtt @ version $(eval git rev-parse --short HEAD)" && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
   apk del make gcc g++ linux-headers udev git python2 && \

@@ -13,7 +13,6 @@ RUN apk add --update --no-cache curl jq nodejs npm \
   "https://github.com/Koenkk/zigbee2mqtt/archive/$ZIGBEE2MQTT_VERSION.tar.gz" && \
   tar xzvf "/$ARCHIVE.tar.gz" && \
   cd "/$ARCHIVE" && \
-  # rm ./npm-shrinkwrap.json && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
   apk del make gcc g++ python2 linux-headers udev && \
