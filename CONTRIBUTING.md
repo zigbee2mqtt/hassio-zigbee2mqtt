@@ -1,7 +1,7 @@
 # Setting up
 1. Git clone this project into your addons folder
-2. Remove the `image` key from `hassio-zigbee2mqtt/zigbee2mqtt-edge/config.json`
-3. Add back `"image": "dwelch2101/zigbee2mqtt-edge-{arch}"` to `zigbee2mqtt-edge/config.json`
+2. Remove the `image` key from `hassio-zigbee2mqtt/zigbee2mqtt-edge/config.json` to enable local builds.
+3. Add back `"image": "dwelch2101/zigbee2mqtt-edge-{arch}"` to `zigbee2mqtt-edge/config.json` after you're done.
 
 # Upgrading the Zigbee2mqtt version
 So you want to bump the zigbee2mqtt version because I'm too slow. Here's how:
