@@ -14,6 +14,8 @@ if [[ -f $DATA_PATH/configuration.yaml ]]; then
     fi
 fi
 
+mkdir -p "$DATA_PATH"
+
 # Parse config
 cat "$CONFIG_PATH" | jq 'del(.data_path)' > $DATA_PATH/configuration.yaml
 
@@ -26,7 +28,7 @@ if [[ ! -z "$ZIGBEE_SHEPHERD_DEBUG" ]]; then
 fi
 
 if [[ ! -z "$ZIGBEE_SHEPHERD_DEVICES" ]]; then
-    echo "[Info] Searching for custom devices file in zigbee2mqtt data path..." 
+    echo "[Info] Searching for custom devices file in zigbee2mqtt data path..."
     if [[ -f "$DATA_PATH"/devices.js ]]; then
         cp -f "$DATA_PATH"/devices.js ./node_modules/zigbee-shepherd-converters/devices.js
     else

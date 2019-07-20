@@ -1,67 +1,78 @@
 {
   "name": "zigbee2mqtt-edge",
   "version": "test",
-  "slug": "zigbee2mqtt-edge",
-  "description": "Development build of the zigbee2mqtt add-on.",
+  "slug": "zigbee2mqtt_edge",
+  "description": "Development build of the zigbee2mqtt add-on",
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
   "startup": "before",
-  "arch": ["aarch64", "amd64", "armhf", "i386"],
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "i386"
+  ],
   "boot": "auto",
-  "map": ["share:rw"],
+  "map": [
+    "share:rw",
+    "config:rw"
+  ],
   "options": {
     "data_path": "/share/zigbee2mqtt",
+    "devices": "decices.yaml",
+    "groups": "groups.yaml",
     "homeassistant": true,
     "permit_join": false,
-    "mqtt_base_topic": "zigbee2mqtt",
-    "mqtt_server": "mqtt://homeassistant",
-    "serial_port": "/dev/ttyACM0",
-    "devices": [],
-    "network_key": []
+    "mqtt": {
+      "base_topic": "zigbee2mqtt",
+      "server": "mqtt://homeassistant",
+      "user": "my_user",
+      "password": "my_password"
+    },
+    "serial": {
+      "port": "/dev/ttyACM0"
+    },
+    "advanced": {
+      "pan_id": 6754,
+      "channel": 11,
+      "network_key": []
+    }
   },
   "schema": {
     "data_path": "str",
+    "devices": "str?",
+    "groups": "str?",
     "homeassistant": "bool",
     "permit_join": "bool",
-    "mqtt_base_topic": "str",
-    "mqtt_server": "str",
-    "serial_port": "str",
-    "mqtt_user": "str?",
-    "mqtt_pass": "str?",
-    "mqtt_client_id": "str?",
-    "reject_unauthorized": "bool?",
-    "disable_led": "bool?",
-    "cache_state": "bool?",
-    "log_directory": "str?",
-    "log_level": "match(^info|debug|warn|error$)?",
-    "rtscts": "bool?",
-    "include_device_information": "bool?",
-    "soft_reset_timeout": "int?",
-    "pan_id": "str?",
-    "report": "bool?",
-    "channel": "int?",
-    "zigbee_shepherd_devices": "bool?",
-    "zigbee_shepherd_debug": "bool?",
-    "availability_timeout": "int?",
-    "last_seen": "str?",
-    "elapsed": "bool?",
-    "overwrite": "bool?",
-    "homeassistant_discovery_topic": "str?",
-    "devices": [
-      {
-        "id": "str",
-        "friendly_name": "str?",
-        "retain": "bool?",
-        "report": "bool?",
-        "qos": "int?",
-        "occupancy_timeout": "int?",
-        "temperature_precision": "int?",
-        "humidity_precision": "int?",
-        "pressure_precision": "int?",
-        "debounce": "float?"
-      }
-    ],
-    "network_key": ["int?"]
+    "mqtt": {
+      "base_topic": "str",
+      "server": "str",
+      "user": "str?",
+      "password": "str?",
+      "client_id": "str?",
+      "reject_unauthorized": "bool?",
+      "include_device_information": "bool?"
+    },
+    "serial": {
+      "port": "str",
+      "disable_led": "bool?"
+    },
+    "advanced": {
+      "pan_id": "int(0,65536)?",
+      "channel": "int(11,26)?",
+      "cache_state": "bool?",
+      "log_level": "match(^info|debug|warn|error$)?",
+      "log_directory": "str?",
+      "baudrate": "int?",
+      "rtscts": "bool?",
+      "soft_reset_timeout": "int?",
+      "network_key": [
+        "int?"
+      ],
+      "last_seen": "match(^disable|ISO_8601|epoch)?",
+      "elapsed": "bool?",
+      "availability_timeout": "int?"
+    }
   },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
 }

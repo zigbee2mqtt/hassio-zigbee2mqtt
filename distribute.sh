@@ -28,7 +28,12 @@ if [ ! -z "$TRAVIS_TAG" ]; then
         --password "${DOCKER_PASSWORD}" \
         --parallel
 else
-    echo "No tag found. Pushing zigbee2mqtt and zigbee2mqtt-edge images to Docker with tag 'test'."
+    echo "No tag found."
+    if [ "$TRAVIS_BRANCH" != "master" ]; then
+        echo "Not on master branch. Aborting distribution script"
+        exit 0
+    fi
+    echo "Untagged push to master branch identified. Pushing zigbee2mqtt and zigbee2mqtt-edge images to Docker with tag 'test'."
 
     # distribute zigbee2mqtt with tag test
     docker run -it --rm --privileged --name "${ADDON_NAME}" \
@@ -60,5 +65,6 @@ else
         --doc-url "${GITHUB_URL}" \
         --login "${DOCKER_USERNAME}" \
         --password "${DOCKER_PASSWORD}" \
-        --parallel
+        --parallel \
+        --arg COMMIT "${TRAVIS_COMMIT}"
 fi
