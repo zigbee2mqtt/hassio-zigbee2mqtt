@@ -47,6 +47,9 @@
     "mqtt": {
       "base_topic": "str",
       "server": "str",
+      "ca": "str?",
+      "key": "str?",
+      "cert": "str?",
       "user": "str?",
       "password": "str?",
       "client_id": "str?",
@@ -57,6 +60,12 @@
       "port": "str",
       "disable_led": "bool?"
     },
+    "ban": [
+      "str?"
+    ],
+    "whitelist": [
+      "str?"
+    ],
     "advanced": {
       "pan_id": "int(0,65536)?",
       "channel": "int(11,26)?",
@@ -71,7 +80,17 @@
       ],
       "last_seen": "match(^disable|ISO_8601|epoch)?",
       "elapsed": "bool?",
-      "availability_timeout": "int?"
+      "availability_timeout": "int?",
+      "availability_blacklist": [
+        "str?"
+      ],
+      "report": "bool?",
+      "homeassistant_discovery_topic": "str?",
+      "homeassistant_status_topic": "str?"
+    },
+    "queue": {
+      "delay": "int?",
+      "simultaneously": "int?"
     }
   },
   "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
