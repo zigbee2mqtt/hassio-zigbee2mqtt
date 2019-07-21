@@ -19,7 +19,7 @@
   ],
   "options": {
     "data_path": "/share/zigbee2mqtt",
-    "devices": "decices.yaml",
+    "devices": "devices.yaml",
     "groups": "groups.yaml",
     "homeassistant": true,
     "permit_join": false,
