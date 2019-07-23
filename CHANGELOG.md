@@ -5,6 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## [1.5.1.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1.1) - 2019-07-22
+### Added
+- Adds several configuration items:
+    - `advanced.availability_blacklist`
+    - `ban`
+    - `whitelist`
+    - `queue` (along with `queue.delay` and `queue.simultaneously`)
+    - `mqtt.key`, `mqtt.ca`, `mqtt.cert`
+    - `advanced.report`, `advanced.homeassistant_discovery_topic`, `advanced.homeassistant_status_topic`
+### Fixed
+- Add back `zigbee_shepherd_debug`,`zigbee_shepherd_devices`, and `disable_led`
+- Include default network key in default configuration, as this is used by zigbee2mqtt by default.
+
+## [1.5.1.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1) - 2019-07-20
+### Changed
+- BREAKING CHANGE: restructured configuration to more closely mirror zigbee2mqtt
+- upgrade zigbee2mqtt to 1.5.1
+
 ## [1.3.0](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.3.0) - 2019-04-08
 ### Changed
 - Update zigbee2mqtt to version 1.3.0
