@@ -35,13 +35,17 @@
     "advanced": {
       "pan_id": 6754,
       "channel": 11,
-      "network_key": []
-    }
+      "network_key": [1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 13],
+      "availability_blacklist": []
+    },
+    "ban": [],
+    "whitelist": [],
+    "queue": {}
   },
   "schema": {
-    "data_path": "str",
     "zigbee_shepherd_devices": "bool?",
     "zigbee_shepherd_debug": "bool?",
+    "data_path": "str",
     "devices": "str?",
     "groups": "str?",
     "homeassistant": "bool",
