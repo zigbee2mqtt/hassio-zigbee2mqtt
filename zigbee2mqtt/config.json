@@ -30,8 +30,7 @@
       "password": "my_password"
     },
     "serial": {
-      "port": "/dev/ttyACM0",
-      "disable_led": "bool?"
+      "port": "/dev/ttyACM0"
     },
     "advanced": {
       "pan_id": 6754,
