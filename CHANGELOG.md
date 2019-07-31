@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## [1.5.1.2](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1.2) - 2019-07-30
+### Added
+### Fixed
+- Create `$DATA_PATH` if it does not already exist
+- Fix default configuration typo (#197)
+
 ## [1.5.1.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1.1) - 2019-07-22
 ### Added
 - Adds several configuration items:
