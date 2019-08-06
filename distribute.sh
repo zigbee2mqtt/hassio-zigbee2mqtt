@@ -39,7 +39,7 @@ else
         -v "$(pwd)":/docker \
         hassioaddons/build-env:latest \
         --target "${ADDON_NAME}" \
-        --tag-latest \
+        --tag-test \
         --push \
         --all \
         --from "homeassistant/{arch}-base" \
