@@ -24,7 +24,7 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
 - Add back `zigbee_shepherd_debug`,`zigbee_shepherd_devices`, and `disable_led`
 - Include default network key in default configuration, as this is used by zigbee2mqtt by default.
 
-## [1.5.1.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1) - 2019-07-20
+## [1.5.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1) - 2019-07-20
 ### Changed
 - BREAKING CHANGE: restructured configuration to more closely mirror zigbee2mqtt
 - upgrade zigbee2mqtt to 1.5.1
