@@ -36,7 +36,7 @@ Configure the add-on via the Hass.io front-end. The configuration closely mirror
 
 See the [zigbee2mqtt configuration docs](http://www.zigbee2mqtt.io/configuration/configuration.html) for a complete description of available options. If you're not sure if a new option is supported, check to see if it is included in this repository's `zigbee2mqtt/config.json` or `zigbee2mqtt_edge/config.json` `schema`. If not, you can open an issue to add support for it.
 
-- Depending on your configuration, the MQTT server URL will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://homeassistant:1883`.
+- Depending on your configuration, the MQTT server config will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Hass.io's Mosquitto addon.
 - To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
 
 ## Pairing
@@ -47,7 +47,7 @@ The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` 
 
 ```yaml
 mqtt:
-  broker: homeassistant # This will have to be your mqtt broker
+  broker: core-mosquitto # This will have to be your mqtt broker, Mosquitto addon is recommended.
   discovery: true
 
 input_boolean:
