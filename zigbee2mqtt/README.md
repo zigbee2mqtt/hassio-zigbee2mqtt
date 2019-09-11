@@ -13,6 +13,3 @@
 <p>Run Zigbee2mqtt as a Hass.io Add-on</p>
 </div>
 
-# WARNING! Breaking Changes Notice
-
-Version 1.5.1 contains breaking changes! See the documentation on https://github.com/danielwelch/hassio-zigbee2mqtt for more information.
