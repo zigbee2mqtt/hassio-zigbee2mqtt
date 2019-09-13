@@ -14,5 +14,4 @@
 </div>
 
 # WARNING! Breaking Changes Notice
-
-Version 1.5.1 contains breaking changes! See the documentation on https://github.com/danielwelch/hassio-zigbee2mqtt for more information.
+Version 1.5.1 contains breaking changes! See the documentation on https://github.com/danielwelch/hassio-zigbee2mqtt for more information. The breaking change is from 1.4 to 1.5.1+, therefore, if you have version 1.4 and you are upgrade the version, check the documentation.
