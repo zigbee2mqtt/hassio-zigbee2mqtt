@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/Koenkk/zigbee2mqtt/blob/master/images/logo.png?raw=true"/>
+<img src="images/logo.png">
 <h1>Zigbee2mqtt Hass.io Add-on</h1>
 <div style="display: flex; justify-content: center;">
   <a style="margin-right: 0.5rem;" href="https://travis-ci.org/danielwelch/hassio-zigbee2mqtt">
