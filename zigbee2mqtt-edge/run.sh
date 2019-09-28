@@ -3,7 +3,7 @@
 CONFIG_PATH=/data/options.json
 
 DATA_PATH=$(jq --raw-output ".data_path" $CONFIG_PATH)
-ZIGBEE_SHEPHERD_DEBUG=$(jq --raw-output ".zigbee_shepherd_debug // empty" $CONFIG_PATH)
+ZIGBEE_HERDSMAN_DEBUG=$(jq --raw-output ".zigbee_shepherd_debug // empty" $CONFIG_PATH)
 ZIGBEE_SHEPHERD_DEVICES=$(jq --raw-output ".zigbee_shepherd_devices // empty" $CONFIG_PATH)
 
 # Check if config exists already
@@ -21,9 +21,9 @@ mkdir -p "$DATA_PATH"
 # Parse config
 cat "$CONFIG_PATH" | jq 'del(.data_path)' | jq 'del(.zigbee_shepherd_debug)' | jq 'del(.zigbee_shepherd_devices)' > $DATA_PATH/configuration.yaml
 
-if [[ ! -z "$ZIGBEE_SHEPHERD_DEBUG" ]]; then
-    echo "[Info] Zigbee Shepherd debug logging enabled."
-    export DEBUG="zigbee-shepherd*"
+if [[ ! -z "$ZIGBEE_HERDSMAN_DEBUG" ]]; then
+    echo "[Info] Zigbee Herdsman debug logging enabled."
+    export DEBUG="zigbee-herdsman*"
 fi
 
 if [[ ! -z "$ZIGBEE_SHEPHERD_DEVICES" ]]; then
