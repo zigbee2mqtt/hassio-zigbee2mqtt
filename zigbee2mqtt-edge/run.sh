@@ -19,7 +19,7 @@ fi
 mkdir -p "$DATA_PATH"
 
 # Parse config
-cat "$CONFIG_PATH" | jq 'del(.data_path)' | jq 'del(.zigbee_shepherd_debug)' | jq 'del(.zigbee_shepherd_devices)' > $DATA_PATH/configuration.yaml
+cat "$CONFIG_PATH" | jq 'del(.data_path)' | jq 'del(.zigbee_shepherd_debug)' | jq 'del(.zigbee_shepherd_devices)' | jq 'del(.socat)' > $DATA_PATH/configuration.yaml
 
 if [[ ! -z "$ZIGBEE_HERDSMAN_DEBUG" ]]; then
     echo "[Info] Zigbee Herdsman debug logging enabled."
@@ -35,4 +35,9 @@ if [[ ! -z "$ZIGBEE_SHEPHERD_DEVICES" ]]; then
     fi
 fi
 
+# FORK SOCAT IN A SEPARATE PROCESS IF ENABLED
+SOCAT_EXEC="$(dirname $0)/socat.sh"
+$SOCAT_EXEC $CONFIG_PATH
+
+# RUN zigbee2mqtt
 ZIGBEE2MQTT_DATA="$DATA_PATH" pm2-runtime start npm -- start

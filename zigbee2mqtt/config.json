@@ -17,6 +17,12 @@
     "share:rw",
     "config:rw"
   ],
+  "ports": {
+    "8485/tcp": 8485
+  },
+  "ports_description": {
+    "8485/tcp": "Socat tcp-listen port"
+  },
   "options": {
     "data_path": "/share/zigbee2mqtt",
     "devices": "devices.yaml",
@@ -57,7 +63,16 @@
     },
     "ban": [],
     "whitelist": [],
-    "queue": {}
+    "queue": {},
+    "socat": {
+      "enabled": false,
+      "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
+      "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
+      "restartdelay": 1,
+      "initialdelay": 1,
+      "options": "-d -d",
+      "log": false
+    }
   },
   "schema": {
     "zigbee_shepherd_devices": "bool?",
@@ -114,6 +129,15 @@
     "queue": {
       "delay": "int?",
       "simultaneously": "int?"
+    },
+    "socat": {
+      "enabled": "bool?",
+      "master": "str?",
+      "slave": "str?",
+      "restartdelay": "float(0,)?",
+      "initialdelay": "float(0,)?",
+      "options": "str?",
+      "log": "bool?"
     }
   },
   "image": "dwelch2101/zigbee2mqtt-{arch}"

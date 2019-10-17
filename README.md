@@ -138,6 +138,25 @@ The stable, versioned zigbee2mqtt can be updated using the standard Hass.io upda
 To update the edge version of the add-on, you will need to uninstall and re-install the add-on. If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
 
 ----
+### Socat
+
+In some cases it is not possible to forward a serial device to the container that zigbee2mqtt runs in. This could be because the device is not physically connected to the machine at all. 
+
+Socat can be used to forward a serial device over TCP to zigbee2mqtt. See the [socat man pages](https://linux.die.net/man/1/socat) for more info.
+
+You can configure the socat module within the socat section using the following options:
+
+- `enabled` true/false to enable socat (default: false)
+- `master` master or first address used in socat command line (mandatory)
+- `slave` slave or second address used in socat command line (mandatory)
+- `options` extra options added to the socat command line (optional)
+- `log` true/false if to log the socat stdout/stderr to data_path/socat.log (default: false)
+- `initialdelay` delay (in seconds) to wait when the plugin is started before zigbee2mqtt is started (optional)
+- `restartdelay` delay (in seconds) to wait before a socat process is restarted when it has terminated (optional)
+
+**NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial.port setting is NOT automatically set and has to be changed accordingly.
+
+----
 ### Issues
 
 If you find any issues with the addon, please check the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after zigbee2mqtt has successfully started, it should likely be reported in the [zigbee2mqtt issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues)
