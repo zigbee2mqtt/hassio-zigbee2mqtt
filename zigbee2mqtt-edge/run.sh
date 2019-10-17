@@ -29,7 +29,7 @@ fi
 if [[ ! -z "$ZIGBEE_SHEPHERD_DEVICES" ]]; then
     echo "[Info] Searching for custom devices file in zigbee2mqtt data path..."
     if [[ -f "$DATA_PATH"/devices.js ]]; then
-        cp -f "$DATA_PATH"/devices.js ./node_modules/zigbee-shepherd-converters/devices.js
+        cp -f "$DATA_PATH"/devices.js ./node_modules/zigbee-herdsman-converters/devices.js
     else
         echo "[Error] File $DATA_PATH/devices.js not found! Starting with default devices.js"
     fi
