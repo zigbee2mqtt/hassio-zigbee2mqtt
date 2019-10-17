@@ -15,7 +15,7 @@ RUN apk add --update --no-cache \
   echo "Installed zigbee2mqtt @ version $(eval git rev-parse --short HEAD)" && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
-  apk del make gcc g++ linux-headers udev git python2 && \
+  apk del make gcc g++ linux-headers git python2 && \
   rm -rf /app/docs /app/test /app/images /app/scripts /app/data /app/docker /app/LICENSE /app/README.md /app/update.sh
 
 COPY run.sh /app/run.sh
