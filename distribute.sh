@@ -1,8 +1,6 @@
 #!/bin/bash
 set -ev
 
-cp "${TRAVIS_BUILD_DIR}"/zigbee2mqtt/run.sh "${TRAVIS_BUILD_DIR}"/zigbee2mqtt-edge/run.sh
-
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
     echo "This build is a pull request, aborting distribution script."
     exit 0
