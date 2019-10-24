@@ -7,6 +7,14 @@ DEBUG=""
 ZIGBEE_HERDSMAN_DEBUG=$(jq --raw-output ".zigbee_herdsman_debug // empty" $CONFIG_PATH)
 ZIGBEE_SHEPHERD_DEVICES=$(jq --raw-output ".zigbee_shepherd_devices // empty" $CONFIG_PATH)
 
+echo "Debug information"
+echo $ZIGBEE_HERDSMAN_DEBUG
+echo "-----"
+echo $ZIGBEE_SHEPHERD_DEVICES
+echo "-----"
+cat $CONFIG_PATH
+echo "Debug information end"
+
 # Check if config exists already
 if [[ -f $DATA_PATH/configuration.yaml ]]; then
     if [[ ! -f $DATA_PATH/.configuration.yaml.bk ]]; then
