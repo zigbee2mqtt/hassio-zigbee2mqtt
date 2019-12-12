@@ -159,6 +159,10 @@ You can configure the socat module within the socat section using the following 
 **NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial.port setting is NOT automatically set and has to be changed accordingly.
 
 ----
+### Adding Support for New Devices
+If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration. When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
+
+----
 ### Issues
 
 If you find any issues with the addon, please check the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after zigbee2mqtt has successfully started, it should likely be reported in the [zigbee2mqtt issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues)
