@@ -9,11 +9,11 @@ jobs:
   include:
     - stage: Build Docker Images
       script:
-        - $TRAVIS_BUILD_DIR/build.sh
+        - travis_wait $TRAVIS_BUILD_DIR/build.sh
     - stage: Deploy Docker Images to Docker Hub
       if: type != pull_request AND (branch = master OR tag IS present)
       script:
-        - $TRAVIS_BUILD_DIR/distribute.sh
+        - travis_wait $TRAVIS_BUILD_DIR/distribute.sh
 
 env:
   global:
