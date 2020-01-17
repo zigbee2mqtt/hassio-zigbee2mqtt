@@ -13,8 +13,8 @@
 <p>Run Zigbee2mqtt as a Hass.io Add-on</p>
 </div>
 
-## Warning: Breaking Changes in version 1.7.0 
-Once upgraded from 1.6.0 to 1.7.0 you cannot switch back to 1.6.0 when not having a backup of the database.db! 
+## Warning: Breaking Changes in version 1.7.0+
+Once upgraded from 1.6.0 to 1.7.0 you cannot switch back to 1.6.0 when not having a backup of the database.db!
 
 ## Warning: Breaking Changes in version 1.5.1 
 Version 1.5.1 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation below.
