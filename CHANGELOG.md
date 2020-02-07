@@ -5,7 +5,34 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
-## [1.6.0](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1.2) - 2019-09-11
+## 1.10.0 - 2019-02-06
+### Changed
+- Upgrade zigbe22mqtt to 1.10.0
+
+## 1.9.0 - 2019-01-17
+### Added
+- Added config option `zigbee_herdsman_debug`. Zigbee2mqtt moved from the old `zigbee_shepherd` library to the `zigbee_herdsman` library some time ago, so this option was added to reflect the change and keep things consistent. The old `zigbee_shepherd_debug` option is still supported, and setting either to `true` will enable `zigbee_shepherd` DEBUG mode. 
+### Changed
+- Upgrade zigbee2mqtt to 1.9.0
+
+## 1.8.0 - 2019-12-16
+### Changed
+- Upgrade zigbee2mqtt to 1.8.0
+
+## 1.7.1 - 2019-11-12
+### Changed
+- Upgrade zigbee2mqtt to 1.7.1
+
+## 1.7.0 - 2019-11-10
+### Added
+- BREAKING: socat support added (new top level option in configuration)
+### Changed
+  - Disabled by default -- leave `enabled` set to false to disable.
+- BREAKING: 
+- Upgrade zigbee2mqtt to 1.7.0
+  - There are breaking changes when upgrading to zigbee2mqtt 1.7 with respect to the user's underlying zigbee device database used by zigbee2mqtt. You cannot roll back to 1.6 after updating without repairing all your devices (the device database used by zigbee2mqtt 1.7 is not backwards compatible for older versions)
+
+## 1.6.0 - 2019-09-11
 ### Changed
 - Upgrade zigbee2mqtt to 1.6.0
 
