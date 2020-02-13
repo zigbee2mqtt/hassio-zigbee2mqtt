@@ -33,13 +33,13 @@ The repository includes two add-ons: **zigbee2mqtt** and **zigbee2mqtt-edge**. F
 
 Configure the add-on via the Hass.io front-end. The configuration closely mirrors that of `zigbee2mqtt` itself, with a couple of key differences:
 1. Hass.io requires add-on configuration in JSON format, rather than YAML. If you don't understand the difference, you can use a YAML-to-JSON converter.
-2. An additional top-level `data-path` option is required. Set this to the path where like the add-on to persist data. Defaults to `/share/zigbee2mqtt`. Note that both `config` and `share` directories are mapped into the container (read-write) and are available to you.
+2. An additional top-level `data-path` option is required. Set this to the path where you would like the add-on to persist data. Defaults to `/share/zigbee2mqtt`. Note that both `config` and `share` directories are mapped into the container (read-write) and are available to you.
 3. If you are using groups or device-specific settings, you must use seperate files, and provide the paths to these files in their corresponding config options as described by the zigbee2mqtt docs. This is due to a limitation Hass.io places on nested config levels.
 
 See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/configuration.html) for a complete description of available options. If you're not sure if a new option is supported, check to see if it is included in this repository's `zigbee2mqtt/config.json` or `zigbee2mqtt_edge/config.json` `schema`. If not, you can open an issue to add support for it.
 
-- Depending on your configuration, the MQTT server config will need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Hass.io's Mosquitto addon.
-- To find out which serial ports you have exposed go to **Hass.io > System > Host system > Show Hardware**
+- Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Hass.io's Mosquitto addon.
+- To find out which serial ports you have exposed go to **Supervisor (used to be Hass.io) > System > Host system > Hardware**
 
 ## Pairing
 

@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## 1.10.1 - 2020-02-?
+### Added
+- Added config options `network_key_string` and `ext_pan_id_string`.
+
 ## 1.10.0 - 2019-02-06
 ### Changed
 - Upgrade zigbe22mqtt to 1.10.0

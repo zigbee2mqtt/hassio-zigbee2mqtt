@@ -19,7 +19,10 @@ if [[ -f $DATA_PATH/configuration.yaml ]]; then
 fi
 
 # Parse config
-cat "$CONFIG_PATH" | jq 'del(.data_path)' | jq 'del(.zigbee_shepherd_debug)' | jq 'del(.zigbee_shepherd_devices)' | jq 'del(.socat)' > $DATA_PATH/configuration.yaml
+cat "$CONFIG_PATH" | jq 'del(.data_path, .zigbee_shepherd_debug, .zigbee_shepherd_devices, .socat)' \
+    | jq 'if .advanced.ext_pan_id_string then .advanced.ext_pan_id = (.advanced.ext_pan_id_string | (split(",")|map(tonumber))) | del(.advanced.ext_pan_id_string) else . end' \
+    | jq 'if .advanced.network_key_string then .advanced.network_key = (.advanced.network_key_string | (split(",")|map(tonumber))) | del(.advanced.network_key_string) else . end' \
+    > $DATA_PATH/configuration.yaml
 
 if [[ ! -z "$ZIGBEE_SHEPHERD_DEBUG" ]]|| [[ ! -z "$ZIGBEE_HERDSMAN_DEBUG" ]]; then
     echo "[Info] Zigbee Herdsman debug logging enabled."

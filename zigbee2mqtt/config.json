@@ -107,6 +107,7 @@
     ],
     "advanced": {
       "pan_id": "int(0,65536)?",
+      "ext_pan_id_string": "match(^(\\s*\\d+\\s*,){7}(\\s*\\d+\\s*)$)?",
       "channel": "int(11,26)?",
       "cache_state": "bool?",
       "log_level": "match(^info|debug|warn|error$)?",
@@ -117,6 +118,7 @@
       "network_key": [
         "int?"
       ],
+      "network_key_string": "match(^(\\s*\\d+\\s*,){15}(\\s*\\d+\\s*)$)?",
       "last_seen": "match(^disable|ISO_8601|epoch)?",
       "elapsed": "bool?",
       "availability_timeout": "int?",
