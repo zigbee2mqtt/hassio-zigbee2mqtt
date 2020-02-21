@@ -14,6 +14,7 @@
   ],
   "boot": "auto",
   "map": [
+    "ssl",
     "share:rw",
     "config:rw"
   ],
