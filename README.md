@@ -72,7 +72,6 @@ sensor:
 automation:
   - id: enable_zigbee_join
     alias: Enable Zigbee joining
-    hide_entity: true
     trigger:
       platform: state
       entity_id: input_boolean.zigbee_permit_join
@@ -99,10 +98,8 @@ automation:
     - data:
         entity_id: timer.zigbee_permit_join
       service: timer.cancel
-    hide_entity: true
   - id: disable_zigbee_join_timer
     alias: Disable Zigbee joining by timer
-    hide_entity: true
     trigger:
     - platform: event
       event_type: timer.finished
