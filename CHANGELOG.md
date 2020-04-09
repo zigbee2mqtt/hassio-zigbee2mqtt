@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## 1.12.1 - 2020-04-08
+### Changed
+- Updated to latest Zigbee2Mqtt version [`1.12.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.12.1)
+
 ## 1.12.0 - 2020-03-18
 ### Changed
 - Updated to latest Zigbee2Mqtt version [`1.12.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.12.0)
