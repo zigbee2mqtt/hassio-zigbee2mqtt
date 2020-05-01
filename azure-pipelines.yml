@@ -3,6 +3,7 @@ trigger:
   branches:
     include:
     - master
+
 pr:
 - master
 
@@ -22,7 +23,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - script: sudo docker login
+    - script: sudo docker login -u $(DOCKER_USER) -p $(DOCKER_PASSWORD)
       displayName: Login to Docker Hub
     - script: sudo docker pull homeassistant/amd64-builder
       displayName: Install hassio builder
@@ -47,7 +48,7 @@ stages:
       vmImage: 'ubuntu-latest'
     condition: not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
     steps:
-    - script: sudo docker login
+    - script: sudo docker login -u $(DOCKER_USER) -p $(DOCKER_PASSWORD)
       displayName: Login to Docker Hub
     - script: sudo docker pull homeassistant/amd64-builder
       displayName: Install hassio builder
