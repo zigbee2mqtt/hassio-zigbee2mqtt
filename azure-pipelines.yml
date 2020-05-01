@@ -16,7 +16,7 @@ variables:
 stages:
 - stage: CheckPullRequest
   displayName: Build image for PR
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   jobs:
   - job: Build
     displayName: Build image for PR
@@ -39,7 +39,7 @@ stages:
 
 - stage: BuildPush
   displayName: Build images and push to Docker Hub
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  condition: ne(variables['Build.Reason'], 'PullRequest')
   jobs:
 
   - job: build_and_push_test
