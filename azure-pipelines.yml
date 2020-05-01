@@ -40,6 +40,7 @@ stages:
   displayName: Build images and push to Docker Hub
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   jobs:
+
   - job: build_and_push_test
     displayName: Build and Push non-release
     pool:
@@ -68,7 +69,7 @@ stages:
       vmImage: 'ubuntu-latest'
     condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
     steps:
-    # check to make sure tag version matches json config
+    # check tag version matches json config
     # - script: |
     #     SOURCE='$(Build.SourceBranch)'
     #     TAG="${SOURCE/refs\/tags\//}"
@@ -78,9 +79,12 @@ stages:
     #     else
     #       echo "git tag $TAG does not match config.json version" && exit 1
     #     fi
+  
+    # check release notes updated
     # tagged push to master -> build and push images with tag :latest and :git_tag
     # - script: |
     #     docker run --rm --privileged -v ~/.docker:/root/.docker \
     #     -v ./zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
     #     --version "$CONFIG_VER"
     #   condition: succeeded()
+
