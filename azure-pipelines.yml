@@ -61,9 +61,9 @@ stages:
       displayName: Build zigbee2mqtt with tag :test
     - script: |
         echo "test"
-        # docker run --rm --privileged -v ~/.docker:/root/.docker \
-        # -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
-        # --version test --no-latest
+      # docker run --rm --privileged -v ~/.docker:/root/.docker \
+      # -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
+      # --version test --no-latest
       displayName: Build zigbee2mqtt-edge with tag :test
 
   - job: build_and_push_release
