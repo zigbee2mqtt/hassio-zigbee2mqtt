@@ -14,7 +14,7 @@ variables:
   id: '$(Build.BuildId)'
 
 stages:
-- stage: Check Pull Request
+- stage: CheckPullRequest
   displayName: Build image for PR
   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
   jobs:
@@ -37,7 +37,7 @@ stages:
       displayName: Build zigbee2mqtt-edge with tag :test (no push)
 
 
-- stage: Build and Push
+- stage: BuildPush
   displayName: Build images and push to Docker Hub
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   jobs:
