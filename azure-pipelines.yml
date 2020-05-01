@@ -54,17 +54,15 @@ stages:
       displayName: Install hassio builder
     # untagged push to master -> build and push images with :test
     - script: |
-        echo test
-      # docker run --rm --privileged -v ~/.docker:/root/.docker \
-        # -v /zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
-        # --version test --no-latest
+        docker run --rm --privileged -v ~/.docker:/root/.docker \
+        -v /zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
+        --version test --no-latest
       displayName: Build zigbee2mqtt with tag :test
     - script: |
-        echo "test"
-      # docker run --rm --privileged -v ~/.docker:/root/.docker \
-      # -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
-      # --version test --no-latest
-      displayName: Build zigbee2mqtt-edge with tag :test
+        docker run --rm --privileged -v ~/.docker:/root/.docker \
+        -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
+        --version test
+      displayName: Build zigbee2mqtt-edge with tag :test and :latest
 
   - job: build_and_push_release
     displayName: Build and Push release
