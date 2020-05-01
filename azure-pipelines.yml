@@ -53,14 +53,16 @@ stages:
       displayName: Install hassio builder
     # untagged push to master -> build and push images with :test
     - script: |
-        docker run --rm --privileged -v ~/.docker:/root/.docker \
-        -v /zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
-        --version test --no-latest
+        echo test
+      # docker run --rm --privileged -v ~/.docker:/root/.docker \
+        # -v /zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
+        # --version test --no-latest
       displayName: Build zigbee2mqtt with tag :test
     - script: |
-        docker run --rm --privileged -v ~/.docker:/root/.docker \
-        -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
-        --version test --no-latest
+        echo "test"
+        # docker run --rm --privileged -v ~/.docker:/root/.docker \
+        # -v /zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
+        # --version test --no-latest
       displayName: Build zigbee2mqtt-edge with tag :test
 
   - job: build_and_push_release
@@ -69,19 +71,20 @@ stages:
       vmImage: 'ubuntu-latest'
     condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
     steps:
-    # check tag version matches json config
-    # - script: |
-    #     SOURCE='$(Build.SourceBranch)'
-    #     TAG="${SOURCE/refs\/tags\//}"
-    #     CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
-    #     if ["${TAG//v}" = "$CONFIG_VER"]; then
-    #       exit 0
-    #     else
-    #       echo "git tag $TAG does not match config.json version" && exit 1
-    #     fi
+      # check tag version matches json config
+      - script: |
+            echo "test"
+      #     SOURCE='$(Build.SourceBranch)'
+      #     TAG="${SOURCE/refs\/tags\//}"
+      #     CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
+      #     if ["${TAG//v}" = "$CONFIG_VER"]; then
+              # echo "##vso[task.setvariable variable=CONFIG_VER]$CONFIG_VER" 
+      #       exit 0
+      #     else
+      #       echo "git tag $TAG does not match config.json version" && exit 1
+      #     fi
   
-    # check release notes updated
-    # tagged push to master -> build and push images with tag :latest and :git_tag
+      # tagged push to master -> build and push images with tag :latest and :git_tag
     # - script: |
     #     docker run --rm --privileged -v ~/.docker:/root/.docker \
     #     -v ./zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
