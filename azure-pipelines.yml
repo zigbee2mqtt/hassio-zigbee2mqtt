@@ -61,6 +61,7 @@ stages:
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
         -v $(pwd)/zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
+        --no-cache
       displayName: Build and push zigbee2mqtt-edge with tag :test and :latest
 
   - job: build_and_push_release
@@ -86,6 +87,6 @@ stages:
           CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
           docker run --rm --privileged -v ~/.docker:/root/.docker \
           -v /run/docker.sock:/run/docker.sock:rw \
-          -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
+          -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data
         condition: succeeded()
 
