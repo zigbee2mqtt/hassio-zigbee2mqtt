@@ -30,12 +30,14 @@ stages:
     - script: |
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
-        -v $(pwd)/zigbee2mqtt:/data:ro homeassistant/amd64-builder --all -t /data --test
+        -v $(pwd)/zigbee2mqtt:/data:ro homeassistant/amd64-builder --all -t /data \
+        --generic -v test --no-latest --test
       displayName: Build zigbee2mqtt with tag :test (no push)
     - script: |
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
-        -v $(pwd)/zigbee2mqtt-edge:/data:ro homeassistant/amd64-builder --all -t /data --test
+        -v $(pwd)/zigbee2mqtt-edge:/data:ro homeassistant/amd64-builder --all -t /data \
+        --generic -v test --no-latest --test
       displayName: Build zigbee2mqtt-edge with tag :test (no push)
 
 
@@ -59,13 +61,13 @@ stages:
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
         -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
-        -v test --no-latest --test
+        --generic -v test --no-latest --test
       displayName: Build zigbee2mqtt with tag :test
     - script: |
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
         -v $(pwd)/zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
-        -v test --test
+        --generic -v test --test
       displayName: Build zigbee2mqtt-edge with tag :test and :latest
 
   - job: build_and_push_release
@@ -90,7 +92,8 @@ stages:
       - script: |
           CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
           docker run --rm --privileged -v ~/.docker:/root/.docker \
+          -v /run/docker.sock:/run/docker.sock:rw \
           -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
-          --version "$CONFIG_VER"
+          --generic -v "$CONFIG_VER"
         condition: succeeded()
 
