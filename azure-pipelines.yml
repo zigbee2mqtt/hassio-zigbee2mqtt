@@ -61,13 +61,13 @@ stages:
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
         -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
-        --generic -v test --no-latest
+        -v test --generic --no-latest
       displayName: Build and push zigbee2mqtt with tag :test
     - script: |
         docker run --rm --privileged -v ~/.docker:/root/.docker \
         -v /run/docker.sock:/run/docker.sock:rw \
         -v $(pwd)/zigbee2mqtt-edge:/data homeassistant/amd64-builder --all -t /data \
-        --generic -v test
+        -v test --generic
       displayName: Build and push zigbee2mqtt-edge with tag :test and :latest
 
   - job: build_and_push_release
