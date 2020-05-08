@@ -1,3 +1,10 @@
+resources:
+  pipelines:
+  - pipeline: Zigbee2mqtt
+    source: Koenkk.zigbee2mqtt
+    trigger: 
+      branches:
+      - dev
 
 trigger:
   branches:
