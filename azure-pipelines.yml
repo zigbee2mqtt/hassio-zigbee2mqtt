@@ -10,7 +10,7 @@ resources:
   pipelines:
   - pipeline: zigbee2mqtt
     source: Koenkk.zigbee2mqtt
-    connection: koenkk/zigbee
+    connection: "koenkk/zigbee"
     project: zigbee
     trigger: 
       branches:
