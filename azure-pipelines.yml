@@ -7,7 +7,7 @@ pr:
 - master
 
 resources:
-- repo: self
+  repo: self
   pipelines:
   - pipeline: Zigbee2mqtt
     source: Koenkk.zigbee2mqtt
