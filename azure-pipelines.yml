@@ -1,11 +1,3 @@
-resources:
-  pipelines:
-  - pipeline: Zigbee2mqtt
-    source: Koenkk.zigbee2mqtt
-    trigger: 
-      branches:
-      - dev
-
 trigger:
   branches:
     include:
@@ -16,6 +8,12 @@ pr:
 
 resources:
 - repo: self
+- pipelines:
+  - pipeline: Zigbee2mqtt
+    source: Koenkk.zigbee2mqtt
+    trigger: 
+      branches:
+      - dev
 
 variables:
   id: '$(Build.BuildId)'
