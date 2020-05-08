@@ -7,13 +7,7 @@ pr:
 - master
 
 resources:
-#  repo: self
-  pipelines:
-  - pipeline: Zigbee2mqtt
-    source: Koenkk.zigbee2mqtt
-    trigger: 
-      branches:
-      - dev
+  repo: self
 
 variables:
   id: '$(Build.BuildId)'
