@@ -7,7 +7,7 @@ pr:
 - master
 
 resources:
-  repo: self
+- repo: self
 
 variables:
   id: '$(Build.BuildId)'
