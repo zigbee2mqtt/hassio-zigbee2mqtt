@@ -8,7 +8,7 @@ pr:
 
 resources:
 - repo: self
-- pipelines:
+  pipelines:
   - pipeline: Zigbee2mqtt
     source: Koenkk.zigbee2mqtt
     trigger: 
