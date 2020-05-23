@@ -76,7 +76,7 @@ stages:
             SOURCE='$(Build.SourceBranch)'
             TAG="${SOURCE/refs\/tags\//}"
             CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
-            if ["${TAG//v}" = "$CONFIG_VER"]; then
+            if [ "${TAG//v}" = "$CONFIG_VER" ]; then
               exit 0
             else
               echo "git tag $TAG does not match config.json version" && exit 1
