@@ -81,12 +81,18 @@ stages:
             else
               echo "git tag $TAG does not match config.json version" && exit 1
             fi
-  
+        displayName: Check tag and version number
+      - script: sudo docker login -u $(DOCKER_USER) -p $(DOCKER_PASSWORD)
+        displayName: Login to Docker Hub
+      - script: sudo docker pull homeassistant/amd64-builder
+        displayName: Install hassio builder
       # tagged push to master -> build and push images with tag :latest and :version (from config)
       - script: |
           CONFIG_VER="$(jq -r '.version' ./zigbee2mqtt/config.json)"
           docker run --rm --privileged -v ~/.docker:/root/.docker \
           -v /run/docker.sock:/run/docker.sock:rw \
-          -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data
+          -v $(pwd)/zigbee2mqtt:/data homeassistant/amd64-builder --all -t /data \
+          --no-cache
         condition: succeeded()
+        displayName: Build and push zigbee2mqtt with tag :latest and version tag
 
