@@ -97,7 +97,8 @@
     },
     "serial": {
       "port": "str",
-      "disable_led": "bool?"
+      "disable_led": "bool?",
+      "adapter": "match(^zstack|deconz$)?"
     },
     "ban": [
       "str?"
