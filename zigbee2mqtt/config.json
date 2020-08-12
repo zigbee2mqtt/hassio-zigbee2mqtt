@@ -1,6 +1,6 @@
 {
   "name": "zigbee2mqtt",
-  "version": "1.14.2",
+  "version": "1.14.3",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
