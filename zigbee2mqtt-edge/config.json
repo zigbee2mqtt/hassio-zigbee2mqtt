@@ -100,6 +100,7 @@
       "baudrate": "int?",
       "rtscts": "bool?",
       "soft_reset_timeout": "int?",
+      "adapter_concurrent": "int?",
       "network_key": [
         "int?"
       ],
