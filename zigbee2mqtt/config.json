@@ -129,7 +129,8 @@
       ],
       "report": "bool?",
       "homeassistant_discovery_topic": "str?",
-      "homeassistant_status_topic": "str?"
+      "homeassistant_status_topic": "str?",
+      "homeassistant_legacy_triggers": "bool?"
     },
     "queue": {
       "delay": "int?",
