@@ -23,8 +23,6 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - script: sudo docker login -u $(DOCKER_USER) -p $(DOCKER_PASSWORD)
-      displayName: Login to Docker Hub
     - script: sudo docker pull homeassistant/amd64-builder
       displayName: Install hassio builder
     - script: |
