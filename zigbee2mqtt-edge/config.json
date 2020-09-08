@@ -129,7 +129,6 @@
         "str?"
       ],
       "report": "bool?",
-      "homeassistant_legacy_triggers": "bool?",
       "homeassistant_discovery_topic": "str?",
       "homeassistant_status_topic": "str?",
       "homeassistant_legacy_triggers": "bool?"

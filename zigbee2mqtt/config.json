@@ -43,24 +43,7 @@
       "log_level": "info",
       "pan_id": 6754,
       "channel": 11,
-      "network_key": [
-        1,
-        3,
-        5,
-        7,
-        9,
-        11,
-        13,
-        15,
-        0,
-        2,
-        4,
-        6,
-        8,
-        10,
-        12,
-        13
-      ],
+      "network_key": [1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 13],
       "availability_blocklist": [],
       "availability_passlist": []
     },
@@ -68,6 +51,7 @@
     "blocklist": [],
     "passlist": [],
     "queue": {},
+    "experimental": {},
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
@@ -145,7 +129,6 @@
         "str?"
       ],
       "report": "bool?",
-      "homeassistant_legacy_triggers": "bool?",
       "homeassistant_discovery_topic": "str?",
       "homeassistant_status_topic": "str?",
       "homeassistant_legacy_triggers": "bool?"
@@ -159,6 +142,9 @@
     "queue": {
       "delay": "int?",
       "simultaneously": "int?"
+    },
+    "experimental": {
+      "transmit_power": "int?"
     },
     "socat": {
       "enabled": "bool?",
