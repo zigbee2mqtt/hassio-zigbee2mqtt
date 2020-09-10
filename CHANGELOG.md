@@ -16,6 +16,7 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
 ## 1.14.2 - 2020-07-22
 ### Changed
 - Updated to latest Zigbee2Mqtt version [`1.14.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.14.2)
+- Note: Configuration options need to be upgrade manually: Prefer blocklist/passlist terminology over blacklist/whitelist
 
 ## 1.14.1 - 2020-06-30
 ### Changed
