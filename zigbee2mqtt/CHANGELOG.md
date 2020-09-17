@@ -8,6 +8,7 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
 ## 1.14.4.1 - 2020-09-17
 ### Changed
 - Add explicit support for `armv7`
+- Add new option `output` under `experimental category`
 - Fix `.hash.json` generation in `zigbee2mqtt-edge/Dockerfile` to correctly report commit hash.
 - Corrected changelog bug
 - Updated names to reflect Hass.io [rename](https://www.home-assistant.io/blog/2020/01/29/changing-the-home-assistant-brand/) to Home Assistant
