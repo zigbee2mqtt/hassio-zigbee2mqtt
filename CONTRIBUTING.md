@@ -1,5 +1,5 @@
 # Setting up
-1. Git clone this project into your addons folder
+1. Git clone this project into your add-ons folder
 2. Remove the `image` key from `hassio-zigbee2mqtt/zigbee2mqtt-edge/config.json` to enable local builds.
 3. Add back `"image": "dwelch2101/zigbee2mqtt-edge-{arch}"` to `zigbee2mqtt-edge/config.json` after you're done.
 

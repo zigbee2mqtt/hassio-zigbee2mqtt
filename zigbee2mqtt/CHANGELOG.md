@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
 
+## 1.14.4.1 - 2020-09-17
+### Changed
+- Corrected changelog bug
+- Updated names to reflect Hass.io [rename](https://www.home-assistant.io/blog/2020/01/29/changing-the-home-assistant-brand/) to Home Assistant
+- Cleanup documentation
+
 ## 1.14.4 - 2020-09-02
 ### Changed
 - Updated to latest Zigbee2Mqtt version [`1.14.4`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.14.4)
@@ -119,7 +125,7 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
     - `homeassistant_discovery_topic`
     - `debounce` (device-specific config)
 ### Fixed
-- Fixes logic bug that prevented configuration from being updated via the Hass.io frontend UI.
+- Fixes logic bug that prevented configuration from being updated via the Home Assistant frontend UI.
 
 ## [1.2.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.2.1) - 2019-03-10
 ### Changed

@@ -6,7 +6,7 @@
 
 **zigbee2mqtt add-on version (if edge, please report commit hash):**
 
-**Operating environment (HassOS, Virtual Machine, Device/platform running Hass.io):**
+**Operating environment (HassOS, Virtual Machine, Device/platform running Home Assistant):**
 <!--
 Please provide details about your environment.
 -->
@@ -21,6 +21,6 @@ Please provide details about your environment.
 ```
 
 
-**Your logs from Hass.io**
+**Your logs from Home Assistant**
 
 
