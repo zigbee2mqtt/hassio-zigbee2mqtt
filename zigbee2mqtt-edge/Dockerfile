@@ -22,7 +22,7 @@ COPY run.sh /app/run.sh
 COPY socat.sh /app/socat.sh
 WORKDIR /app
 
-RUN jq -n '{"hash": env.COMMIT}' > ./.hash.json
+RUN jq -n --arg commit $(eval git rev-parse --short HEAD) '{"hash": $commit }' > ./.hash.json
 
 RUN ["chmod", "a+x", "./socat.sh"]
 RUN ["chmod", "a+x", "./run.sh"]
