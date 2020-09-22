@@ -5,7 +5,7 @@
   "description": "Development build of the zigbee2mqtt add-on",
   "auto_uart": true,
   "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
-  "startup": "before",
+  "startup": "application",
   "arch": [
     "aarch64",
     "amd64",

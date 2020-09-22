@@ -12,6 +12,7 @@ RUN apk add --update --no-cache \
     make gcc g++ linux-headers udev git python2 && \
   git clone -b dev --single-branch --depth 1 https://github.com/Koenkk/zigbee2mqtt.git /app && \
   cd /app && \
+  jq -n --arg commit $(eval git rev-parse --short HEAD) '{"hash": $commit }' > /app/.hash.json && \
   echo "Installed zigbee2mqtt @ version $(eval git rev-parse --short HEAD)" && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
@@ -21,8 +22,6 @@ RUN apk add --update --no-cache \
 COPY run.sh /app/run.sh
 COPY socat.sh /app/socat.sh
 WORKDIR /app
-
-RUN jq -n --arg commit $(eval git rev-parse --short HEAD) '{"hash": $commit }' > ./.hash.json
 
 RUN ["chmod", "a+x", "./socat.sh"]
 RUN ["chmod", "a+x", "./run.sh"]

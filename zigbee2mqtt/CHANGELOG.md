@@ -1,16 +1,67 @@
-# Changelog
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
-
-This project is versioned based upon the version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt). The versioning `X.Y.Z` of the stable release of this add-on will track that of zigbee2mqtt. If there are new releases without upgrades to the zigbee2mqtt version (i.e., changes to the add-on that occur between releases of zigbee2mqtt), an additional number will be added to indicate this (`X.Y.Z.A`, where `A` indicates a new versioned release).
+## 1.14.4.2 - 2020-09-19
+### Added
+- Readme for *edge* version
+- Logo on both *edge* and **stable** version
+- Documentation tab for **stable** version
+### Changed
+- Startup for addon moved from `before` to `application`
+### Fixed
+- Empty changelog in *edge* version
+- Addon crash for starting too early for some users
+- `.hash.json` now properly generated (`commit #unknown` resolved)
 
 ## 1.14.4.1 - 2020-09-17
+### :warning: Breaking changes
+- Several options changed
+    - `availability_blacklist` renamed to `availability_blocklist` in `advanced`
+    - `availability_passlist` now required option in `advanced`
+    - `ban` renamed to `blocklist`
+    - `whitelist` renamed to `passlist`
+
+:warning: If add-on fails to start :warning:
+
+Change
+```
+availability_blacklist: []
+```
+to
+```
+availability_blocklist: []
+availability_passlist: []
+```
+
+Remove 
+```
+ban: []
+whitelist: []
+```
+
+### Added
+- Explicit support for `armv7`
+- Includes new config options from zigbee2mqtt:
+    - `external_converters`
+    - `mqtt`
+        - `keepalive`
+        - `version`
+    - `advanced`
+        - `adapter_concurrent`
+        - `cache_state_persistent`
+        - `cache_state_send_on_startup`
+        - `device_options`
+            - `occupancy_timeout`
+            - `temperature_precision`
+            - `legacy`
+        - `device_options_string`
+        - `homeassistant_legacy_triggers`
+        - `log_level`
+        - `log_rotation`
+        - `timestamp_format`
+    - `experimental`
+        - `output`
+
+### Fixed
+- CHANGELOG bug for **stable** version
 ### Changed
-- Add explicit support for `armv7`
-- Add new option `output` under `experimental category`
-- Fix `.hash.json` generation in `zigbee2mqtt-edge/Dockerfile` to correctly report commit hash.
-- Corrected changelog bug
 - Updated names to reflect Hass.io [rename](https://www.home-assistant.io/blog/2020/01/29/changing-the-home-assistant-brand/) to Home Assistant
 - Cleanup documentation
 
@@ -18,7 +69,13 @@ This project is versioned based upon the version of [zigbee2mqtt](https://github
 ### Changed
 - Updated to latest Zigbee2Mqtt version [`1.14.4`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.14.4)
 
+
 ## 1.14.3 - 2020-08-12
+### Added
+- Includes new config options from zigbee2mqtt:
+    - `serial`
+        - `adapter`
+
 ### Changed
 - Updated to latest Zigbee2Mqtt version [`1.14.3`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.14.3)
 

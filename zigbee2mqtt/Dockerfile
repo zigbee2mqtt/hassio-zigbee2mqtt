@@ -13,6 +13,7 @@ RUN apk add --update --no-cache curl jq nodejs npm socat \
   "https://github.com/Koenkk/zigbee2mqtt/archive/$ZIGBEE2MQTT_VERSION.tar.gz" && \
   tar xzvf "/$ARCHIVE.tar.gz" && \
   cd "/$ARCHIVE" && \
+  jq -n --arg commit $ZIGBEE2MQTT_VERSION '{"hash": $commit }' > .hash.json && \
   npm install --unsafe-perm -g pm2 && \
   npm install --unsafe-perm && \
   apk del make gcc g++ python2 linux-headers udev && \

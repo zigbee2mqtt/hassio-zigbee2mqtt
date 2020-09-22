@@ -24,53 +24,54 @@ The repository includes two add-ons:
 - **zigbee2mqtt** is a stable release that tracks the released versions of zigbee2mqtt.
 - **zigbee2mqtt-edge** tracks the `dev` branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
 
-## Pairing
+## Changelog
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
-The suggested way to pair your devices is to enable zigbee2mqtt's `permit_join` option from within Home Assistant using MQTT rather than through the add-on's user interface.
+All notable changes to this project will be documented in the [CHANGELOG.md](zigbee2mqtt/CHANGELOG.md) file.
 
-You can use [Zigbee2MqttAssistant](https://github.com/yllibed/Zigbee2MqttAssistant) if you don't want to use MQTT directly.
+Version for releases is based on [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) format: `X.Y.Z`.
 
-### Updating the edge Add-on
-To update the edge version of the add-on, you will need to uninstall and re-install the add-on. If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
+Any changes on the addon that do not require a new version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) will use the format: `X.Y.Z.A` where `X.Y.Z` is fixed on the zigbee2mqtt release version and `A` is related to the addon.
 
-### Socat
-In some cases it is not possible to forward a serial device to the container that zigbee2mqtt runs in. This could be because the device is not physically connected to the machine at all. 
+Edge version will not maintain a CHANGELOG and doesn't have a version.
 
-Socat can be used to forward a serial device over TCP to zigbee2mqtt. See the [socat man pages](https://linux.die.net/man/1/socat) for more info.
+## Adding Support for New Devices
+If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) you will need to use one of the methods below to allow you to change the required files.
 
-You can configure the socat module within the socat section using the following options:
+### Using devices.js override in add-on
 
-- `enabled` true/false to enable socat (default: false)
-- `master` master or first address used in socat command line (mandatory)
-- `slave` slave or second address used in socat command line (mandatory)
-- `options` extra options added to the socat command line (optional)
-- `log` true/false if to log the socat stdout/stderr to data_path/socat.log (default: false)
-- `initialdelay` delay (in seconds) to wait when the plugin is started before zigbee2mqtt is started (optional)
-- `restartdelay` delay (in seconds) to wait before a socat process is restarted when it has terminated (optional)
+Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration. 
 
-**NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
+```
+zigbee_shepherd_devices: true
+```
 
-### Adding Support for New Devices
+When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
 
-If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration. When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
+:warning: If you want to make sure that the version of `devices.js` fits your add-on, make sure to follow the steps below:
 
-### Issues
+1. Identify your `stable` zigbee2mqtt version from the add-on (ex. `1.14.3`)
+2. Navigate to https://github.com/Koenkk/zigbee2mqtt/tags and find tag (ex. `1.14.3`)
+3. Click on the commit hash (ex. `f8066e8`) and then `browse files` button
+4. Find `package.json` and identify `zigbee-herdsman-converters` version (ex. `12.0.161`)
+5. Navigate to https://github.com/Koenkk/zigbee-herdsman-converters/tags and find tag (ex. `12.0.161`)
+6. Click on the commit hash (ex. `3a5abc7`) and then `browse files` button
+7. Find `devices.js` file and download it (use `raw` version)
+
+### Using external_converters
+
+Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
+
+If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
+
+- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
+- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
+
+## Issues
 
 If you find any issues with the add-on, please check the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after zigbee2mqtt has successfully started, it should likely be reported in the [zigbee2mqtt issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
 
 Feel free to create a PR for fixes and enhancements. 
-
-## Warning: Breaking Changes in version 1.7.0+
-
-Once upgraded from 1.6.0 to 1.7.0 you cannot switch back to 1.6.0 when not having a backup of the database.db!
-
-## Warning: Breaking Changes in version 1.5.1
-
-Version 1.5.1 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation below.
-
-#### Restoring Configuration after upgrading to 1.5.1
-
-By default, when upgrading to v1.5.1, the add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
 
 ## Credits
 - [danielwelch](https://github.com/danielwelch)
