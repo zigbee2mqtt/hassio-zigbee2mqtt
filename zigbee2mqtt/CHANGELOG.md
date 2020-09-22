@@ -11,14 +11,14 @@
 - `.hash.json` now properly generated (`commit #unknown` resolved)
 
 ## 1.14.4.1 - 2020-09-17
-### :warning: Breaking changes
+### ⚠️ Breaking changes
 - Several options changed
     - `availability_blacklist` renamed to `availability_blocklist` in `advanced`
     - `availability_passlist` now required option in `advanced`
     - `ban` renamed to `blocklist`
     - `whitelist` renamed to `passlist`
 
-:warning: If add-on fails to start :warning:
+⚠️ If add-on fails to start ⚠️
 
 Change
 ```
@@ -142,11 +142,10 @@ whitelist: []
 
 ## 1.7.0 - 2019-11-10
 ### Added
-- BREAKING: socat support added (new top level option in configuration)
+- ⚠️ socat support added (new top level option in configuration)
 ### Changed
   - Disabled by default -- leave `enabled` set to false to disable.
-- BREAKING:
-- Upgrade zigbee2mqtt to 1.7.0
+- ⚠️ Upgrade zigbee2mqtt to 1.7.0
   - There are breaking changes when upgrading to zigbee2mqtt 1.7 with respect to the user's underlying zigbee device database used by zigbee2mqtt. You cannot roll back to 1.6 after updating without repairing all your devices (the device database used by zigbee2mqtt 1.7 is not backwards compatible for older versions)
 
 ## 1.6.0 - 2019-09-11
@@ -154,7 +153,6 @@ whitelist: []
 - Upgrade zigbee2mqtt to 1.6.0
 
 ## [1.5.1.2](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1.2) - 2019-07-30
-### Added
 ### Fixed
 - Create `$DATA_PATH` if it does not already exist
 - Fix default configuration typo (#197)
@@ -174,7 +172,7 @@ whitelist: []
 
 ## [1.5.1](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.5.1) - 2019-07-20
 ### Changed
-- BREAKING CHANGE: restructured configuration to more closely mirror zigbee2mqtt
+- ⚠️ BREAKING CHANGE: restructured configuration to more closely mirror zigbee2mqtt
 - upgrade zigbee2mqtt to 1.5.1
 
 ## [1.3.0](https://github.com/danielwelch/hassio-zigbee2mqtt/releases/tag/v1.3.0) - 2019-04-08
