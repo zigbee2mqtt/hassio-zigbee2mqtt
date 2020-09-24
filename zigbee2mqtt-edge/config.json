@@ -17,7 +17,6 @@
   "ingress": true,
   "ingress_port": 8080,
   "panel_icon": "mdi:zigbee",
-  "panel_title": "Zigbee2Mqtt",
   "map": [
     "ssl",
     "share:rw",

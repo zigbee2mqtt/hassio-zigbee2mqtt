@@ -32,7 +32,8 @@ To update the `edge` version of the add-on, you will need to uninstall and re-in
 
 **Steps**
 - Update config: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
-```
+
+```yaml
 experimental:
   new_api: true
   frontend: true
