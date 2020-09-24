@@ -8,7 +8,7 @@
   </a>
 </div>
 
-:warning: WARNING: This is the Edge version
+⚠️ This is the Edge version ⚠️
 
 Allows you to use your Zigbee devices **without** the vendors bridge or gateway.
 
@@ -16,5 +16,25 @@ It bridges events and allows you to control your Zigbee devices via MQTT. In thi
 
 See Documentation tab for more details.
 
-### Updating the edge Add-on
-To update the edge version of the add-on, you will need to uninstall and re-install the add-on. If you have reinstalled the add-on and believe that the latest version has not been installed, try removing the repository before reinstalling.
+### Updating the Edge add-on
+To update the `edge` version of the add-on, you will need to uninstall and re-install the add-on.
+
+⚠️ Make sure to backup your config as the procedure will not save this for you.
+
+**Steps**
+- Backup config from: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
+- Uninstall: **Supervisor → Dashboard → Zigbee2mqtt Edge → Uninstall**
+- Refresh repo: **Supervisor → Add-on store → ⋮ → Reload**
+- Re-install: **Supervisor → Add-on store → Zigbee2mqtt Edge → Install**
+- Restore config to: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
+
+### Enabling the integrated Frontend (experimental)
+
+**Steps**
+- Update config: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
+```
+experimental:
+  new_api: true
+  frontend: true
+```
+- Enable `ingress`: **Supervisor → Dashboard → Zigbee2mqtt Edge → Show in sidebar**

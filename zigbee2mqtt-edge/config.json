@@ -1,5 +1,5 @@
 {
-  "name": "zigbee2mqtt-edge",
+  "name": "Zigbee2mqtt Edge",
   "version": "test",
   "slug": "zigbee2mqtt_edge",
   "description": "Development build of the zigbee2mqtt add-on",
