@@ -15,7 +15,6 @@
   ],
   "boot": "auto",
   "ingress": true,
-  "ingress_port": 8080,
   "panel_icon": "mdi:zigbee",
   "map": [
     "ssl",
@@ -56,9 +55,11 @@
     "blocklist": [],
     "passlist": [],
     "queue": {},
+    "frontend": {
+      "port": 8099
+    },
     "experimental": {
-      "new_api": true,
-      "frontend": true
+      "new_api": true
     },
     "socat": {
       "enabled": false,
@@ -153,8 +154,10 @@
     "experimental": {
       "transmit_power": "int?",
       "output": "str?",
-      "new_api": "bool?",
-      "frontend": "bool?"
+      "new_api": "bool?"
+    },
+    "frontend": {
+      "port": "int?"
     },
     "socat": {
       "enabled": "bool?",
