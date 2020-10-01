@@ -2,7 +2,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
-ENV ZIGBEE2MQTT_VERSION=1.15.0.1
+ENV ZIGBEE2MQTT_VERSION=1.15.0
 
 RUN apk add --update --no-cache \
     jq nodejs-npm socat \
