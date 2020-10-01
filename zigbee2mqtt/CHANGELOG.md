@@ -1,3 +1,7 @@
+## 1.15.0
+- Updated Zigbee2mqtt to version [`1.15.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.15.0)
+- Added support for a [built-in frontend](https://github.com/Koenkk/zigbee2mqtt/issues/4266) using `ingress`
+
 ## 1.14.4.2
 - Added readme for Edge version
 - Added logo on both Edge and Stable version

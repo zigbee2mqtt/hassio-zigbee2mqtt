@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.14.4.2",
+  "version": "1.15.0",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -14,6 +14,8 @@
     "i386"
   ],
   "boot": "auto",
+  "ingress": true,
+  "panel_icon": "mdi:zigbee",
   "map": [
     "share:rw",
     "config:rw"
@@ -52,7 +54,12 @@
     "blocklist": [],
     "passlist": [],
     "queue": {},
-    "experimental": {},
+    "frontend": {
+      "port": 8099
+    },
+    "experimental": {
+      "new_api": true
+    },
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
@@ -146,7 +153,11 @@
     },
     "experimental": {
       "transmit_power": "int?",
-      "output": "str?"
+      "output": "str?",
+      "new_api": "bool?"
+    },
+    "frontend": {
+      "port": "int?"
     },
     "socat": {
       "enabled": "bool?",
