@@ -4,6 +4,15 @@
 By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
 ### Enabling the built-in Frontend
+Make sure your add-on options have the right settings. If you already had experimental options, you might now automatically get `new_api` set properly on update.
+
+```yaml
+frontend:
+  port: 8099
+experimental:
+  new_api: true
+```
+
 Enable `ingress` to have the frontend available in your UI: **Supervisor → Dashboard → Zigbee2mqtt → Show in sidebar**. You can find more details about the feature on the [Zigbee2mqtt documentation](https://www.zigbee2mqtt.io/information/frontend.html).
 
 # Configuration
