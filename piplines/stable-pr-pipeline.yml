@@ -1,0 +1,15 @@
+trigger:
+  branches:
+    include:
+    - dev
+pr:
+  - dev
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: common-job-template.yml
+  parameters:
+    addon: 'zigbee2mqtt'
+    extra_param: '--no-latest --test'

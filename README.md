@@ -1,14 +1,6 @@
 <div align="center">
-<img src="images/logo.png">
+<img src="zigbee2mqtt/logo.png">
 <h1>Home Assistant Add-on: Zigbee2mqtt</h1>
-<div style="display: flex; justify-content: center;">
-  <a style="margin-right: 0.5rem;" href="https://dev.azure.com/danielwelch2101/hassio-zigbee2mqtt/_build?definitionId=1&_a=summary">
-    <img src="https://img.shields.io/azure-devops/build/danielwelch2101/fdcd83e4-a36e-473f-80f8-6a1bd49fdb3a/1?label=build&logo=azure-pipelines&style=flat-square">
-  </a>
-  <a style="margin-left: 0.5rem;" href="https://cloud.docker.com/u/dwelch2101/repository/docker/dwelch2101/zigbee2mqtt-armhf">
-    <img src="https://img.shields.io/docker/pulls/dwelch2101/zigbee2mqtt-armhf.svg?style=flat-square&logo=docker">
-  </a>
-</div>
 <br>
 <p>Run <a href="https://www.zigbee2mqtt.io">Zigbee2mqtt</a> as a Home Assistant Add-on</p>
 </div>
@@ -35,15 +27,23 @@ Any changes on the addon that do not require a new version of [zigbee2mqtt](http
 
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 
+## Enabling zigbee debug mode
+If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2mqtt startup. To do this you must set `zigbee_herdsman_debug` to `true`.
+
+```yaml
+zigbee_herdsman_debug: true
+```
+
+
 ## Adding Support for New Devices
 If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) you will need to use one of the methods below to allow you to change the required files.
 
 ### Using devices.js override in add-on
 
-Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration. 
+Set the optional, top-level `zigbee_devices` option to `true` in your configuration.
 
 ```
-zigbee_shepherd_devices: true
+zigbee_devices: true
 ```
 
 When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.

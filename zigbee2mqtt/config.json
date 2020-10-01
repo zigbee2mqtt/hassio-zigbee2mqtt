@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.15.0",
+  "version": "1.15.0.1",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -71,8 +71,7 @@
     }
   },
   "schema": {
-    "zigbee_shepherd_devices": "bool?",
-    "zigbee_shepherd_debug": "bool?",
+    "zigbee_devices": "bool?",
     "zigbee_herdsman_debug": "bool?",
     "external_converters": [
       "str?"

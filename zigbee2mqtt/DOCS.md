@@ -1,9 +1,7 @@
-# Home Assistant Add-on: Zigbee2mqtt
-
 # Pairing
 By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
-### Enabling the built-in Frontend
+# Enabling the built-in Frontend
 Make sure your add-on options have the right settings. If you already had experimental options, you might now automatically get `new_api` set properly on update.
 
 ```yaml
@@ -22,6 +20,11 @@ The configuration closely mirrors that of `zigbee2mqtt` itself, with a couple of
 3. If you are using groups or device-specific settings, you must use seperate files, and provide the paths to these files in their corresponding config options as described by the zigbee2mqtt docs. This is due to a limitation Home Assistant places on nested config levels.
 
 See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/configuration.html) for a complete description of available options. If you're not sure if a new option is supported, check to see if it is included in this add-on's default configuration. If not, you can open an issue to add support for it.
+
+# Configuration backup
+
+The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
+The backup of your configuration is created on add-on startup if no previous backup was found. 
 
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
@@ -58,15 +61,3 @@ You can configure the socat module within the socat section using the following 
 - `restartdelay` delay (in seconds) to wait before a socat process is restarted when it has terminated (optional)
 
 **NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
-
-## :warning: Breaking Changes in version 1.7.0+
-
-Once upgraded from 1.6.0 to 1.7.0 you cannot switch back to 1.6.0 when not having a backup of the database.db!
-
-## :warning: Breaking Changes in version 1.5.1
-
-Version 1.5.1 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation below.
-
-### Restoring Configuration after upgrading to 1.5.1
-
-By default, when upgrading to v1.5.1, the add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.

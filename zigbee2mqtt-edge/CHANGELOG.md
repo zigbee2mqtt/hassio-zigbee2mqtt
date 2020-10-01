@@ -1,2 +1,24 @@
 ## Changes
+- ⚠️ **Breaking changes**
+  - `zigbee_shepherd_debug` removed
+  - `zigbee_shepherd_devices` renamed to `zigbee_devices`
+- Heavy `socat.sh` refactoring - ⚠️ Potential breaking changes
+- Removed `azure-pipelines.yml` in favor of new dynamc ones
+- Moved `run.sh` and `socat.sh` in common area to reduce duplication
+- Migrated majority of functionality in `run.sh` and `socat.sh` to use `bashio`
+- Improved `run.sh` messages on startup
+- Removed some obsolete debug messages for Edge as we're no longer manipulating the options that heavily
+- Removed duplicate `icon` and `logo`
+- Moved all pipelines in `piplines/` with proper names
+- Pipelines now reuse a common template to reduce code duplication
+- Pipelines now auto-generate `arch` specific jobs based on supported arch in `config.json`
+- Restricted Edge pipeline triggers to specific files - Manual trigger still works like previous setup
+- Pipeline triggers migrated to `dev` branch
+- Updated Edge and Stable dockerfiles to be identical with the exception of Zigbee2mqtt download source and version
+- Fixed `Build Status` and `Docker Pulls` to point to correct location and use markdown code
+- Add-on images are now taken from Docker Hub `zigbee2mqtt` organisation
+- Added docs for Pairing using the integrated frontend
+- Changed mqtt.server to be optional
+- Added support for MQTT auto discovery (server, user, password) if missing from config
+- Changed defaults to remove MQTT server, user and password
 - Tracks latest Zigbee2mqtt [`dev branch`](https://github.com/Koenkk/zigbee2mqtt/commits/dev)
