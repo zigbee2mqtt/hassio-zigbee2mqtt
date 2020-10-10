@@ -55,5 +55,5 @@ if bashio::config.true 'socat.enabled'; then
         exec sleep $SOCAT_RESTDELAY
     done
 else
-    bashio::log.info "Socat not required, skipping"
+    bashio::exit.nok "Socat not required, skipping"
 fi
