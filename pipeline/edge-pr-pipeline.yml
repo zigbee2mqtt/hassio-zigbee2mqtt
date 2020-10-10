@@ -1,5 +1,5 @@
 trigger:
-  - master
+  - dev
 pr:
   autoCancel: false
   branches:
