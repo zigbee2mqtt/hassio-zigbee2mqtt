@@ -1,4 +1,5 @@
 ## Changes
+- Testing changelog update trigger PR builds
 - Removed some obsolete debug messages for Edge as we're no longer manipulating the options that heavily
 - Removed duplicate `icon` and `logo`
 - Added new pipelines in `pipeline/` with proper names
