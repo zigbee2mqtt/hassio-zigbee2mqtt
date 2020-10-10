@@ -1,9 +1,14 @@
 trigger:
   branches:
     include:
-      - dev
+    - dev
 pr:
-  - dev
+  autoCancel: false
+  branches:
+    include:
+    - dev
+    exclude:
+    - master
 
 pool:
   vmImage: 'ubuntu-latest'
