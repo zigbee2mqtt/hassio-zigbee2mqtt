@@ -2,19 +2,19 @@ trigger:
   batch: true
   branches:
     include:
-    - dev
+      - dev
   paths:
     include:
-    - zigbee2mqtt-edge/config.json
-    - zigbee2mqtt-edge/Dockerfile
-    - common/run.sh
-    - common/socat.sh
+      - zigbee2mqtt-edge/config.json
+      - zigbee2mqtt-edge/Dockerfile
+      - common/run.sh
+      - common/socat.sh
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 extends:
   template: common-job-template.yml
   parameters:
-    addon: 'zigbee2mqtt-edge'
-    extra_param: '--no-cache'
+    addon: "zigbee2mqtt-edge"
+    extra_param: "--no-cache"

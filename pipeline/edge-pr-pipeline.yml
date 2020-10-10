@@ -1,8 +1,7 @@
 trigger:
   branches:
     include:
-    - dev
-
+      - dev
 pr:
   - dev
 

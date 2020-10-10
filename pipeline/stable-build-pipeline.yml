@@ -1,7 +1,8 @@
 trigger:
+  batch: true
   branches:
     include:
-    - refs/tags/*
+      - refs/tags/*
 pool:
   vmImage: 'ubuntu-latest'
 
