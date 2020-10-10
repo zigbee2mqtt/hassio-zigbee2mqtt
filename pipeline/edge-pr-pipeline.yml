@@ -1,7 +1,3 @@
-trigger:
-  branches:
-    include:
-    - dev
 pr:
   autoCancel: false
   branches:
