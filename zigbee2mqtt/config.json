@@ -4,7 +4,7 @@
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
-  "url": "https://github.com/Zigbee2mqtt/hassio-zigbee2mqtt",
+  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
   "startup": "application",
   "services": [
     "mqtt:need"
