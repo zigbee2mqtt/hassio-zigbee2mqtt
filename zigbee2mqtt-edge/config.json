@@ -2,10 +2,13 @@
   "name": "Zigbee2mqtt Edge",
   "version": "test",
   "slug": "zigbee2mqtt_edge",
-  "description": "Development build of the zigbee2mqtt add-on",
+  "description": "Development build of the Zigbee2mqtt add-on",
   "auto_uart": true,
-  "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
+  "url": "https://github.com/Zigbee2mqtt/hassio-zigbee2mqtt",
   "startup": "application",
+  "services": [
+    "mqtt:need"
+  ],
   "arch": [
     "aarch64",
     "amd64",
@@ -17,7 +20,6 @@
   "ingress": true,
   "panel_icon": "mdi:zigbee",
   "map": [
-    "ssl",
     "share:rw",
     "config:rw"
   ],
@@ -35,10 +37,7 @@
     "homeassistant": true,
     "permit_join": false,
     "mqtt": {
-      "base_topic": "zigbee2mqtt",
-      "server": "mqtt://core-mosquitto",
-      "user": "my_user",
-      "password": "my_password"
+      "base_topic": "zigbee2mqtt"
     },
     "serial": {
       "port": "/dev/ttyACM0"
@@ -72,7 +71,7 @@
     }
   },
   "schema": {
-    "zigbee_shepherd_devices": "bool?",
+    "zigbee_devices": "bool?",
     "zigbee_herdsman_debug": "bool?",
     "external_converters": [
       "str?"
@@ -84,7 +83,7 @@
     "permit_join": "bool",
     "mqtt": {
       "base_topic": "str",
-      "server": "str",
+      "server": "str?",
       "ca": "str?",
       "key": "str?",
       "cert": "str?",
@@ -169,5 +168,5 @@
       "log": "bool?"
     }
   },
-  "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
+  "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
 }

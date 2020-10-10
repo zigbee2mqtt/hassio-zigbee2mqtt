@@ -1,3 +1,16 @@
+## 1.15.0.1
+- ⚠️ **Breaking changes**
+  - `zigbee_shepherd_debug` removed
+  - `zigbee_shepherd_devices` renamed to `zigbee_devices`
+- Heavy `socat.sh` refactoring - ⚠️ Potential breaking changes
+- Migrated majority of functionality in `run.sh` and `socat.sh` to use `bashio`
+- Improved `run.sh` messages on startup
+- Updated Edge and Stable dockerfiles to be identical with the exception of Zigbee2mqtt download source and version
+- Add-on images are now taken from Docker Hub `zigbee2mqtt` organisation
+- Changed `mqtt.server` to be optional
+- Added support for MQTT auto discovery (server, user, password) if missing from config
+- Changed defaults to remove MQTT server, user and password
+
 ## 1.15.0
 - Updated Zigbee2mqtt to version [`1.15.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.15.0)
 - Added support for a [built-in frontend](https://github.com/Koenkk/zigbee2mqtt/issues/4266) using `ingress`. See Documentation tab for more details.
