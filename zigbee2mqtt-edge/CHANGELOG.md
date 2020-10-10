@@ -1,4 +1,5 @@
 ## Changes
+- Removed pm2 in favor of using watchdog
 - Unified Dockerfile into a single common file
 - Moved run.sh and socat.sh to new s6 approach using rootfs
 - Version control now it's only in config.json
