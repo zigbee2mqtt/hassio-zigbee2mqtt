@@ -27,8 +27,8 @@ jobs:
       command: 'login'
     displayName: Login to docker hub
   - script: |
-      cp common/run.sh ${{ parameters.addon }}/
-      cp common/socat.sh ${{ parameters.addon }}/
+      cp -R common/rootfs ${{ parameters.addon }}/
+      cp common/Dockerfile ${{ parameters.addon }}/
       docker run --rm --privileged \
           -v $DOCKER_CONFIG:/root/.docker \
           -v /run/docker.sock:/run/docker.sock:rw \

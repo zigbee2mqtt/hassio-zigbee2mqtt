@@ -5,10 +5,7 @@ trigger:
     - dev
   paths:
     include:
-    - zigbee2mqtt-edge/config.json
-    - zigbee2mqtt-edge/Dockerfile
-    - common/run.sh
-    - common/socat.sh
+    - common/*
 pr: none
 pool:
   vmImage: "ubuntu-latest"

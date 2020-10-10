@@ -1,6 +1,6 @@
 # Home Assistant Add-on: Zigbee2mqtt Edge
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/dwelch2101/zigbee2mqtt-edge-amd64.svg?style=flat-square&logo=docker)](https://cloud.docker.com/u/dwelch2101/repository/docker/dwelch2101/zigbee2mqtt-edge-amd64)
+[![Docker Pulls](https://img.shields.io/docker/pulls/zigbee2mqtt/zigbee2mqtt-edge-amd64.svg?style=flat-square&logo=docker)](https://cloud.docker.com/u/zigbee2mqtt/repository/docker/dwelch2101/zigbee2mqtt-edge-amd64)
 
 ⚠️ This is the Edge version ⚠️
 

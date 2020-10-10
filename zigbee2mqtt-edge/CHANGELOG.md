@@ -1,4 +1,10 @@
 ## Changes
+- Removed pm2 in favor of using watchdog
+- Unified Dockerfile into a single common file
+- Moved run.sh and socat.sh to new s6 approach using rootfs
+- Version control now it's only in config.json
+- Stable version migrated to X.X.X-A for easier Dockerfile management
+- Added local_build.sh script
 - Removed some obsolete debug messages for Edge as we're no longer manipulating the options that heavily
 - Removed duplicate `icon` and `logo`
 - Added new pipelines in `pipeline/` with proper names
