@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bashio
+
+# Use share directory for configuration data
+export ZIGBEE2MQTT_DATA="$DATA_PATH" 
+
+cd /app/zigbee2mqtt || bashio::exit.nok "Could not change directory to Zigbee2mqtt"
+
+bashio::log.info "Handing over control to Zigbee2mqtt Core ..."
+
+exec npm start

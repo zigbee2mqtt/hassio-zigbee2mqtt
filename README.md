@@ -23,7 +23,7 @@ All notable changes to this project will be documented in the [CHANGELOG.md](zig
 
 Version for releases is based on [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) format: `X.Y.Z`.
 
-Any changes on the addon that do not require a new version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) will use the format: `X.Y.Z.A` where `X.Y.Z` is fixed on the zigbee2mqtt release version and `A` is related to the addon.
+Any changes on the addon that do not require a new version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the zigbee2mqtt release version and `A` is related to the addon.
 
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 

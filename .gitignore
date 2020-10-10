@@ -107,4 +107,6 @@ venv.bak/
 .mypy_cache/
 
 secrets.json
- 
+
+zigbee2mqtt/rootfs
+zigbee2mqtt-edge/rootfs
