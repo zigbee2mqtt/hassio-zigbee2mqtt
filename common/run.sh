@@ -80,7 +80,7 @@ if bashio::config.true 'socat.enabled'; then
     bashio::log.info "Preparing socat"
     /app/socat.sh
 else
-    bashio::log.info "Socat not required, skipping"
+    bashio::log.info "Socat not required, skipping ..."
 fi
 
 bashio::log.info "Handing over control to Zigbee2mqtt Core ..."
