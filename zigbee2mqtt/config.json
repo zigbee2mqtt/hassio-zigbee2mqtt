@@ -160,8 +160,6 @@
       "enabled": "bool?",
       "master": "str?",
       "slave": "str?",
-      "restartdelay": "float(0,)?",
-      "initialdelay": "float(0,)?",
       "options": "str?",
       "log": "bool?"
     }
