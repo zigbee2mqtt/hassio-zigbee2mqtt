@@ -26,6 +26,46 @@ See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/
 The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
+# Enabling zigbee debug mode
+If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2mqtt startup. To do this you must set `zigbee_herdsman_debug` to `true`.
+
+```yaml
+zigbee_herdsman_debug: true
+```
+
+
+# Adding Support for New Devices
+If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) you will need to use one of the methods below to allow you to change the required files.
+
+### Using devices.js override in add-on
+
+Set the optional, top-level `zigbee_devices` option to `true` in your configuration.
+
+```yaml
+zigbee_devices: true
+```
+
+When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
+
+:warning: If you want to make sure that the version of `devices.js` fits your add-on, make sure to follow the steps below:
+
+1. Identify your `stable` zigbee2mqtt version from the add-on (ex. `1.14.3`)
+2. Navigate to https://github.com/Koenkk/zigbee2mqtt/tags and find tag (ex. `1.14.3`)
+3. Click on the commit hash (ex. `f8066e8`) and then `browse files` button
+4. Find `package.json` and identify `zigbee-herdsman-converters` version (ex. `12.0.161`)
+5. Navigate to https://github.com/Koenkk/zigbee-herdsman-converters/tags and find tag (ex. `12.0.161`)
+6. Click on the commit hash (ex. `3a5abc7`) and then `browse files` button
+7. Find `devices.js` file and download it (use `raw` version)
+
+### Using external_converters
+
+Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
+
+If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
+
+- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
+- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
+
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
@@ -57,7 +97,5 @@ You can configure the socat module within the socat section using the following 
 - `slave` slave or second address used in socat command line (mandatory)
 - `options` extra options added to the socat command line (optional)
 - `log` true/false if to log the socat stdout/stderr to data_path/socat.log (default: false)
-- `initialdelay` delay (in seconds) to wait when the plugin is started before zigbee2mqtt is started (optional)
-- `restartdelay` delay (in seconds) to wait before a socat process is restarted when it has terminated (optional)
 
 **NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
