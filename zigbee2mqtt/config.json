@@ -64,8 +64,6 @@
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
-      "restartdelay": 1,
-      "initialdelay": 1,
       "options": "-d -d",
       "log": false
     }

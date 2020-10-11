@@ -9,7 +9,9 @@
 - Add-on images are now taken from Docker Hub `zigbee2mqtt` organisation
 - Changed `mqtt.server` to be optional
 - Added support for MQTT auto discovery (server, user, password) if missing from config
-- Changed defaults to remove MQTT server, user and password- Removed pm2 in favor of using watchdog
+- Changed defaults to remove MQTT server, user and password
+- Removed pm2 in favor of using s6 supervisor (you can also add watchdog now)
+- Removed `SOCAT_RESTDELAY` and `SOCAT_INITDELAY` because s6 manages now the service
 - Unified Dockerfile into a single common file
 - Moved run.sh and socat.sh to new s6 approach using rootfs
 - Version control now it's only in config.json

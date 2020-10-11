@@ -27,13 +27,13 @@ else
     fi
 fi
 
-bashio::log.info "Checking if $DATA_PATH exists"
+bashio::log.debug "Checking if $DATA_PATH exists"
 if ! bashio::fs.directory_exists "$DATA_PATH"; then
-    bashio::log.warning "Data path not found"
-    bashio::log.info "Creating $DATA_PATH"
+    bashio::log.warning "Data path $DATA_PATH not found"
+    bashio::log.debug "Creating $DATA_PATH"
     mkdir -p "$DATA_PATH" || bashio::exit.nok "Could not create $DATA_PATH"
 else
-    bashio::log.info "Check if there was a previous configuration"
+    bashio::log.debug "Check if there was a previous configuration"
     if bashio::fs.file_exists "$DATA_PATH/configuration.yaml"; then
         bashio::log.info "Previous configuration found, checking backup"
         if ! bashio::fs.file_exists "$DATA_PATH/configuration.yaml.bk"; then
@@ -47,9 +47,8 @@ else
     fi
 fi
 
-bashio::log.info "Check if any custom devices.js manipulation required"
 if bashio::config.true 'zigbee_devices'; then
-    bashio::log.info "Searching for custom devices.js file in zigbee2mqtt data path..."
+    bashio::log.debug "Searching for custom devices.js file in zigbee2mqtt data path..."
     if bashio::fs.file_exists "$DATA_PATH/devices.js"; then
         bashio::log.info "File devices.js found, copying to ./node_modules/zigbee-herdsman-converters/"
         cp -f "$DATA_PATH"/devices.js ./node_modules/zigbee-herdsman-converters/devices.js
@@ -57,12 +56,12 @@ if bashio::config.true 'zigbee_devices'; then
         bashio::log.warning "No devices.js file found in data path, starting with default devices.js"
     fi
 else
-    bashio::log.info "No devices.js file manipulation required"
+    bashio::log.debug "No devices.js file manipulation required"
 fi
 
 if bashio::config.true 'zigbee_herdsman_debug'; then
     bashio::log.info "Zigbee Herdsman debug logging enabled"
-    DEBUG="zigbee-herdsman:*"
+    export DEBUG="zigbee-herdsman:*"
 fi
 
 CONFIG_PATH=/data/options.json
@@ -77,10 +76,8 @@ cat "$CONFIG_PATH" | jq 'del(.data_path, .zigbee_devices, .socat)' \
     > $DATA_PATH/configuration.yaml
 # Use share directory for configuration data
 export ZIGBEE2MQTT_DATA="$DATA_PATH" 
-export DEBUG="$DEBUG"
 
-cd /app || bashio::exit.nok "Could not change directory to Zigbee2mqtt"
-
+cd /app || bashio::exit.nok "Could not change directory to /app"
 bashio::log.info "Handing over control to Zigbee2mqtt Core ..."
 
 exec npm start
