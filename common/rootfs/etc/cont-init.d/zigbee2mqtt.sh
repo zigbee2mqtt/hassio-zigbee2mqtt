@@ -47,7 +47,7 @@ else
     fi
 fi
 
-if bashio::config.true 'zigbee_devices'; then
+if bashio::config.true 'zigbee_shepherd_devices'; then
     bashio::log.debug "Searching for custom devices.js file in zigbee2mqtt data path..."
     if bashio::fs.file_exists "$DATA_PATH/devices.js"; then
         bashio::log.info "File devices.js found, copying to ./node_modules/zigbee-herdsman-converters/"
@@ -61,7 +61,7 @@ fi
 
 CONFIG_PATH=/data/options.json
 bashio::log.info "Adjusting Zigbee2mqtt core yaml config with add-on quirks ..."
-cat "$CONFIG_PATH" | jq 'del(.data_path, .zigbee_devices, .socat)' \
+cat "$CONFIG_PATH" | jq 'del(.data_path, .zigbee_shepherd_devices, .socat)' \
     | jq 'if .advanced.ext_pan_id_string then .advanced.ext_pan_id = (.advanced.ext_pan_id_string | (split(",")|map(tonumber))) | del(.advanced.ext_pan_id_string) else . end' \
     | jq 'if .advanced.network_key_string then .advanced.network_key = (.advanced.network_key_string | (split(",")|map(tonumber))) | del(.advanced.network_key_string) else . end' \
     | jq 'if .device_options_string then .device_options = (.device_options_string|fromjson) | del(.device_options_string) else . end' \

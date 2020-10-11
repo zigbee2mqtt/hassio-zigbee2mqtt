@@ -7,6 +7,6 @@
 - Pipelines now auto-generate `arch` specific jobs based on supported arch in `config.json`
 - Restricted Edge pipeline triggers to specific files - Manual trigger still works like previous setup
 - Pipeline triggers migrated to `dev` branch
-- Updated Edge and Stable dockerfiles to be identical with the exception of Zigbee2mqtt download source and version
+- Updated Edge and Stable dockerfiles combined in `/common`
 - Fixed `Docker Pulls` to point to correct location and use markdown code
 - Tracks latest Zigbee2mqtt [`dev branch`](https://github.com/Koenkk/zigbee2mqtt/commits/dev)
