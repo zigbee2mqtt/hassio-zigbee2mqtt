@@ -7,7 +7,6 @@ MQTT_PASSWORD=$(bashio::config 'mqtt.password')
 DEBUG=""
 
 if ! bashio::services.available "mqtt"; then
-    touch /etc/services.d/zigbee2mqtt/down
     bashio::exit.nok "No internal MQTT service found. Please install Mosquitto broker"
 else
     bashio::log.info "MQTT service found, fetching server detail ..."
@@ -18,13 +17,13 @@ else
             MQTT_PREFIX="mqtts://"
         fi
         MQTT_SERVER="$MQTT_PREFIX$(bashio::services mqtt "host"):$(bashio::services mqtt "port")"
-        bashio::log.debug "Configuring '$MQTT_SERVER' mqtt server"
+        bashio::log.info "Configuring '$MQTT_SERVER' mqtt server"
     fi
     if ! bashio::config.exists 'mqtt.user'; then
         bashio::log.info "MQTT credentials not configured, trying to auto-discovering ..."
         MQTT_USER=$(bashio::services mqtt "username")
         MQTT_PASSWORD=$(bashio::services mqtt "password")
-        bashio::log.debug "Configuring'$MQTT_USER' mqtt user"
+        bashio::log.info "Configuring'$MQTT_USER' mqtt user"
     fi
 fi
 

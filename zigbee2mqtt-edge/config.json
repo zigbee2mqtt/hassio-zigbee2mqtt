@@ -30,7 +30,7 @@
     "8485/tcp": "Socat tcp-listen port"
   },
   "options": {
-    "data_path": "/share/zigbee2mqtt",
+    "data_path": "/config/zigbee2mqtt",
     "external_converters": [],
     "devices": "devices.yaml",
     "groups": "groups.yaml",

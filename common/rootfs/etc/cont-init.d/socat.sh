@@ -6,11 +6,9 @@ bashio::log.debug "Check if socat is required"
 if bashio::config.true 'socat.enabled'; then
     # Validate input
     if [[ -z "$SOCAT_MASTER" ]]; then
-    touch /etc/services.d/socat/down
     bashio::exit.nok "Socat is enabled but not started because no master address specified"
     fi
     if [[ -z "$SOCAT_SLAVE" ]]; then
-    touch /etc/services.d/socat/down
     bashio::exit.nok "Socat is enabled but not started because no slave address specified"
     fi
 else
