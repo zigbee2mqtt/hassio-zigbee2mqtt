@@ -1,5 +1,8 @@
 trigger:
-  - dev
+  batch: true
+  branches:
+    include:
+    - dev
 pr:
   branches:
     include:
