@@ -39,10 +39,10 @@ If you are interested in [adding support for new devices to zigbee2mqtt](https:/
 
 ### Using devices.js override in add-on
 
-Set the optional, top-level `zigbee_devices` option to `true` in your configuration.
+Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration.
 
 ```yaml
-zigbee_devices: true
+zigbee_shepherd_devices: true
 ```
 
 When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
