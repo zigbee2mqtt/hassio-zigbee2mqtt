@@ -1,3 +1,6 @@
+## 1.15.0-3
+- Fixed `external_converters` not working
+
 ## 1.15.0-2
 - ⚠️ **Breaking changes**
   - `zigbee_shepherd_debug` removed
@@ -12,9 +15,6 @@
 - Default `data_path` changed from `/share/` to `/config`
 - Changed default logging level to `warn`
 - Changed version format to `X.X.X-A`
-
-## 1.15.0.1
-- Skipped
 
 ## 1.15.0
 - Updated Zigbee2mqtt to version [`1.15.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.15.0)
