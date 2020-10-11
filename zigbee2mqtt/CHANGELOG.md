@@ -1,4 +1,4 @@
-## 1.15.0-1
+## 1.15.0-2
 - ⚠️ **Breaking changes**
   - `zigbee_shepherd_debug` removed
 - Heavy `socat.sh` refactoring - ⚠️ Potential breaking changes
@@ -16,6 +16,8 @@
 - Version control now it's only in config.json
 - Stable version migrated to X.X.X-A for easier Dockerfile management
 
+## 1.15.0.1
+- Skipped
 
 ## 1.15.0
 - Updated Zigbee2mqtt to version [`1.15.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.15.0)
