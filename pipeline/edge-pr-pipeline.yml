@@ -1,7 +1,9 @@
 trigger:
-  - dev
+  batch: true
+  branches:
+    include:
+    - dev
 pr:
-  autoCancel: false
   branches:
     include:
     - dev
