@@ -1,7 +1,6 @@
 trigger:
   - dev
 pr:
-  autoCancel: false
   branches:
     include:
     - dev
