@@ -9,6 +9,8 @@
 - Unified Dockerfile into a single common file
 - ⚠️ Changed `run.sh` and `socat.sh` to use [s6-overlay](https://github.com/just-containers/s6-overlay)
 - Version management now only in `config.json`
+- Default `data_path` changed from `/share/` to `/config`
+- Changed default logging level to `warn`
 - Changed version format to `X.X.X-A`
 
 ## 1.15.0.1

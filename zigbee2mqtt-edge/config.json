@@ -69,7 +69,7 @@
     }
   },
   "schema": {
-    "zigbee_devices": "bool?",
+    "zigbee_shepherd_devices": "bool?",
     "zigbee_herdsman_debug": "bool?",
     "external_converters": [
       "str?"
