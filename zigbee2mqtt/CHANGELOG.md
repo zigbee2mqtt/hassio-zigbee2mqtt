@@ -1,3 +1,6 @@
+## 1.16.0
+- Updated Zigbee2mqtt to version [`1.16.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.0)
+
 ## 1.15.0-3
 - Fixed `external_converters` not working
 

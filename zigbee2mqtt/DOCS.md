@@ -35,9 +35,18 @@ zigbee_herdsman_debug: true
 
 
 # Adding Support for New Devices
-If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) you will need to use one of the methods below to allow you to change the required files.
+If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) see methods below
 
-### Using devices.js override in add-on
+### Using external_converters
+
+Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
+
+If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
+
+- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
+- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
+
+### [Not recommended] Using devices.js override in add-on
 
 Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration.
 
@@ -57,19 +66,10 @@ When set, the add-on will scan your `data_path` for a `devices.js` file, and wil
 6. Click on the commit hash (ex. `3a5abc7`) and then `browse files` button
 7. Find `devices.js` file and download it (use `raw` version)
 
-### Using external_converters
-
-Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
-
-If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
-
-- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
-- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
-
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
-- Please see this add-on's [documentation on GitHub](https://github.com/danielwelch/hassio-zigbee2mqtt#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
+- Please see this add-on's [documentation on GitHub](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/dev/zigbee2mqtt/DOCS.md#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
 
 # Additional Configuration Options
 - `network_key_string`  
