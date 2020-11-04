@@ -1,7 +1,11 @@
 # Home Assistant Add-on: Zigbee2mqtt
 
+## Prerequisites
+
+This add-on currently requires to have an [MQTT broker](https://www.home-assistant.io/docs/mqtt/broker/) installed, whether it is Mosquitto or the default Home Assistant MQTT broker. Please make sure to install and set up that add-on before continuing.
+
 # Pairing
-By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
+By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this **after** the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
 ### Enabling the built-in Frontend
 Make sure your add-on options have the right settings. If you already had experimental options, you might now automatically get `new_api` set properly on update.
@@ -17,9 +21,8 @@ Enable `ingress` to have the frontend available in your UI: **Supervisor → Das
 
 # Configuration
 The configuration closely mirrors that of `zigbee2mqtt` itself, with a couple of key differences:
-1. Home Assistant requires add-on configuration in JSON format, rather than YAML. If you don't understand the difference, you can use a YAML-to-JSON converter.
-2. An additional top-level `data-path` option is required. Set this to the path where you would like the add-on to persist data. Defaults to `/share/zigbee2mqtt`. Note that both `config` and `share` directories are mapped into the container (read-write) and are available to you.
-3. If you are using groups or device-specific settings, you must use seperate files, and provide the paths to these files in their corresponding config options as described by the zigbee2mqtt docs. This is due to a limitation Home Assistant places on nested config levels.
+1. An additional top-level `data-path` option is required. Set this to the path where you would like the add-on to persist data. Defaults to `/share/zigbee2mqtt`. Note that both `config` and `share` directories are mapped into the container (read-write) and are available to you.
+2. If you are using groups or device-specific settings, you must use seperate files, and provide the paths to these files in their corresponding config options as described by the zigbee2mqtt docs. This is due to a limitation Home Assistant places on nested config levels.
 
 See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/configuration.html) for a complete description of available options. If you're not sure if a new option is supported, check to see if it is included in this add-on's default configuration. If not, you can open an issue to add support for it.
 
