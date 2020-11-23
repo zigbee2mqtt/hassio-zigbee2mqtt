@@ -1,3 +1,6 @@
+## 1.16.1-1
+- Allow add-on to start with other mqtt servers not just built in
+
 ## 1.16.1
 - Updated Zigbee2mqtt to version [`1.16.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.1)
 
