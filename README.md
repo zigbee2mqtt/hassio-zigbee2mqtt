@@ -34,5 +34,6 @@ Feel free to create a PR for fixes and enhancements.
 - [danielwelch](https://github.com/danielwelch)
 - [ciotlosm](https://github.com/ciotlosm)
 - [Koenkk](https://github.com/Koenkk) for [zigbee2mqtt]
+
 [logo]: zigbee2mqtt/logo.png "Zigbee2mqtt"
 [zigbee2mqtt]: https://www.zigbee2mqtt.io
