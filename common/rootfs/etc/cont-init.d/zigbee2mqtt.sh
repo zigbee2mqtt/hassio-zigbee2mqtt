@@ -4,10 +4,10 @@ MQTT_SERVER=$(bashio::config 'mqtt.server')
 MQTT_USER=$(bashio::config 'mqtt.user')
 MQTT_PASSWORD=$(bashio::config 'mqtt.password')
 
-if ! bashio::services.available "mqtt"; then
-    bashio::exit.nok "No internal MQTT service found. Please install Mosquitto broker"
+if ! bashio::services.available "mqtt" && ! bashio::config.exists 'mqtt.server'; then
+    bashio::exit.nok "No internal MQTT service found and no MQTT server defined. Please install Mosquitto broker or specify your own."
 else
-    bashio::log.info "MQTT service found, fetching server detail ..."
+    bashio::log.info "MQTT available, fetching server detail ..."
     if ! bashio::config.exists 'mqtt.server'; then
         bashio::log.info "MQTT server settings not configured, trying to auto-discovering ..."
         MQTT_PREFIX="mqtt://"

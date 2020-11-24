@@ -1,12 +1,8 @@
-<div align="center">
-<img src="zigbee2mqtt/logo.png">
-<h1>Home Assistant Add-on: Zigbee2mqtt</h1>
-<br>
-<p>Run <a href="https://www.zigbee2mqtt.io">Zigbee2mqtt</a> as a Home Assistant Add-on</p>
-</div>
+![alt text][logo]
+# Home Assistant Add-on: Zigbee2mqtt
+Run [Zigbee2mqtt] as a Home Assistant Add-on
 
 ## Installation
-
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
 
     https://github.com/zigbee2mqtt/hassio-zigbee2mqtt
@@ -25,7 +21,7 @@ All notable changes to this project will be documented in the [CHANGELOG.md](zig
 
 Version for releases is based on [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) format: `X.Y.Z`.
 
-Any changes on the addon that do not require a new version of [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt) will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the zigbee2mqtt release version and `A` is related to the addon.
+Any changes on the addon that do not require a new version of [zigbee2mqtt] will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the zigbee2mqtt release version and `A` is related to the addon.
 
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 
@@ -37,4 +33,7 @@ Feel free to create a PR for fixes and enhancements.
 # Credits
 - [danielwelch](https://github.com/danielwelch)
 - [ciotlosm](https://github.com/ciotlosm)
-- [Koenkk](https://github.com/Koenkk) for [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt)
+- [Koenkk](https://github.com/Koenkk) for [zigbee2mqtt]
+
+[logo]: zigbee2mqtt/logo.png "Zigbee2mqtt"
+[zigbee2mqtt]: https://www.zigbee2mqtt.io
