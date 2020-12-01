@@ -94,7 +94,8 @@
       "keepalive": "int?",
       "version": "int?",
       "reject_unauthorized": "bool?",
-      "include_device_information": "bool?"
+      "include_device_information": "bool?",
+      "force_disable_retain": "bool?"
     },
     "serial": {
       "port": "str",
@@ -157,6 +158,7 @@
       "new_api": "bool?"
     },
     "frontend": {
+      "host": "string?",
       "port": "int?"
     },
     "socat": {
