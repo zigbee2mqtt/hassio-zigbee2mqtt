@@ -30,6 +30,7 @@ See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
 - Please see this add-on's [documentation on GitHub](https://github.com/danielwelch/hassio-zigbee2mqtt#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
+- The 'devices' and 'groups' configuration options accept arrays of files since Zigbee2MQTT v1.16.2. In order to maintain backwards compatibility of configurations, the same functionality is achieved in this addon by the use of comma-separated strings.
 
 # Additional Configuration Options
 - `network_key_string`  
