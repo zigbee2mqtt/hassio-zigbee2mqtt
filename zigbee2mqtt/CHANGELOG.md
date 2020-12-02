@@ -1,3 +1,12 @@
+## 1.16.2
+- Updated Zigbee2mqtt to version [`1.16.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.2)
+- New configuration options
+    - `mqtt`
+        - `force_disable_retain`
+    - `frontend`
+        - `host`
+- `devices` and `groups` options now accept a comma-separated string of files
+
 ## 1.16.1
 - Updated Zigbee2mqtt to version [`1.16.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.1)
 
