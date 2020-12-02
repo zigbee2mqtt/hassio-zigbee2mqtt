@@ -60,6 +60,8 @@ fi
 CONFIG_PATH=/data/options.json
 bashio::log.info "Adjusting Zigbee2mqtt core yaml config with add-on quirks ..."
 cat "$CONFIG_PATH" | jq 'del(.data_path, .zigbee_shepherd_devices, .socat)' \
+    | jq 'if .devices then .devices = (.devices | split(",")|map(gsub("\\s+";"";"g"))) else . end' \
+    | jq 'if .groups then .groups = (.groups | split(",")|map(gsub("\\s+";"";"g"))) else . end' \
     | jq 'if .advanced.ext_pan_id_string then .advanced.ext_pan_id = (.advanced.ext_pan_id_string | (split(",")|map(tonumber))) | del(.advanced.ext_pan_id_string) else . end' \
     | jq 'if .advanced.network_key_string then .advanced.network_key = (.advanced.network_key_string | (split(",")|map(tonumber))) | del(.advanced.network_key_string) else . end' \
     | jq 'if .device_options_string then .device_options = (.device_options_string|fromjson) | del(.device_options_string) else . end' \
