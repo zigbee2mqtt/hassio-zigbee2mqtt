@@ -1,3 +1,6 @@
+## 1.16.2.1
+- Fixes new installations errors (#482 and #483)
+
 ## 1.16.2
 - Updated Zigbee2mqtt to version [`1.16.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.2)
 - New configuration options

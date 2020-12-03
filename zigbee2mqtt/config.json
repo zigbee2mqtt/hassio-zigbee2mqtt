@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.16.2",
+  "version": "1.16.2.1",
   "slug": "zigbee2mqtt",
   "description": "Zigbee to MQTT Bridge",
   "auto_uart": true,
@@ -55,6 +55,7 @@
     "passlist": [],
     "queue": {},
     "frontend": {
+      "host": "0.0.0.0",
       "port": 8099
     },
     "experimental": {
