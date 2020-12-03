@@ -1,0 +1,22 @@
+#!/usr/bin/with-contenv bashio
+DATA_PATH=$(bashio::config 'data_path')
+SOCAT_MASTER=$(bashio::config 'socat.master')
+SOCAT_SLAVE=$(bashio::config 'socat.slave')
+SOCAT_OPTIONS=$(bashio::config 'socat.options')
+
+# Socat start configuration
+bashio::log.blue "Socat startup parameters:"
+bashio::log.blue "Options:     $SOCAT_OPTIONS"
+bashio::log.blue "Master:      $SOCAT_MASTER"
+bashio::log.blue "Slave:       $SOCAT_SLAVE"
+
+bashio::log.info "Starting socat process ..."
+exec socat $SOCAT_OPTIONS $SOCAT_MASTER $SOCAT_SLAVE
+
+bashio::log.debug "Modifying process for logging if required"
+if bashio::config.true 'socat.log'; then
+    bashio::log.debug "Socat loggin enabled, setting file path to $DATA_PATH/socat.log"
+    exec &>"$DATA_PATH/socat.log" 2>&1
+else
+  bashio::log.debug "No logging required"
+fi

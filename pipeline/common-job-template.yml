@@ -1,0 +1,37 @@
+parameters:
+- name: addon
+  type: string
+  default: 'zigbee2mqtt-edge'
+- name: extra_param
+  type: string
+  default: '--no-cache'
+
+jobs:
+- job: generator
+  steps:
+  - bash: |
+      # Retrieve supported achitectures from config.json
+      ARCH="$(jq -r -c '.arch | map( { (.|tostring): { 'archvar': .} } ) | add' ./${{ parameters.addon }}/config.json)"
+      # Prepare matrix run for job to allow parallel architecture build
+      echo "##vso[task.setVariable variable=archList;isOutput=true]$ARCH"
+    name: mtrx
+    displayName: Generate arch jobs
+- job: build
+  dependsOn: generator
+  strategy:
+    matrix: $[ dependencies.generator.outputs['mtrx.archList'] ]
+  steps:
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'DockerHub'
+      command: 'login'
+    displayName: Login to docker hub
+  - script: |
+      cp -R common/rootfs ${{ parameters.addon }}/
+      cp common/Dockerfile ${{ parameters.addon }}/
+      docker run --rm --privileged \
+          -v $DOCKER_CONFIG:/root/.docker \
+          -v /run/docker.sock:/run/docker.sock:rw \
+          -v $(pwd)/${{ parameters.addon }}:/data homeassistant/amd64-builder --$(archvar) -t /data \
+          ${{ parameters.extra_param }}
+    displayName: Building $(archvar)

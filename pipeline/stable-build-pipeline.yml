@@ -1,0 +1,14 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - refs/tags/*
+pr: none
+pool:
+  vmImage: 'ubuntu-latest'
+
+extends:
+  template: common-job-template.yml
+  parameters:
+    addon: 'zigbee2mqtt'
+    extra_param: '--no-cache --docker-hub-check'

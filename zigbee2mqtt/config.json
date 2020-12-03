@@ -1,11 +1,14 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.16.2.2",
+  "version": "1.16.2",
   "slug": "zigbee2mqtt",
-  "description": "Zigbee to MQTT Bridge",
+  "description": "Zigbee2mqtt add-on",
   "auto_uart": true,
-  "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
+  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
   "startup": "application",
+  "services": [
+    "mqtt:need"
+  ],
   "arch": [
     "aarch64",
     "amd64",
@@ -27,23 +30,20 @@
     "8485/tcp": "Socat tcp-listen port"
   },
   "options": {
-    "data_path": "/share/zigbee2mqtt",
+    "data_path": "/config/zigbee2mqtt",
     "external_converters": [],
     "devices": "devices.yaml",
     "groups": "groups.yaml",
     "homeassistant": true,
     "permit_join": false,
     "mqtt": {
-      "base_topic": "zigbee2mqtt",
-      "server": "mqtt://core-mosquitto",
-      "user": "my_user",
-      "password": "my_password"
+      "base_topic": "zigbee2mqtt"
     },
     "serial": {
       "port": "/dev/ttyACM0"
     },
     "advanced": {
-      "log_level": "info",
+      "log_level": "warn",
       "pan_id": 6754,
       "channel": 11,
       "network_key": [1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 13],
@@ -64,15 +64,12 @@
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
-      "restartdelay": 1,
-      "initialdelay": 1,
       "options": "-d -d",
       "log": false
     }
   },
   "schema": {
     "zigbee_shepherd_devices": "bool?",
-    "zigbee_shepherd_debug": "bool?",
     "zigbee_herdsman_debug": "bool?",
     "external_converters": [
       "str?"
@@ -84,7 +81,7 @@
     "permit_join": "bool",
     "mqtt": {
       "base_topic": "str",
-      "server": "str",
+      "server": "str?",
       "ca": "str?",
       "key": "str?",
       "cert": "str?",
@@ -165,11 +162,9 @@
       "enabled": "bool?",
       "master": "str?",
       "slave": "str?",
-      "restartdelay": "float(0,)?",
-      "initialdelay": "float(0,)?",
       "options": "str?",
       "log": "bool?"
     }
   },
-  "image": "dwelch2101/zigbee2mqtt-{arch}"
+  "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
 }

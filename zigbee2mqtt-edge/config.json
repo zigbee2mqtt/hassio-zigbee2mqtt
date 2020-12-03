@@ -1,11 +1,14 @@
 {
   "name": "Zigbee2mqtt Edge",
-  "version": "test",
+  "version": "edge",
   "slug": "zigbee2mqtt_edge",
-  "description": "Development build of the zigbee2mqtt add-on",
+  "description": "Development build of the Zigbee2mqtt add-on",
   "auto_uart": true,
-  "url": "https://github.com/danielwelch/hassio-zigbee2mqtt",
+  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-edge",
   "startup": "application",
+  "services": [
+    "mqtt:need"
+  ],
   "arch": [
     "aarch64",
     "amd64",
@@ -17,7 +20,6 @@
   "ingress": true,
   "panel_icon": "mdi:zigbee",
   "map": [
-    "ssl",
     "share:rw",
     "config:rw"
   ],
@@ -28,17 +30,14 @@
     "8485/tcp": "Socat tcp-listen port"
   },
   "options": {
-    "data_path": "/share/zigbee2mqtt",
+    "data_path": "/config/zigbee2mqtt",
     "external_converters": [],
     "devices": "devices.yaml",
     "groups": "groups.yaml",
     "homeassistant": true,
     "permit_join": false,
     "mqtt": {
-      "base_topic": "zigbee2mqtt",
-      "server": "mqtt://core-mosquitto",
-      "user": "my_user",
-      "password": "my_password"
+      "base_topic": "zigbee2mqtt"
     },
     "serial": {
       "port": "/dev/ttyACM0"
@@ -65,8 +64,6 @@
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
-      "restartdelay": 1,
-      "initialdelay": 1,
       "options": "-d -d",
       "log": false
     }
@@ -84,7 +81,7 @@
     "permit_join": "bool",
     "mqtt": {
       "base_topic": "str",
-      "server": "str",
+      "server": "str?",
       "ca": "str?",
       "key": "str?",
       "cert": "str?",
@@ -165,11 +162,9 @@
       "enabled": "bool?",
       "master": "str?",
       "slave": "str?",
-      "restartdelay": "float(0,)?",
-      "initialdelay": "float(0,)?",
       "options": "str?",
       "log": "bool?"
     }
   },
-  "image": "dwelch2101/zigbee2mqtt-edge-{arch}"
+  "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
 }

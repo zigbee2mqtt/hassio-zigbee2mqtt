@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bashio
+
+if bashio::config.true 'zigbee_herdsman_debug'; then
+    bashio::log.info "Zigbee Herdsman debug logging enabled"
+    export DEBUG="zigbee-herdsman:*"
+fi
+export NODE_PATH=/app/node_modules
+export ZIGBEE2MQTT_DATA="$(bashio::config 'data_path')"
+cd /app || bashio::exit.nok "Could not change directory to /app"
+bashio::log.info "Handing over control to Zigbee2mqtt Core ..."
+exec npm start

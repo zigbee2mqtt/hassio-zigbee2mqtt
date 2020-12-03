@@ -1,9 +1,3 @@
-## 1.16.2.2
-- Fixes new installations errors (was not due to default but due to type error)
-
-## 1.16.2.1
-- Fixes new installations errors (#482 and #483)
-
 ## 1.16.2
 - Updated Zigbee2mqtt to version [`1.16.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.2)
 - New configuration options
@@ -13,11 +7,32 @@
         - `host`
 - `devices` and `groups` options now accept a comma-separated string of files
 
+## 1.16.1-1
+- Allow add-on to start with other mqtt servers not just built in
+
 ## 1.16.1
-- Updated Zigbee2mqtt to version [`1.16.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.1)
+- Updated Zigbee2mqtt to version [`1.16.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.1)
 
 ## 1.16.0
 - Updated Zigbee2mqtt to version [`1.16.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.16.0)
+
+## 1.15.0-3
+- Fixed `external_converters` not working
+
+## 1.15.0-2
+- ⚠️ **Breaking changes**
+  - `zigbee_shepherd_debug` removed
+- Add-on images are now taken from Docker Hub `zigbee2mqtt` [organisation](https://hub.docker.com/orgs/zigbee2mqtt/repositories)
+- Changed `mqtt.server`, `mqtt.user`, `mqtt.password` to be optional
+- Added support for mqtt auto discovery (server, user, password)
+- Removed `pm2`
+- Removed `socat.restartdelay` and `socat.initialdelay`
+- Unified Dockerfile into a single common file
+- ⚠️ Changed `run.sh` and `socat.sh` to use [s6-overlay](https://github.com/just-containers/s6-overlay)
+- Version management now only in `config.json`
+- Default `data_path` changed from `/share/` to `/config`
+- Changed default logging level to `warn`
+- Changed version format to `X.X.X-A`
 
 ## 1.15.0
 - Updated Zigbee2mqtt to version [`1.15.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.15.0)

@@ -1,13 +1,11 @@
-# Home Assistant Add-on: Zigbee2mqtt
-
-## Prerequisites
+# Prerequisites
 
 This add-on currently requires to have an [MQTT broker](https://www.home-assistant.io/docs/mqtt/broker/) installed, whether it is Mosquitto or the default Home Assistant MQTT broker. Please make sure to install and set up that add-on before continuing.
 
 # Pairing
 By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this **after** the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
-### Enabling the built-in Frontend
+# Enabling the built-in Frontend
 Make sure your add-on options have the right settings. If you already had experimental options, you might now automatically get `new_api` set properly on update.
 
 ```yaml
@@ -26,10 +24,55 @@ The configuration closely mirrors that of `zigbee2mqtt` itself, with a couple of
 
 See the [zigbee2mqtt configuration docs](https://www.zigbee2mqtt.io/information/configuration.html) for a complete description of available options. If you're not sure if a new option is supported, check to see if it is included in this add-on's default configuration. If not, you can open an issue to add support for it.
 
+# Configuration backup
+
+The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
+The backup of your configuration is created on add-on startup if no previous backup was found. 
+
+# Enabling zigbee debug mode
+If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2mqtt startup. To do this you must set `zigbee_herdsman_debug` to `true`.
+
+```yaml
+zigbee_herdsman_debug: true
+```
+
+
+# Adding Support for New Devices
+If you are interested in [adding support for new devices to zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html) see methods below
+
+### Using external_converters
+
+Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
+
+If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
+
+- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
+- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
+
+### [Not recommended] Using devices.js override in add-on
+
+Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration.
+
+```yaml
+zigbee_shepherd_devices: true
+```
+
+When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
+
+:warning: If you want to make sure that the version of `devices.js` fits your add-on, make sure to follow the steps below:
+
+1. Identify your `stable` zigbee2mqtt version from the add-on (ex. `1.14.3`)
+2. Navigate to https://github.com/Koenkk/zigbee2mqtt/tags and find tag (ex. `1.14.3`)
+3. Click on the commit hash (ex. `f8066e8`) and then `browse files` button
+4. Find `package.json` and identify `zigbee-herdsman-converters` version (ex. `12.0.161`)
+5. Navigate to https://github.com/Koenkk/zigbee-herdsman-converters/tags and find tag (ex. `12.0.161`)
+6. Click on the commit hash (ex. `3a5abc7`) and then `browse files` button
+7. Find `devices.js` file and download it (use `raw` version)
+
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
-- Please see this add-on's [documentation on GitHub](https://github.com/danielwelch/hassio-zigbee2mqtt#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
+- Please see this add-on's [documentation on GitHub](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/dev/zigbee2mqtt/DOCS.md#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
 - The 'devices' and 'groups' configuration options accept arrays of files since Zigbee2MQTT v1.16.2. In order to maintain backwards compatibility of configurations, the same functionality is achieved in this addon by the use of comma-separated strings.
 
 # Additional Configuration Options
@@ -58,19 +101,5 @@ You can configure the socat module within the socat section using the following 
 - `slave` slave or second address used in socat command line (mandatory)
 - `options` extra options added to the socat command line (optional)
 - `log` true/false if to log the socat stdout/stderr to data_path/socat.log (default: false)
-- `initialdelay` delay (in seconds) to wait when the plugin is started before zigbee2mqtt is started (optional)
-- `restartdelay` delay (in seconds) to wait before a socat process is restarted when it has terminated (optional)
 
 **NOTE:** You'll have to change both the `master` and the `slave` options according to your needs. The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`. The zigbee2mqtt's serial port setting is NOT automatically set and has to be changed accordingly.
-
-## :warning: Breaking Changes in version 1.7.0+
-
-Once upgraded from 1.6.0 to 1.7.0 you cannot switch back to 1.6.0 when not having a backup of the database.db!
-
-## :warning: Breaking Changes in version 1.5.1
-
-Version 1.5.1 contains breaking changes and requires re-formating of the add-on configuration. Please see the updated configuration documentation below.
-
-### Restoring Configuration after upgrading to 1.5.1
-
-By default, when upgrading to v1.5.1, the add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
