@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.16.1-1",
+  "version": "1.16.2",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "auto_uart": true,
@@ -91,7 +91,8 @@
       "keepalive": "int?",
       "version": "int?",
       "reject_unauthorized": "bool?",
-      "include_device_information": "bool?"
+      "include_device_information": "bool?",
+      "force_disable_retain": "bool?"
     },
     "serial": {
       "port": "str",
@@ -154,6 +155,7 @@
       "new_api": "bool?"
     },
     "frontend": {
+      "host": "str?",
       "port": "int?"
     },
     "socat": {
