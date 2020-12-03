@@ -56,7 +56,6 @@
     "passlist": [],
     "queue": {},
     "frontend": {
-      "host": "0.0.0.0",
       "port": 8099
     },
     "experimental": {
@@ -159,7 +158,7 @@
       "new_api": "bool?"
     },
     "frontend": {
-      "host": "string?",
+      "host": "str?",
       "port": "int?"
     },
     "socat": {
