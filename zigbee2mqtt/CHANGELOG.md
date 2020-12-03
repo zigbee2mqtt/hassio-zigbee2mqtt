@@ -1,3 +1,6 @@
+## 1.16.2.2
+- Fixes new installations errors (was not due to default but due to type error)
+
 ## 1.16.2.1
 - Fixes new installations errors (#482 and #483)
 
