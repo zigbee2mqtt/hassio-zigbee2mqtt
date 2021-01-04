@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.16.2",
+  "version": "1.17.0",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "auto_uart": true,
@@ -97,7 +97,7 @@
     "serial": {
       "port": "str",
       "disable_led": "bool?",
-      "adapter": "match(^zstack|deconz$)?"
+      "adapter": "match(^zstack|deconz|zigate$)?"
     },
     "blocklist": [
       "str?"
@@ -121,6 +121,7 @@
       "rtscts": "bool?",
       "soft_reset_timeout": "int?",
       "adapter_concurrent": "int?",
+      "adapter_delay": "int?",
       "network_key": [
         "int?"
       ],
