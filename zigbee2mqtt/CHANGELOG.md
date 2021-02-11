@@ -2,6 +2,7 @@
 - Updated Zigbee2mqtt to version [`1.17.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.17.1)
 - Updated `"auto_uart": true` to use `"uart": true` instead
 - Reduced image size - thanks https://github.com/G1K
+- Deprecated `devices.js` method for adding support for a new device
 
 ## 1.17.0
 - Updated Zigbee2mqtt to version [`1.17.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.17.0)

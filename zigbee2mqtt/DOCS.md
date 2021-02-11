@@ -46,26 +46,6 @@ If you are searching to edit specific files, please find the Line reference in t
 - `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
 - `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
 
-### [Not recommended] Using devices.js override in add-on
-
-Set the optional, top-level `zigbee_shepherd_devices` option to `true` in your configuration.
-
-```yaml
-zigbee_shepherd_devices: true
-```
-
-When set, the add-on will scan your `data_path` for a `devices.js` file, and will run zigbee2mqtt using this custom file.
-
-:warning: If you want to make sure that the version of `devices.js` fits your add-on, make sure to follow the steps below:
-
-1. Identify your `stable` zigbee2mqtt version from the add-on (ex. `1.14.3`)
-2. Navigate to https://github.com/Koenkk/zigbee2mqtt/tags and find tag (ex. `1.14.3`)
-3. Click on the commit hash (ex. `f8066e8`) and then `browse files` button
-4. Find `package.json` and identify `zigbee-herdsman-converters` version (ex. `12.0.161`)
-5. Navigate to https://github.com/Koenkk/zigbee-herdsman-converters/tags and find tag (ex. `12.0.161`)
-6. Click on the commit hash (ex. `3a5abc7`) and then `browse files` button
-7. Find `devices.js` file and download it (use `raw` version)
-
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
