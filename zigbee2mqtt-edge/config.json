@@ -57,9 +57,7 @@
     "frontend": {
       "port": 8099
     },
-    "experimental": {
-      "new_api": true
-    },
+    "experimental": {},
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
@@ -138,7 +136,9 @@
       "report": "bool?",
       "homeassistant_discovery_topic": "str?",
       "homeassistant_status_topic": "str?",
-      "homeassistant_legacy_triggers": "bool?"
+      "homeassistant_legacy_triggers": "bool?",
+      "ikea_ota_use_test_url": "bool?",
+      "legacy_api": "bool?"
     },
     "device_options": {
       "occupancy_timeout": "int?",
@@ -151,9 +151,7 @@
       "simultaneously": "int?"
     },
     "experimental": {
-      "transmit_power": "int?",
-      "output": "str?",
-      "new_api": "bool?"
+      "output": "str?"
     },
     "frontend": {
       "host": "str?",

@@ -1,3 +1,9 @@
+## 1.17.1-1
+- Removed `new_api` option as it's now default
+- Removed `transmit_power` from `experimental`
+- Added support for `legacy_api` option under `advanced`
+- Added support for `ikea_ota_use_test_url` option under `advanced`
+
 ## 1.17.1
 - Updated Zigbee2mqtt to version [`1.17.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.17.1)
 - Updated `"auto_uart": true` to use `"uart": true` instead
