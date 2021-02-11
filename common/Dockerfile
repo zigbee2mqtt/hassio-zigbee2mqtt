@@ -18,20 +18,24 @@ RUN if [ "${BUILD_VERSION}" = "edge" ]; \
         echo "Installing Stable version ${BUILD_VERSION%-*}" && \
         curl -sL -o "/app.tar.gz" \
         "https://github.com/Koenkk/zigbee2mqtt/archive/${BUILD_VERSION%-*}.tar.gz" && \
-        tar xzvf "/app.tar.gz" && \
+        tar xzvf "/app.tar.gz"  && rm "/app.tar.gz" && \
         mv -v "zigbee2mqtt-${BUILD_VERSION%-*}" app && \
         jq -n --arg commit ${BUILD_VERSION%-*} '{"hash": $commit }' > /app/.hash.json ; \
     fi; \
     echo "Installed zigbee2mqtt @ version $(cat /app/.hash.json)"
 
 RUN cd /app && \
-    npm install \
+    npm ci \
     --no-audit \
     --no-optional \
     --no-update-notifier \
     --only=production \
     --unsafe-perm && \
     apk del --no-cache --purge .build-dependencies && \
-    rm -rf docs test images scripts data docker LICENSE README.md update.sh
+    rm -rf docs test images scripts data docker LICENSE README.md update.sh && \
+    rm -rf npm-shrinkwrap.json \
+          node-modules/zigbee-herdsman/npm-shrinkwrap.json \
+          node-modules/zigbee-herdsman-converters/npm-shrinkwrap.json && \
+    rm -rf /root/.cache /root/.npm
 
 COPY rootfs /
