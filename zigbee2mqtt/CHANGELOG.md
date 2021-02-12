@@ -1,3 +1,6 @@
+## 1.17.1-2
+- Fixes #24 for socat
+
 ## 1.17.1-1
 - Removed `new_api` option as it's now default
 - Removed `transmit_power` from `experimental`
