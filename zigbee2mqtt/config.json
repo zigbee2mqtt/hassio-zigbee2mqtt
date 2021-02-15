@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.17.1-2",
+  "version": "1.17.1-3",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "uart": true,
@@ -151,6 +151,7 @@
       "simultaneously": "int?"
     },
     "experimental": {
+      "transmit_power": "int?",
       "output": "str?"
     },
     "frontend": {

@@ -151,6 +151,7 @@
       "simultaneously": "int?"
     },
     "experimental": {
+      "transmit_power": "int?",
       "output": "str?"
     },
     "frontend": {
