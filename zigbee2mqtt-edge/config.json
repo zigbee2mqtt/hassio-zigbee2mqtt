@@ -166,5 +166,4 @@
       "log": "bool?"
     }
   },
-  "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
 }
