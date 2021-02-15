@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.17.1-1",
+  "version": "1.17.1-4",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "uart": true,
@@ -60,7 +60,7 @@
     "experimental": {},
     "socat": {
       "enabled": false,
-      "master": "pty,raw,echo=0,link=/dev/ttyZ2M,mode=777",
+      "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
       "options": "-d -d",
       "log": false
@@ -151,6 +151,7 @@
       "simultaneously": "int?"
     },
     "experimental": {
+      "transmit_power": "int?",
       "output": "str?"
     },
     "frontend": {
