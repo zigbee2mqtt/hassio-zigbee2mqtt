@@ -60,7 +60,7 @@
     "experimental": {},
     "socat": {
       "enabled": false,
-      "master": "pty,raw,echo=0,link=/share/zigbee2mqtt/ttyZ2M,mode=777",
+      "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
       "options": "-d -d",
       "log": false

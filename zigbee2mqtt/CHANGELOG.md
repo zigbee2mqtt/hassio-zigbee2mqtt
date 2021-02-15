@@ -1,3 +1,6 @@
+## 1.17.1-4
+- Switched socat from `/share/zigbee2mqtt/ttyZ2M` to `/tmp/ttyZ2M`
+
 ## 1.17.1-3
 - Added back `transmit_power` to `experimental`
 
