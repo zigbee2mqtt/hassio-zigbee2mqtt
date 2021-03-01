@@ -140,6 +140,10 @@
       "ikea_ota_use_test_url": "bool?",
       "legacy_api": "bool?"
     },
+    "ota": {
+      "update_check_interval": "int?",
+      "disable_automatic_update_check": "bool?"
+    },
     "device_options": {
       "occupancy_timeout": "int?",
       "temperature_precision": "int?",
