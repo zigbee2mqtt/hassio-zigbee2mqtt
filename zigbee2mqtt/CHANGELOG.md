@@ -1,3 +1,6 @@
+## 1.18.0-1
+- Updated Zigbee2mqtt to version [`1.18.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.0)
+
 ## 1.17.1-4
 - Switched socat from `/share/zigbee2mqtt/ttyZ2M` to `/tmp/ttyZ2M`
 
