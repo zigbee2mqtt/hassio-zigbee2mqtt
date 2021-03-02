@@ -1,3 +1,7 @@
+## 1.18.1-1
+- Updated Zigbee2mqtt to version [`1.18.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.1)
+- Fix OTA configuration required when starting
+
 ## 1.18.0-1
 - Updated Zigbee2mqtt to version [`1.18.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.0)
 
@@ -94,7 +98,7 @@ availability_blocklist: []
 availability_passlist: []
 ```
 
-Remove 
+Remove
 ```
 ban: []
 whitelist: []
@@ -273,6 +277,6 @@ whitelist: []
 - Download release archives instead of git cloning the specific branch
 - Updated Zigbee2mqtt to version [`0.1.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/0.1.1)
 
-## 0.1.0 
+## 0.1.0
 - First versioned release of the add-on
 - Updated Zigbee2mqtt to version [`0.1.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/0.1.0)
