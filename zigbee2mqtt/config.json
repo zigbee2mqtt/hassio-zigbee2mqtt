@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.18.1-1",
+  "version": "1.18.1-2",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "uart": true,
@@ -95,7 +95,7 @@
     "serial": {
       "port": "str",
       "disable_led": "bool?",
-      "adapter": "match(^zstack|deconz|zigate$)?"
+      "adapter": "match(^zstack|deconz|zigate|ezsp$)?"
     },
     "blocklist": [
       "str?"
