@@ -41,10 +41,7 @@ If you are interested in [adding support for new devices to zigbee2mqtt](https:/
 
 Using `external_converters` option you will have more flexibility to add support but also allow you to maintain a DIY device support. Follow the [documentation](https://www.zigbee2mqtt.io/information/configuration.html#external-converters-configuration) to get started.
 
-If you are searching to edit specific files, please find the Line reference in the example converter where to make your changes:
-
-- `fromZigbee.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L15
-- `homeassistant.js`: https://github.com/Koenkk/zigbee2mqtt.io/blob/master/docs/externalConvertersExample/dummy-converter.js#L66
+Examples: https://github.com/Koenkk/zigbee2mqtt.io/tree/master/docs/externalConvertersExample
 
 # Notes
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
