@@ -1,3 +1,8 @@
+## 1.18.1-2
+- ⚠️ **Breaking changes**
+  - `log_output` now required option in `advanced`
+- Fix `log_output` option being ignored
+
 ## 1.18.1-1
 - Updated Zigbee2mqtt to version [`1.18.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.1)
 - Fix OTA configuration required when starting
