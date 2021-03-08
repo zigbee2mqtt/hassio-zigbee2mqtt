@@ -1,15 +1,7 @@
-## 1.18.1-2
-- ⚠️ **Breaking changes**
-  - `log_output` now required option in `advanced`
+## 1.18.1-3
+- ⚠️ **Breaking change**
+  - `log_output` now required option in `advanced`. [Zigbee2mqtt configuration](https://www.zigbee2mqtt.io/information/configuration.html) for possible `log_output` options
 - Fix `log_output` option being ignored
-
-Default zigbee2mqtt options for `log_output`
-```
-advanced:
-  log_output: 
-     - console
-     - file
-```
 
 ## 1.18.1-1
 - Updated Zigbee2mqtt to version [`1.18.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.1)
