@@ -96,7 +96,7 @@
     "serial": {
       "port": "str",
       "disable_led": "bool?",
-      "adapter": "match(^zstack|deconz|zigate$)?"
+      "adapter": "match(^zstack|deconz|zigate|ezsp$)?"
     },
     "blocklist": [
       "str?"
