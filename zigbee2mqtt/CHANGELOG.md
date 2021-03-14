@@ -1,3 +1,6 @@
+## 1.18.1-3
+- Added support for `humidity_precision` option under `device_options`
+
 ## 1.18.1-2
 - Added missing ezsp agapter type for serial
 
