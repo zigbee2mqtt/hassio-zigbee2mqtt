@@ -1,3 +1,6 @@
+## 1.18.1-3
+- Added `advanced.log_output` config option
+
 ## 1.18.1-2
 - Added missing ezsp agapter type for serial
 
