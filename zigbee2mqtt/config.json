@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.18.1-2",
+  "version": "1.18.2-1",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "uart": true,
