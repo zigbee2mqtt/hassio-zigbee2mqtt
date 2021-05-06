@@ -1,5 +1,8 @@
-## 1.18.2-2
+## 1.18.3-2
 - Added support for `humidity_precision` option under `device_options`
+
+## 1.18.3-1
+- Updated Zigbee2MQTT to version [`1.18.3`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.3)
 
 ## 1.18.2-1
 - Updated Zigbee2MQTT to version [`1.18.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.2)
