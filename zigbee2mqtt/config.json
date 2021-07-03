@@ -2,7 +2,7 @@
   "name": "Zigbee2mqtt",
   "version": "1.20.0-1",
   "slug": "zigbee2mqtt",
-  "description": "Zigbee2mqtt add-on",
+  "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
   "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
   "startup": "application",
