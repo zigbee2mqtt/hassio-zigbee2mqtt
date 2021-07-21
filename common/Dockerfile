@@ -18,6 +18,7 @@ RUN if [ "${BUILD_VERSION}" = "edge" ]; \
         echo "Installing Stable version ${BUILD_VERSION%-*}" && \
         curl -sL -o "/app.tar.gz" \
         "https://github.com/Koenkk/zigbee2mqtt/archive/${BUILD_VERSION%-*}.tar.gz" && \
+        tar xzvf "/app.tar.gz"  && rm "/app.tar.gz" && \
         mv -v "zigbee2mqtt-${BUILD_VERSION%-*}" app && \
         jq -n --arg commit ${BUILD_VERSION%-*} '$commit' > /app/.hash ; \
     fi; \
