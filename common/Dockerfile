@@ -23,7 +23,6 @@ RUN if [ "${BUILD_VERSION}" = "edge" ]; \
         jq -n --arg commit ${BUILD_VERSION%-*} '$commit' > /app/.hash ; \
     fi; \
     echo "Installed zigbee2mqtt @ version $(cat /app/.hash)"
-    fi;
 
 RUN cd /app && \
     npm ci --no-audit --no-optional --no-update-notifier --unsafe-perm && \
