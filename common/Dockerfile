@@ -13,16 +13,18 @@ RUN if [ "${BUILD_VERSION}" = "edge" ]; \
         echo "Installing Edge version" && \
         git clone -b dev --single-branch --depth 1 \
         https://github.com/Koenkk/zigbee2mqtt.git /app && \
-        jq -n --arg commit $(eval cd /app;git rev-parse --short HEAD) '$commit' > /app/.hash ; \
+        mkdir /app/dist && \
+        jq -n --arg commit $(eval cd /app;git rev-parse --short HEAD) '$commit' > /app/dist/.hash ; \
     else \
         echo "Installing Stable version ${BUILD_VERSION%-*}" && \
         curl -sL -o "/app.tar.gz" \
         "https://github.com/Koenkk/zigbee2mqtt/archive/${BUILD_VERSION%-*}.tar.gz" && \
         tar xzvf "/app.tar.gz"  && rm "/app.tar.gz" && \
         mv -v "zigbee2mqtt-${BUILD_VERSION%-*}" app && \
-        jq -n --arg commit ${BUILD_VERSION%-*} '$commit' > /app/.hash ; \
+        mkdir /app/dist && \
+        jq -n --arg commit ${BUILD_VERSION%-*} '$commit' > /app/dist/.hash ; \
     fi; \
-    echo "Installed zigbee2mqtt @ version $(cat /app/.hash)"
+    echo "Installed zigbee2mqtt @ version $(cat /app/dist/.hash)"
 
 RUN cd /app && \
     npm ci --no-audit --no-optional --no-update-notifier --unsafe-perm && \
