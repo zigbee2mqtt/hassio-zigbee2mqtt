@@ -1,4 +1,4 @@
-## 1.22.0-1
+## 1.21.0-2
 - Added `advanced.log_output` config option
 
 ## 1.21.0-1
