@@ -1,5 +1,23 @@
-## 1.18.1-3
+## 1.22.0-1
 - Added `advanced.log_output` config option
+
+## 1.21.0-1
+- Updated Zigbee2MQTT to version [`1.21.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.21.0)
+
+## 1.20.0-1
+- Updated Zigbee2MQTT to version [`1.20.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.20.0)
+
+## 1.19.1-1
+- Updated Zigbee2MQTT to version [`1.19.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.19.1)
+
+## 1.19.0-1
+- Updated Zigbee2MQTT to version [`1.19.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.19.0)
+
+## 1.18.3-1
+- Updated Zigbee2MQTT to version [`1.18.3`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.3)
+
+## 1.18.2-1
+- Updated Zigbee2MQTT to version [`1.18.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.18.2)
 
 ## 1.18.1-2
 - Added missing ezsp agapter type for serial
