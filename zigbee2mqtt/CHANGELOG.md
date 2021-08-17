@@ -1,3 +1,6 @@
+## 1.21.0-3
+- Added support for `humidity_precision` option under `device_options`
+
 ## 1.21.0-2
 - Added homeassistant_legacy_entity_attributes option
 

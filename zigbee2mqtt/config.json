@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.21.0-2",
+  "version": "1.21.0-3",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
@@ -144,6 +144,7 @@
     "device_options": {
       "occupancy_timeout": "int?",
       "temperature_precision": "int?",
+      "humidity_precision": "int?",
       "legacy": "bool?"
     },
     "device_options_string": "str?",
