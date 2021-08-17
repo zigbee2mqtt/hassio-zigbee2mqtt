@@ -1,5 +1,11 @@
-## 1.21.0-2
+## 1.21.0-4
 - Added `advanced.log_output` config option
+
+## 1.21.0-3
+- Added support for `humidity_precision` option under `device_options`
+
+## 1.21.0-2
+- Added homeassistant_legacy_entity_attributes option
 
 ## 1.21.0-1
 - Updated Zigbee2MQTT to version [`1.21.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.21.0)
