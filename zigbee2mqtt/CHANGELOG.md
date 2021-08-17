@@ -1,3 +1,6 @@
+## 1.21.0-4
+- Added `advanced.log_output` config option
+
 ## 1.21.0-3
 - Added support for `humidity_precision` option under `device_options`
 
