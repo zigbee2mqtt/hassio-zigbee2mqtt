@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.21.0-1",
+  "version": "1.21.0-2",
   "slug": "zigbee2mqtt",
   "description": "Zigbee2mqtt add-on",
   "uart": true,
@@ -137,6 +137,7 @@
       "homeassistant_discovery_topic": "str?",
       "homeassistant_status_topic": "str?",
       "homeassistant_legacy_triggers": "bool?",
+      "homeassistant_legacy_entity_attributes": "bool?",
       "ikea_ota_use_test_url": "bool?",
       "legacy_api": "bool?"
     },
