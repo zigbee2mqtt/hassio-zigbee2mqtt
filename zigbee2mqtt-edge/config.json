@@ -95,7 +95,7 @@
     "serial": {
       "port": "str",
       "disable_led": "bool?",
-      "adapter": "match(^zstack|deconz|zigate|ezsp$)?"
+      "adapter": "match(zstack|deconz|zigate|ezsp)?"
     },
     "blocklist": [
       "str?"
@@ -113,6 +113,7 @@
       "log_level": "match(^info|debug|warn|error$)?",
       "log_directory": "str?",
       "log_file": "str?",
+      "log_output": ["list(console|file|syslog)?"],
       "log_rotation": "bool?",
       "timestamp_format": "str?",
       "baudrate": "int?",
@@ -144,6 +145,7 @@
     "device_options": {
       "occupancy_timeout": "int?",
       "temperature_precision": "int?",
+      "humidity_precision": "int?",
       "legacy": "bool?"
     },
     "device_options_string": "str?",
