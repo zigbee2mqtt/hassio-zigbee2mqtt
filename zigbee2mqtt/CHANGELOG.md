@@ -1,3 +1,6 @@
+## 1.21.1-1
+- Updated Zigbee2MQTT to version [`1.21.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.21.1)
+
 ## 1.21.0-4
 - Added `advanced.log_output` config option
 
