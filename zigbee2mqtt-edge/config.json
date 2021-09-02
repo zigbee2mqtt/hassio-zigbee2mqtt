@@ -146,7 +146,8 @@
       "occupancy_timeout": "int?",
       "temperature_precision": "int?",
       "humidity_precision": "int?",
-      "legacy": "bool?"
+      "legacy": "bool?",
+      "retain": "bool?"
     },
     "device_options_string": "str?",
     "queue": {
