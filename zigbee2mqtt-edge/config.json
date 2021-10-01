@@ -147,7 +147,8 @@
       "occupancy_timeout": "int?",
       "temperature_precision": "int?",
       "humidity_precision": "int?",
-      "legacy": "bool?"
+      "legacy": "bool?",
+      "retain": "bool?"
     },
     "device_options_string": "str?",
     "queue": {
@@ -159,6 +160,7 @@
       "output": "str?",
       "availability_new": "bool?"
     },
+    "availability": "bool?",
     "frontend": {
       "host": "str?",
       "port": "int?"
