@@ -58,6 +58,7 @@
       "port": 8099
     },
     "experimental": {},
+    "availability": "bool?",
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
