@@ -2,7 +2,7 @@
 
 #### Checklist
 - [ ] PR done against `dev` branch
-- [ ] Updated `common/Dockerfile` with new version
+- [ ] Updated `zigbee2mqtt/config.json` with new version
 - [ ] Updated `zigbee2mqtt/CHANGELOG.md` file with new changes
 - [ ] Updated `zigbee2mqtt/DOCS.md` with any changes
 - [ ] Add any new configuration options to `zigbee2mqtt/config.json` and `zigbee2mqtt-edge/config.json`.
