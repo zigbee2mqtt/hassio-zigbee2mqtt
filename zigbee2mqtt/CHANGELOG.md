@@ -1,3 +1,6 @@
+## 1.21.2-2
+- Added `scripts` folder back with usefull zigbee2mqtt scripts
+
 ## 1.21.2-1
 - Updated Zigbee2MQTT to version [`1.21.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.21.2)
 
