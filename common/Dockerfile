@@ -32,7 +32,7 @@ RUN cd /app && \
     rm -rf node_modules && \
     npm ci --no-audit --no-optional --no-update-notifier --only=production --unsafe-perm && \
     apk del --no-cache --purge .build-dependencies && \
-    rm -rf docs test images scripts data docker LICENSE README.md update.sh lib && \
+    rm -rf docs test images data docker LICENSE README.md update.sh lib && \
     rm -rf npm-shrinkwrap.json \
           node-modules/zigbee-herdsman/npm-shrinkwrap.json \
           node-modules/zigbee-herdsman-converters/npm-shrinkwrap.json && \
