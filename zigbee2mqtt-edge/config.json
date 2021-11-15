@@ -21,7 +21,8 @@
   "panel_icon": "mdi:zigbee",
   "map": [
     "share:rw",
-    "config:rw"
+    "config:rw",
+    "ssl"
   ],
   "ports": {
     "8485/tcp": 8485

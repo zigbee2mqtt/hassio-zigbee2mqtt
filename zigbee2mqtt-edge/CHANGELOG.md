@@ -1,4 +1,5 @@
 ## Changes
+- Added access to the `/ssl` directory
 - Added `common/local_build.sh` script
 - Removed some obsolete startup debug messages
 - Removed duplicate `icon` and `logo`

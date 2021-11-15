@@ -1,3 +1,6 @@
+## 1.22.0-3
+- Added access to the `/ssl` directory
+
 ## 1.22.0-2
 - Fix availability configuration
 

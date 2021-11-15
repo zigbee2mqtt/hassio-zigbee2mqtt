@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.22.0-2",
+  "version": "1.22.0-3",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
@@ -21,7 +21,8 @@
   "panel_icon": "mdi:zigbee",
   "map": [
     "share:rw",
-    "config:rw"
+    "config:rw",
+    "ssl"
   ],
   "ports": {
     "8485/tcp": 8485
