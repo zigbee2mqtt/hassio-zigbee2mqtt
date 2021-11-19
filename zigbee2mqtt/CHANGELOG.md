@@ -1,3 +1,6 @@
+## 1.22.0-3
+- Add availability configuration
+
 ## 1.22.0-2
 - Fix availability configuration
 
