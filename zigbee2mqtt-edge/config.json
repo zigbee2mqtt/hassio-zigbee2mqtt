@@ -158,8 +158,7 @@
     },
     "experimental": {
       "transmit_power": "int?",
-      "output": "str?",
-      "availability_new": "bool?"
+      "output": "str?"
     },
     "availability": "bool?",
     "frontend": {
