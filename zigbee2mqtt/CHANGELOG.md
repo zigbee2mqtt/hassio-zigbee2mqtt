@@ -1,5 +1,11 @@
-## 1.21.2-2
-- Readded `scripts` folder for usefull zigbee2mqtt scripts
+## 1.22.0-3
+- Add availability configuration
+
+## 1.22.0-2
+- Fix availability configuration
+
+## 1.22.0-1
+- Updated Zigbee2MQTT to version [`1.22.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.22.0)
 
 ## 1.21.2-1
 - Updated Zigbee2MQTT to version [`1.21.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.21.2)
