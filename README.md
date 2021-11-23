@@ -26,7 +26,7 @@ Any changes on the addon that do not require a new version of [zigbee2mqtt] will
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 
 # Issues
-If you find any issues with the add-on, please check the [issue tracker](https://github.com/danielwelch/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after zigbee2mqtt has successfully started, it should likely be reported in the [zigbee2mqtt issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
+If you find any issues with the add-on, please check the [issue tracker](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after zigbee2mqtt has successfully started, it should likely be reported in the [zigbee2mqtt issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
 
 Feel free to create a PR for fixes and enhancements. 
 
