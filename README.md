@@ -2,6 +2,11 @@
 # Home Assistant Add-on: Zigbee2mqtt
 Run [Zigbee2mqtt] as a Home Assistant Add-on
 
+## Prequisites
+
+- A MQTT [Broker](https://www.home-assistant.io/docs/mqtt/broker) should be running.
+- The MQTT [Integration](https://www.home-assistant.io/docs/mqtt/) should be installed.
+
 ## Installation
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
 
