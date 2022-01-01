@@ -7,8 +7,6 @@ Make sure your add-on options have the right settings. If you already had experi
 ```yaml
 frontend:
   port: 8099
-experimental:
-  new_api: true
 ```
 
 Enable `ingress` to have the frontend available in your UI: **Supervisor → Dashboard → Zigbee2mqtt → Show in sidebar**. You can find more details about the feature on the [Zigbee2mqtt documentation](https://www.zigbee2mqtt.io/information/frontend.html).
