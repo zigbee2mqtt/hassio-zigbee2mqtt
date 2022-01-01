@@ -1,0 +1,9 @@
+{
+  "data_path": "/share/zigbee2mqtt",
+  "homeassistant": true,
+  "permit_join": true,
+  "mqtt_base_topic": "zigbee2mqtt",
+  "mqtt_server": "mqtt://localhost",
+  "serial_port": "/dev/ttyACM0",
+  "log_level": "debug"
+}
