@@ -31,34 +31,6 @@
   },
   "options": {
     "data_path": "/config/zigbee2mqtt",
-    "external_converters": [],
-    "devices": "devices.yaml",
-    "groups": "groups.yaml",
-    "homeassistant": true,
-    "permit_join": false,
-    "mqtt": {
-      "base_topic": "zigbee2mqtt"
-    },
-    "serial": {
-      "port": "/dev/ttyACM0"
-    },
-    "advanced": {
-      "log_level": "info",
-      "pan_id": 6754,
-      "channel": 11,
-      "network_key": [1, 3, 5, 7, 9, 11, 13, 15, 0, 2, 4, 6, 8, 10, 12, 13],
-      "availability_blocklist": [],
-      "availability_passlist": []
-    },
-    "device_options": {},
-    "blocklist": [],
-    "passlist": [],
-    "queue": {},
-    "frontend": {
-      "port": 8099
-    },
-    "experimental": {},
-    "availability": false,
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
@@ -70,100 +42,7 @@
   "schema": {
     "zigbee_shepherd_devices": "bool?",
     "zigbee_herdsman_debug": "bool?",
-    "external_converters": [
-      "str?"
-    ],
     "data_path": "str",
-    "devices": "str?",
-    "groups": "str?",
-    "homeassistant": "bool",
-    "permit_join": "bool",
-    "mqtt": {
-      "base_topic": "str",
-      "server": "str?",
-      "ca": "str?",
-      "key": "str?",
-      "cert": "str?",
-      "user": "str?",
-      "password": "str?",
-      "client_id": "str?",
-      "keepalive": "int?",
-      "version": "int?",
-      "reject_unauthorized": "bool?",
-      "include_device_information": "bool?",
-      "force_disable_retain": "bool?"
-    },
-    "serial": {
-      "port": "str",
-      "disable_led": "bool?",
-      "adapter": "match(zstack|deconz|zigate|ezsp)?"
-    },
-    "blocklist": [
-      "str?"
-    ],
-    "passlist": [
-      "str?"
-    ],
-    "advanced": {
-      "pan_id": "int(0,65536)?",
-      "ext_pan_id_string": "match(^(\\s*\\d+\\s*,){7}(\\s*\\d+\\s*)$)?",
-      "channel": "int(11,26)?",
-      "cache_state": "bool?",
-      "cache_state_persistent": "bool?",
-      "cache_state_send_on_startup": "bool?",
-      "log_level": "match(^info|debug|warn|error$)?",
-      "log_directory": "str?",
-      "log_file": "str?",
-      "log_output": ["list(console|file|syslog)?"],
-      "log_rotation": "bool?",
-      "timestamp_format": "str?",
-      "baudrate": "int?",
-      "rtscts": "bool?",
-      "soft_reset_timeout": "int?",
-      "adapter_concurrent": "int?",
-      "adapter_delay": "int?",
-      "network_key": [
-        "int?"
-      ],
-      "network_key_string": "match(^(\\s*\\d+\\s*,){15}(\\s*\\d+\\s*)$)?",
-      "last_seen": "match(^disable|ISO_8601|epoch)?",
-      "elapsed": "bool?",
-      "availability_timeout": "int?",
-      "availability_blocklist": [
-        "str?"
-      ],
-      "availability_passlist": [
-        "str?"
-      ],
-      "report": "bool?",
-      "homeassistant_discovery_topic": "str?",
-      "homeassistant_status_topic": "str?",
-      "homeassistant_legacy_triggers": "bool?",
-      "homeassistant_legacy_entity_attributes": "bool?",
-      "ikea_ota_use_test_url": "bool?",
-      "legacy_api": "bool?"
-    },
-    "device_options": {
-      "occupancy_timeout": "int?",
-      "temperature_precision": "int?",
-      "humidity_precision": "int?",
-      "legacy": "bool?",
-      "retain": "bool?"
-    },
-    "device_options_string": "str?",
-    "queue": {
-      "delay": "int?",
-      "simultaneously": "int?"
-    },
-    "experimental": {
-      "transmit_power": "int?",
-      "output": "str?"
-    },
-    "availability": "bool?",
-    "frontend": {
-      "host": "str?",
-      "port": "int?"
-    },
     "socat": {
       "enabled": "bool?",
       "master": "str?",
