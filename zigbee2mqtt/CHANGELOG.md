@@ -1,6 +1,3 @@
-## 1.22.2-2
-- **Breaking change:** Zigbee2MQTT configuration is no longer managed through the addon.
-
 ## 1.22.2-1
 - Updated Zigbee2MQTT to version [`1.22.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.22.2)
 
