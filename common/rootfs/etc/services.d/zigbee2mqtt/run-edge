@@ -6,7 +6,7 @@ if bashio::config.true 'zigbee_herdsman_debug'; then
 fi
 export NODE_PATH=/app/node_modules
 export ZIGBEE2MQTT_DATA="$(bashio::config 'data_path')"
-export ZIGBEE2MQTT_CONFIG_FRONTEND_PORT=8099
+export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
 export ZIGBEE2MQTT_CONFIG_HOMEASSISTANT=true
 
 if bashio::var.has_value "$(bashio::services 'mqtt')"; then
