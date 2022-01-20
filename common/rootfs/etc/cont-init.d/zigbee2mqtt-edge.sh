@@ -13,6 +13,10 @@ else
     bashio::log.debug "No devices.js file manipulation required"
 fi
 
-if ! bashio::fs.directory_exists "$DATA_PATH"; then
+if ! bashio::fs.file_exists "$DATA_PATH/configuration.yaml"; then
     mkdir -p "$DATA_PATH" || bashio::exit.nok "Could not create $DATA_PATH"
+
+    cat <<EOF > "$DATA_PATH/configuration.yaml"
+homeassistant: true
+EOF
 fi

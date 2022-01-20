@@ -37,7 +37,9 @@
       "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
       "options": "-d -d",
       "log": false
-    }
+    },
+    "mqtt": {},
+    "serial": {}
   },
   "schema": {
     "zigbee_shepherd_devices": "bool?",
@@ -49,6 +51,20 @@
       "slave": "str?",
       "options": "str?",
       "log": "bool?"
+    },
+    "mqtt": {
+      "server": "str?",
+      "ca": "str?",
+      "key": "str?",
+      "cert": "str?",
+      "user": "str?",
+      "password": "str?"
+    },
+    "serial": {
+      "port": "str?",
+      "adapter": "match(zstack|deconz|zigate|ezsp)?",
+      "baudrate": "int?",
+      "rtscts": "bool?"
     }
   },
   "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"

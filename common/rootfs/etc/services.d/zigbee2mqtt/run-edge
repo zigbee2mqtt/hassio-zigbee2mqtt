@@ -7,10 +7,26 @@ fi
 export NODE_PATH=/app/node_modules
 export ZIGBEE2MQTT_DATA="$(bashio::config 'data_path')"
 export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
-export ZIGBEE2MQTT_CONFIG_HOMEASSISTANT=true
 
-if bashio::var.has_value "$(bashio::services 'mqtt')"; then
-    if [ $(bashio::services 'mqtt' 'ssl') = true ]; then
+# Expose addon configuration through environment variables.
+function export_config() {
+    local key=${1}
+    local subkey
+
+    if bashio::config.is_empty "${key}"; then
+        return
+    fi
+
+    for subkey in $(bashio::jq "$(bashio::config "${key}")" 'keys[]'); do
+        export "ZIGBEE2MQTT_CONFIG_$(bashio::string.upper "${key}")_$(bashio::string.upper "${subkey}")=$(bashio::config "${key}.${subkey}")"
+    done
+}
+
+export_config 'mqtt'
+export_config 'serial'
+
+if bashio::config.is_empty 'mqtt' && bashio::var.has_value "$(bashio::services 'mqtt')"; then
+    if bashio::var.true "$(bashio::services 'mqtt' 'ssl')"; then
         export ZIGBEE2MQTT_CONFIG_MQTT_SERVER="mqtts://$(bashio::services 'mqtt' 'host'):$(bashio::services 'mqtt' 'port')"
     else
         export ZIGBEE2MQTT_CONFIG_MQTT_SERVER="mqtt://$(bashio::services 'mqtt' 'host'):$(bashio::services 'mqtt' 'port')"
