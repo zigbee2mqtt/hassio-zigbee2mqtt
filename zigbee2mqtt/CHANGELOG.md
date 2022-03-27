@@ -1,3 +1,18 @@
+## 1.25.0-1
+- ⚠️ **Breaking changes**
+    - Most Zigbee2MQTT configuration is now done in Zigbee2MQTT directly
+      (either via the UI or by modifying the configuration file, usually 
+      `/config/zigbee2mqtt/configuration.yaml`, directly).
+
+      As Zigbee2MQTT won't start with an [MQTT server](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html)
+      or [serial adapter](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html)
+      you must configure these through the add-on configuration page before you
+      can start Zigbee2MQTT for the first time.
+
+      Existing installations should be able to safely remove the Zigbee2MQTT
+      configuration from the add-on configuration as these values should have
+      already been persisted to the configuration file.
+
 ## 1.24.0-1
 - Updated Zigbee2MQTT to version [`1.24.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.24.0)
 
