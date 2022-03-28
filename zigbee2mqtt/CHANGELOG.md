@@ -1,4 +1,4 @@
-## 1.25.0-1
+## 1.24.0-2
 - ⚠️ **Breaking changes**
     - Most Zigbee2MQTT configuration is now done in Zigbee2MQTT directly
       (either via the UI or by modifying the configuration file, usually 
