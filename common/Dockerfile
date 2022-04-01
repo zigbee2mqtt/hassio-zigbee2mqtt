@@ -8,8 +8,6 @@ RUN apk add --no-cache --virtual .build-dependencies \
     make gcc g++ linux-headers udev git python2 && \
     apk add --no-cache nodejs npm socat
 
-RUN [ "${BUILD_VERSION}" = "edge" ] || apk add --no-cache jq
-
 RUN if [ "${BUILD_VERSION}" = "edge" ]; \
     then \
         echo "Installing Edge version" && \
@@ -41,12 +39,3 @@ RUN cd /app && \
     rm -rf /root/.cache /root/.npm
 
 COPY rootfs /
-
-RUN if [ "${BUILD_VERSION}" = "edge" ]; \
-    then \
-        mv /etc/cont-init.d/zigbee2mqtt-edge.sh /etc/cont-init.d/zigbee2mqtt.sh && \
-        mv /etc/services.d/zigbee2mqtt/run-edge /etc/services.d/zigbee2mqtt/run; \
-    else \
-        rm /etc/cont-init.d/zigbee2mqtt-edge.sh && \
-        rm /etc/services.d/zigbee2mqtt/run-edge; \
-    fi
