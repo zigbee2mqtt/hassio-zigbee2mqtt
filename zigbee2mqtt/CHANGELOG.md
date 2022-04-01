@@ -1,4 +1,5 @@
-## 1.24.0-2
+## 1.25.0-1
+- Updated Zigbee2MQTT to version [`1.25.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.25.0)
 - ⚠️ **Breaking changes**
     - Most Zigbee2MQTT configuration is now done in Zigbee2MQTT directly
       (either via the UI or by modifying the configuration file, usually 
