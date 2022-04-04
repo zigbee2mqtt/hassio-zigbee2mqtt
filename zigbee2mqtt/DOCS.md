@@ -1,3 +1,34 @@
+# Installation / Configuration after 1.25.0-1
+1.25.0-1 introduced some breaking changes. From this release, all configuration are done in the `$DATA_PATH/configuration.yaml`
+
+When installing/updating 1.25.0-1 you will se the following configuration:
+
+```data_path: /config/zigbee2mqtt
+socat:
+  enabled: false
+  master: pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777
+  slave: tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5
+  options: '-d -d'
+  log: false
+mqtt: {}
+serial: {}
+```
+The ONLY thing you have to configure here is mqtt and serial.
+If you use Home Assistant mqtt server, you should use:
+
+```
+mqtt:
+  server: mqtt://core-mosquitto:1883
+```
+
+If you use any other mqtt server, configure it accordingly to your own settings.
+
+serial is configured as before, like:
+```
+serial:
+  port: /dev/ttyUSB0
+```
+
 # Pairing
 By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
