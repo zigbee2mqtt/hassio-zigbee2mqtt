@@ -12,6 +12,13 @@ The repository includes two add-ons:
 - **zigbee2mqtt** is a stable release that tracks the released versions of zigbee2mqtt.
 - **zigbee2mqtt-edge** tracks the `dev` branch of zigbee2mqtt, so you can install the edge version if there are features or fixes in the dev branch that are not yet released.
 
+After adding the repository, you may need to refresh your browser cache (ctrl + F5) before the add-on shows up in the store.
+
+If the add-on doesn't start after installation, please go the the **configuration** tab at the top of the add-on page:
+**Configuration → Add-ons → Zigbee2MQTT** 
+
+The contents of the **log** tab, at that same location, can provide insight into what settings need to be edited. 
+
 For more information see [the documentation](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/master/zigbee2mqtt/DOCS.md).
 
 # Changelog
