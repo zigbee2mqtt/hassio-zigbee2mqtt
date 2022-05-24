@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2mqtt",
-  "version": "1.25.1-1",
+  "version": "1.25.1-2",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
@@ -17,6 +17,7 @@
     "i386"
   ],
   "boot": "auto",
+  "init": false,
   "ingress": true,
   "panel_icon": "mdi:zigbee",
   "map": [

@@ -1,4 +1,6 @@
 ## Changes
+- Fixes for [s6 v3 update](https://developers.home-assistant.io/blog/2022/05/12/s6-overlay-base-images)
+- Pin base image version to 3.14 as 3.15 doesn't work yet
 - Added `common/local_build.sh` script
 - Removed some obsolete startup debug messages
 - Removed duplicate `icon` and `logo`

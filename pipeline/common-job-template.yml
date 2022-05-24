@@ -29,6 +29,7 @@ jobs:
   - script: |
       cp -R common/rootfs ${{ parameters.addon }}/
       cp common/Dockerfile ${{ parameters.addon }}/
+      cp common/build.yaml ${{ parameters.addon }}/
       docker run --rm --privileged \
           -v $DOCKER_CONFIG:/root/.docker \
           -v /run/docker.sock:/run/docker.sock:rw \
