@@ -1,3 +1,7 @@
+## 1.25.1-2
+- Fixes for [s6 v3 update](https://developers.home-assistant.io/blog/2022/05/12/s6-overlay-base-images)
+- Pin base image version to 3.14 as 3.15 doesn't work yet
+
 ## 1.25.1-1
 - Updated Zigbee2MQTT to version [`1.25.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.25.1)
 
