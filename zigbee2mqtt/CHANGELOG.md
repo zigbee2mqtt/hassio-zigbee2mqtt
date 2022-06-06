@@ -1,3 +1,6 @@
+## 1.22.1-2
+- Added frontend port to config
+
 ## 1.22.1-1
 - Updated Zigbee2MQTT to version [`1.22.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.22.1)
 
