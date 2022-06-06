@@ -13,15 +13,17 @@ socat:
 mqtt: {}
 serial: {}
 ```
-The ONLY thing you have to configure here is mqtt and serial.
-If you use Home Assistant mqtt server, you should use:
+The ONLY thing you have to configure here is mqtt and / or serial.
+If you don't use the Home Assistant mqtt server, you should use:
 
 ```
 mqtt:
-  server: mqtt://core-mosquitto:1883
+  server: MQTT-SERVER-IP:PORT
+  user: USERNAME
+  password: PASSWORD
 ```
 
-If you use any other mqtt server, configure it accordingly to your own settings.
+When using the Home Assistant mqtt server, all the settings for mqtt are automatically fetched. No mqtt configuration is therefore needed.
 
 serial is configured as before, like:
 ```
