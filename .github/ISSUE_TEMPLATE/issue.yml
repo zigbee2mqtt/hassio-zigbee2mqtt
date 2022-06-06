@@ -1,5 +1,5 @@
 name: Issue
-description: Only use this if you are sure this issue is related to the addon and **not Zigbee2MQTT itself**! Otherwise click Zigbee2MQTT issues below.
+description: Only use this if you are sure this issue is related to the addon and not Zigbee2MQTT itself! Otherwise click Zigbee2MQTT issues below.
 body:
   - type: textarea
     id: issue
