@@ -9,7 +9,7 @@ frontend:
   port: 8099
 ```
 
-Enable `ingress` to have the frontend available in your UI: **Supervisor → Dashboard → Zigbee2mqtt → Show in sidebar**. You can find more details about the feature on the [Zigbee2mqtt documentation](https://www.zigbee2mqtt.io/information/frontend.html).
+Enable `ingress` to have the frontend available in your UI: **Supervisor → Dashboard → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
 
 # Configuration
 The configuration closely mirrors that of `zigbee2mqtt` itself, with a couple of key differences:
@@ -25,7 +25,7 @@ The add-on will create a backup of your configuration.yml within your data path:
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
 # Enabling zigbee debug mode
-If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2mqtt startup. To do this you must set `zigbee_herdsman_debug` to `true`.
+If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2MQTT startup. To do this you must set `zigbee_herdsman_debug` to `true`.
 
 ```yaml
 zigbee_herdsman_debug: true
@@ -46,7 +46,7 @@ Examples: https://github.com/Koenkk/zigbee2mqtt.io/tree/master/docs/externalConv
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
 - Please see this add-on's [documentation on GitHub](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/dev/zigbee2mqtt/DOCS.md#socat) for further add-on-specific information (using Socat, how to add support for new devices etc.).
 - The 'devices' and 'groups' configuration options accept arrays of files since Zigbee2MQTT v1.16.2. In order to maintain backwards compatibility of configurations, the same functionality is achieved in this addon by the use of comma-separated strings.
-- If you want to use [Zigbee2mqtt scripts](https://github.com/Koenkk/zigbee2mqtt/tree/master/scripts) for example to clear NVMEM after usb firmware update, execute the following within the docker container: first: `killall node` second: `node /app/scripts/zStackEraseAllNvMem.js /dev/ttyUSB0` 
+- If you want to use [Zigbee2MQTT scripts](https://github.com/Koenkk/zigbee2mqtt/tree/master/scripts) for example to clear NVMEM after usb firmware update, execute the following within the docker container: first: `killall node` second: `node /app/scripts/zStackEraseAllNvMem.js /dev/ttyUSB0` 
 
 # Additional Configuration Options
 - `network_key_string`  

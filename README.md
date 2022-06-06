@@ -1,6 +1,6 @@
 ![alt text][logo]
-# Home Assistant Add-on: Zigbee2mqtt
-Run [Zigbee2mqtt] as a Home Assistant Add-on
+# Home Assistant Add-on: Zigbee2MQTT
+Run [Zigbee2MQTT] as a Home Assistant Add-on
 
 ## Installation
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
@@ -42,5 +42,5 @@ Feel free to create a PR for fixes and enhancements.
 - [ciotlosm](https://github.com/ciotlosm)
 - [Koenkk](https://github.com/Koenkk) for [zigbee2mqtt]
 
-[logo]: zigbee2mqtt/logo.png "Zigbee2mqtt"
+[logo]: zigbee2mqtt/logo.png "Zigbee2MQTT"
 [zigbee2mqtt]: https://www.zigbee2mqtt.io

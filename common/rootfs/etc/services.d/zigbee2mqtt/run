@@ -36,5 +36,5 @@ if bashio::config.is_empty 'mqtt' && bashio::var.has_value "$(bashio::services '
 fi
 
 cd /app || bashio::exit.nok "Could not change directory to /app"
-bashio::log.info "Handing over control to Zigbee2mqtt Core ..."
+bashio::log.info "Handing over control to Zigbee2MQTT Core ..."
 exec npm start
