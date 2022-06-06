@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Zigbee2MQTT issues
+    url: https://github.com/nurikk/z2m-frontend/issues
+    about: Issues related to the Zigbee2MQTT (not the addon!).
+  - name: Frontend issues
+    url: https://github.com/nurikk/z2m-frontend/issues
+    about: Issues related to the Zigbee2MQTT frontend (not the addon!).
+  - name: Questions/discussion
+    url: https://github.com/Koenkk/zigbee2mqtt/discussions/new
+    about: Ask questions, discuss about devices or show things you made
+  - name: FAQ
+    url: https://www.zigbee2mqtt.io/guide/faq
+    about: Frequently asked questions.
+  - name: Support Chat
+    url: https://discord.gg/NyseBeK
+    about: Chat for feedback, questions and troubleshooting.
