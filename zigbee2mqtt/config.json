@@ -25,7 +25,7 @@
   ],
   "ports": {
     "8485/tcp": 8485,
-    "8099/tcp": nulls
+    "8099/tcp": 8099
   },
   "ports_description": {
     "8485/tcp": "Socat tcp-listen port",
