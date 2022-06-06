@@ -26,7 +26,7 @@
 
 ## Installation
 1. If you don't have a MQTT broker yet; in Home Assistant go to **Settings → Add-ons → Add-on store** and install the **Mosquitto broker** addon.
-1. Go back to the **Add-on store**, click **⋮ → Repositories**, fill in  `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close**.
+1. Go back to the **Add-on store**, click **⋮ → Repositories**, fill in</br>  `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close**.
 1. The repository includes two add-ons:
     - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
     - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
