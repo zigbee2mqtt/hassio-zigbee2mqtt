@@ -5,8 +5,8 @@ ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
 RUN apk add --no-cache --virtual .build-dependencies \
-    make gcc g++ linux-headers udev git python2 && \
-    apk add --no-cache jq nodejs npm socat
+    make gcc g++ linux-headers udev git python3 && \
+    apk add --no-cache nodejs npm socat
 
 RUN if [ "${BUILD_VERSION}" = "edge" ]; \
     then \

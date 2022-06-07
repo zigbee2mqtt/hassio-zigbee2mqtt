@@ -1,0 +1,31 @@
+name: Issue
+description: Only use this if you are sure this issue is related to the addon and not Zigbee2MQTT itself! Otherwise click Zigbee2MQTT issues below.
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: Description of the issue
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Addon version
+      description: If you are using edge, please report commit hash.
+      placeholder: 'v1.22.1'
+    validations:
+      required: true
+  - type: textarea
+    id: platform
+    attributes:
+      label: Platform
+      description: Details from Suypervisor > System
+      placeholder: "Core: core-2021.2.2\nSupervisor: supervisor-2021.02.6\nOperating System: HassOS 5.4"
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Logs of the issue (if applicable)
+    validations:
+      required: false

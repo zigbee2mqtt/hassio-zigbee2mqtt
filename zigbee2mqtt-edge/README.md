@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Zigbee2mqtt Edge
+# Home Assistant Add-on: Zigbee2MQTT Edge
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/zigbee2mqtt/zigbee2mqtt-edge-amd64.svg?style=flat-square&logo=docker)](https://cloud.docker.com/u/zigbee2mqtt/repository/docker/dwelch2101/zigbee2mqtt-edge-amd64)
 
@@ -16,8 +16,8 @@ To update the `edge` version of the add-on, you will need to uninstall and re-in
 ⚠️ Make sure to backup your config as the procedure will not save this for you.
 
 **Steps**
-- Backup config from: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
-- Uninstall: **Supervisor → Dashboard → Zigbee2mqtt Edge → Uninstall**
+- Backup config from: **Supervisor → Dashboard → Zigbee2MQTT Edge → Configuration**
+- Uninstall: **Supervisor → Dashboard → Zigbee2MQTT Edge → Uninstall**
 - Refresh repo: **Supervisor → Add-on store → ⋮ → Reload**
-- Re-install: **Supervisor → Add-on store → Zigbee2mqtt Edge → Install**
-- Restore config to: **Supervisor → Dashboard → Zigbee2mqtt Edge → Configuration**
+- Re-install: **Supervisor → Add-on store → Zigbee2MQTT Edge → Install**
+- Restore config to: **Supervisor → Dashboard → Zigbee2MQTT Edge → Configuration**
