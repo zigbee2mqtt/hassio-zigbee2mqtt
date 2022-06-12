@@ -1,18 +1,17 @@
 # Setting up
 1. Git clone this project into your add-ons folder
-2. Remove the `image` key from `hassio-zigbee2mqtt/zigbee2mqtt-edge/config.json` to enable local builds.
-3. Add back `"image": "dwelch2101/zigbee2mqtt-edge-{arch}"` to `zigbee2mqtt-edge/config.json` after you're done.
+2. Remove the `image` key from `zigbee2mqtt-edge/config.json` to enable local builds.
+3. Add back `"image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"` to `zigbee2mqtt-edge/config.json` after you're done.
 
 # Upgrading the Zigbee2MQTT version
-So you want to bump the zigbee2mqtt version because I'm too slow. Here's how:
 1. Change the version number in `zigbee2mqtt/config.json`: `"version": "$NEW_VERSION"`
 2. Update `zigbee2mqtt/CHANGELOG.md`
 3. Commit the changes to `master` branch
 4. Wait till ci finishes
 5. Publish a new "Release". Very important you specify Target: master. Example
 ```
-Tag version: v1.17.1  @ Target: master
-Release title: v1.17.1
+Tag version: v1.25.2-1  @ Target: master
+Release title: v1.25.2-1
 ```
 
 # Developing against the Home Assistant container
