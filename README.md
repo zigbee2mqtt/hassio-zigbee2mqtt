@@ -32,7 +32,8 @@
     - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
 1. Click on the addon and press **Install** and wait till the addon is installed.
 1. Click on **Configuration**
-    - If you are **not** using the Mosquitto broker addon fill in your MQTT details (leave empty when using the Mosquitto broker addon). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` indent. e.g.: <br>
+    - If you are using the Mosquitto broker addon, you should add `base_topic: zigbee2mqtt` to the mqtt configuration field or the corresponding YAML block if editting in raw YAML.
+    - If you are **not** using the Mosquitto broker addon fill in your MQTT details (leave empty when using the Mosquitto broker addon). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` YAML key if using the configuration UI and typing into the `mqtt` field. e.g.: <br>
         ```yaml
         server: mqtt://localhost:1883
         user: my_user
