@@ -2,7 +2,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/zigbee2mqtt/zigbee2mqtt-edge-amd64.svg?style=flat-square&logo=docker)](https://cloud.docker.com/u/zigbee2mqtt/repository/docker/dwelch2101/zigbee2mqtt-edge-amd64)
 
-⚠️ This is the Edge version ⚠️
+⚠️ This is the Edge version (follows the Zigbee2MQTT development branch) ⚠️
 
 Allows you to use your Zigbee devices **without** the vendors bridge or gateway.
 
@@ -16,8 +16,8 @@ To update the `edge` version of the add-on, you will need to uninstall and re-in
 ⚠️ Make sure to backup your config as the procedure will not save this for you.
 
 **Steps**
-- Backup config from: **Supervisor → Dashboard → Zigbee2MQTT Edge → Configuration**
-- Uninstall: **Supervisor → Dashboard → Zigbee2MQTT Edge → Uninstall**
-- Refresh repo: **Supervisor → Add-on store → ⋮ → Reload**
-- Re-install: **Supervisor → Add-on store → Zigbee2MQTT Edge → Install**
-- Restore config to: **Supervisor → Dashboard → Zigbee2MQTT Edge → Configuration**
+1. Backup config from: **Settings → Add-ons → Zigbee2MQTT Edge → Configuration → ⋮ → Edit in YAML**, copy the **Options** somewhere safe
+1. Uninstall: **Settings → Add-ons → Zigbee2MQTT Edge → Uninstall**
+1. Refresh repo: **Settings → Add-ons → Add-ons store → ⋮ → Check for updates**
+1. Install: **Settings → Add-ons → Add-ons store → Zigbee2MQTT Edge → Install**
+1. Restore config to: **Settings → Add-ons → Zigbee2MQTT Edge → Configuration → ⋮ → Edit in YAML**, paste your config from step 1.
