@@ -4,11 +4,9 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
-RUN apk add --no-cache --virtual .build-dependencies \
-    make gcc g++ linux-headers udev git python3 && \
-    apk add --no-cache nodejs npm socat
-
-RUN if [ "${BUILD_VERSION}" = "edge" ]; \
+RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers udev git python3 && \
+    apk add --no-cache nodejs npm socat && \
+    if [ "${BUILD_VERSION}" = "edge" ]; \
     then \
         echo "Installing Edge version" && \
         git clone -b dev --single-branch --depth 1 \
@@ -24,18 +22,14 @@ RUN if [ "${BUILD_VERSION}" = "edge" ]; \
         mkdir /app/dist && \
         jq -n --arg commit ${BUILD_VERSION%-*} '$commit' > /app/dist/.hash ; \
     fi; \
-    echo "Installed zigbee2mqtt @ version $(cat /app/dist/.hash)"
-
-RUN cd /app && \
+    echo "Installed Zigbee2MQTT @ version $(cat /app/dist/.hash)" && \
+    cd /app && \
     npm ci --no-audit --no-optional --no-update-notifier --unsafe-perm && \
     npm run build && \
     rm -rf node_modules && \
     npm ci --no-audit --no-optional --no-update-notifier --only=production --unsafe-perm && \
     apk del --no-cache --purge .build-dependencies && \
     rm -rf docs test images data docker LICENSE README.md update.sh lib && \
-    rm -rf npm-shrinkwrap.json \
-          node-modules/zigbee-herdsman/npm-shrinkwrap.json \
-          node-modules/zigbee-herdsman-converters/npm-shrinkwrap.json && \
     rm -rf /root/.cache /root/.npm
 
 COPY rootfs /
