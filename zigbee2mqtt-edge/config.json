@@ -45,7 +45,6 @@
     "serial": {}
   },
   "schema": {
-    "zigbee_shepherd_devices": "bool?",
     "zigbee_herdsman_debug": "bool?",
     "data_path": "str",
     "socat": {
