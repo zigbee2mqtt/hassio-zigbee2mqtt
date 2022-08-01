@@ -1,5 +1,5 @@
 ## 1.27.0-1
-- Updated Zigbee2MQTT to version [`1.27.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.26.0)
+- Updated Zigbee2MQTT to version [`1.27.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.27.0)
 
 ## 1.26.0-1
 - Updated Zigbee2MQTT to version [`1.26.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.26.0)
