@@ -4,6 +4,8 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
+ENV S6_KILL_GRACETIME 60000
+
 RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers udev git python3 && \
     apk add --no-cache nodejs npm socat && \
     if [ "${BUILD_VERSION}" = "edge" ]; \
@@ -29,6 +31,7 @@ RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers 
     rm -rf node_modules && \
     npm ci --no-audit --no-optional --no-update-notifier --only=production --unsafe-perm && \
     apk del --no-cache --purge .build-dependencies && \
+    chmod +x /etc/s6-overlay/s6-rc.d/socat_start/script && \
     rm -rf docs test images data docker LICENSE README.md update.sh lib && \
     rm -rf /root/.cache /root/.npm
 
