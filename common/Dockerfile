@@ -4,6 +4,8 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
+ENV S6_KILL_GRACETIME 60000
+
 RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers udev git python3 && \
     apk add --no-cache nodejs npm socat && \
     if [ "${BUILD_VERSION}" = "edge" ]; \
