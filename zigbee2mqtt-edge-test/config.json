@@ -1,0 +1,69 @@
+{
+  "name": "Zigbee2MQTT Edge DONT INSTALL",
+  "version": "edge",
+  "slug": "zigbee2mqtt_edge_test",
+  "description": "Development build of the Zigbee2MQTT add-on",
+  "uart": true,
+  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-edge",
+  "startup": "application",
+  "services": [
+    "mqtt:need"
+  ],
+  "arch": [
+    "aarch64"
+  ],
+  "boot": "auto",
+  "init": false,
+  "ingress": true,
+  "panel_icon": "mdi:zigbee",
+  "map": [
+    "share:rw",
+    "config:rw"
+  ],
+  "ports": {
+    "8485/tcp": 8485,
+    "8099/tcp": null
+  },
+  "ports_description": {
+    "8485/tcp": "Socat tcp-listen port",
+    "8099/tcp": "Frontend tcp-listen port"
+  },
+  "options": {
+    "data_path": "/config/zigbee2mqtt",
+    "socat": {
+      "enabled": false,
+      "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
+      "slave": "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5",
+      "options": "-d -d",
+      "log": false
+    },
+    "mqtt": {},
+    "serial": {}
+  },
+  "schema": {
+    "zigbee_herdsman_debug": "bool?",
+    "data_path": "str",
+    "socat": {
+      "enabled": "bool?",
+      "master": "str?",
+      "slave": "str?",
+      "options": "str?",
+      "log": "bool?"
+    },
+    "mqtt": {
+      "server": "str?",
+      "ca": "str?",
+      "key": "str?",
+      "cert": "str?",
+      "user": "str?",
+      "password": "str?"
+    },
+    "serial": {
+      "port": "str?",
+      "adapter": "match(zstack|deconz|zigate|ezsp)?",
+      "baudrate": "int?",
+      "rtscts": "bool?"
+    }
+  },
+  "image": "zigbee2mqtt/zigbee2mqtt-edge-test-{arch}"
+}
