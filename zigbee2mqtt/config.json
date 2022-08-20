@@ -19,6 +19,7 @@
   "boot": "auto",
   "init": false,
   "ingress": true,
+  "timeout": 60,
   "panel_icon": "mdi:zigbee",
   "map": [
     "share:rw",
