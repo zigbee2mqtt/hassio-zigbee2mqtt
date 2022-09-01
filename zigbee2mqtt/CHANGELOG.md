@@ -1,3 +1,6 @@
+## 1.27.2-1
+- Updated Zigbee2MQTT to version [`1.27.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.27.2)
+
 ## 1.27.1-1
 - Updated Zigbee2MQTT to version [`1.27.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.27.1)
 - Fix Zigbee2MQTT process being killed instead of stopped when addon is stopped. This prevented the backup on shutdown from happening. 
