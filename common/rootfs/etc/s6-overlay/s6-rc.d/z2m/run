@@ -1,5 +1,9 @@
 #!/usr/bin/with-contenv bashio
 
+# Workaround for https://github.com/home-assistant/supervisor/issues/3884
+bashio::log.info "Prepare Zigbee2MQTT start..."
+bashio::config.require 'data_path'
+
 export ZIGBEE2MQTT_DATA="$(bashio::config 'data_path')"
 
 if ! bashio::fs.file_exists "$ZIGBEE2MQTT_DATA/configuration.yaml"; then
