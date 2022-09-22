@@ -1,7 +1,7 @@
 
 #!/usr/bin/env bashio
 # ==============================================================================
-# Take down the S6 supervision tree when example fails
+# Take down the S6 supervision tree when z2m fails
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
