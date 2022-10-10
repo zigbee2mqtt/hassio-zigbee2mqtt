@@ -5,7 +5,6 @@ RUN apk add --no-cache --update nginx
 # Copy root filesystem
 ADD nginx.conf.gtpl /
 ADD entrypoint.sh /
-ADD setup.sh /
 
 ENTRYPOINT ["/bin/sh", "-c", "/entrypoint.sh"]
 # Build arguments
@@ -22,7 +21,4 @@ LABEL \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION}
 
-
-# Do some basic testing during build
-RUN /setup.sh
 ENTRYPOINT ["/entrypoint.sh"]
