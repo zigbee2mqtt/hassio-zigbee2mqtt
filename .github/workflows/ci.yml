@@ -24,7 +24,7 @@ jobs:
     - name: "ARGS: zigbee2mqtt" # Build of addon release version
       if: startsWith(github.ref, 'refs/tags/') && github.event_name == 'push'
       run: |
-        echo "ADDON_LIST=['zigbee2mqtt']" >> $GITHUB_ENV
+        echo "ADDON_LIST=['zigbee2mqtt', 'zigbee2mqtt-proxy']" >> $GITHUB_ENV
         echo "DOCKER_ARGS=--no-cache --docker-hub-check" >> $GITHUB_ENV
 
     - name: Determine arch
@@ -50,7 +50,7 @@ jobs:
       run: echo ${{ secrets.DOCKER_KEY }} | docker login -u koenkk --password-stdin
     - name: Build
       run: |
-        cp -R common/rootfs ${{ matrix.addon }}
+        cp -Rn common/rootfs ${{ matrix.addon }}
         cp common/Dockerfile ${{ matrix.addon }}
         cp common/build.yaml ${{ matrix.addon }}
         docker run --rm --privileged \
