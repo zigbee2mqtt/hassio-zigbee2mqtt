@@ -63,8 +63,12 @@ jobs:
       run: echo ${{ secrets.DOCKER_KEY }} | docker login -u koenkk --password-stdin
     - name: Build
       run: |
-        cp -Rn common/rootfs ${{ matrix.addon }}
-        cp common/Dockerfile ${{ matrix.addon }}
+        if [ "zigbee2mqtt-proxy" == "${{ matrix.addon }}" ]; then
+          cp -R zigbee2mqtt-proxy ${{ matrix.addon }}
+        else
+          cp -R common/rootfs ${{ matrix.addon }}
+          cp common/Dockerfile ${{ matrix.addon }}
+        fi
         cp common/build.yaml ${{ matrix.addon }}
         docker run --rm --privileged \
             -v /home/runner/.docker:/root/.docker \
