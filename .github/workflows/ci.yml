@@ -1,6 +1,14 @@
 name: CI
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type (edge/proxy)'
+        default: 'edge'
+        required: true
 
 jobs:
   variables:
@@ -16,15 +24,20 @@ jobs:
       run: |
         echo "ADDON_LIST=['zigbee2mqtt', 'zigbee2mqtt-edge']" >> $GITHUB_ENV
         echo "DOCKER_ARGS=--no-latest --test" >> $GITHUB_ENV
+    - name: "ARGS: zigbee2mqtt-proxy" # Build of addon proxy version
+      if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' && github.event.inputs.type == 'proxy')
+      run: |
+        echo "ADDON_LIST=['zigbee2mqtt-proxy']" >> $GITHUB_ENV
+        echo "DOCKER_ARGS=--no-cache" >> $GITHUB_ENV
     - name: "ARGS: zigbee2mqtt-edge" # Build of addon edge version
-      if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.type == 'edge'))
       run: |
         echo "ADDON_LIST=['zigbee2mqtt-edge']" >> $GITHUB_ENV
         echo "DOCKER_ARGS=--no-cache" >> $GITHUB_ENV
     - name: "ARGS: zigbee2mqtt" # Build of addon release version
       if: startsWith(github.ref, 'refs/tags/') && github.event_name == 'push'
       run: |
-        echo "ADDON_LIST=['zigbee2mqtt', 'zigbee2mqtt-proxy']" >> $GITHUB_ENV
+        echo "ADDON_LIST=['zigbee2mqtt']" >> $GITHUB_ENV
         echo "DOCKER_ARGS=--no-cache --docker-hub-check" >> $GITHUB_ENV
 
     - name: Determine arch
