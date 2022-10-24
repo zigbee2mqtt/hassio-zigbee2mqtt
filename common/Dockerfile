@@ -34,4 +34,6 @@ RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers 
 
 COPY rootfs /
 
+ENV NODE_ENV production
+
 ENTRYPOINT [ "/sbin/tini", "--", "/docker-entrypoint.sh"]
