@@ -1,6 +1,6 @@
 {
     "name": "Zigbee2MQTT Proxy",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "slug": "zigbee2mqtt_proxy",
     "description": "Proxy for externally running Zigbee2MQTT",
     "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-proxy",
@@ -27,10 +27,12 @@
       "8099/tcp": "Frontend tcp-listen port"
     },
     "options": {
-      "server": null
+      "server": null,
+      "auth_token": ""
     },
     "schema": {
-      "server": "url"
+      "server": "url",
+      "auth_token": "str?"
     },
     "image": "zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
 }
