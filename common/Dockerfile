@@ -28,6 +28,8 @@ RUN apk add --no-cache --virtual .build-dependencies make gcc g++ linux-headers 
     npm run build && \
     rm -rf node_modules && \
     npm ci --no-audit --no-optional --no-update-notifier --only=production --unsafe-perm && \
+    # Serialport needs to be rebuild for Alpine https://serialport.io/docs/9.x.x/guide-installation#alpine-linux
+    npm rebuild --build-from-source && \
     apk del --no-cache --purge .build-dependencies && \
     rm -rf docs test images data docker LICENSE README.md update.sh lib && \
     rm -rf /root/.cache /root/.npm
