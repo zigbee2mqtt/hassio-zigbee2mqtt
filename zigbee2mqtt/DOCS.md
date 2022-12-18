@@ -2,7 +2,7 @@
 By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
 # Enabling the built-in frontend
-Enable `ingress` to have the frontend available in your UI: **Supervisor → Dashboard → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
+Enable `ingress` to have the frontend available in your UI: **Settings → Add-ons → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
 
 # Configuration
 Configuration required to startup Zigbee2MQTT is available from the addon configuration. The rest of the options can be configured via the Zigbee2MQTT frontend.
