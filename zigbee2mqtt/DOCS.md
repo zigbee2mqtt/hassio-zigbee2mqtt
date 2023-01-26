@@ -12,7 +12,7 @@ The add-on will create a backup of your configuration.yml within your data path:
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
 # Enabling zigbee-herdsman debug logging
-If you want to troubleshoot in more depth problems with your zigbee devics, sometimes you must enable DEBUG option on Zigbee2MQTT startup. To do this you must set `zigbee_herdsman_debug` to `true`.
+If you want to troubleshoot in more depth problems with your zigbee devices, sometimes you must enable DEBUG option on Zigbee2MQTT startup. To do this you must set `zigbee_herdsman_debug` to `true`.
 
 ```yaml
 zigbee_herdsman_debug: true
