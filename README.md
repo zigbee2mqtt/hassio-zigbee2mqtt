@@ -53,6 +53,17 @@
 
 For more information see [the documentation](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/master/zigbee2mqtt/DOCS.md).
 
+## Restoring data from a standalone installation
+
+1. Ensure that both environments are running the same version
+1. Backup your standalone environment `data` folder (possibly leaving out the `logs/` folder)
+1. Configure your serial port using the HA addon configuration UI
+1. Restore your `data` folder contents into `/usr/share/hassio/homeassistant/zigbee2mqtt`
+1. Edit the `/usr/share/hassio/homeassistant/zigbee2mqtt/configuration.yaml` file:
+    - Ensure that the serial port section matches the one configured with the UI
+    - Remove any irrelevant sections from the config (e.g. `mqtt`, `advanced/log_syslog`, `frontend`)
+1. Start the add-on
+
 ## Changelog
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
