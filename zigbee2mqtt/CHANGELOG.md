@@ -1,3 +1,7 @@
+## 1.32.0-1
+- Updated Zigbee2MQTT to version [`1.32.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.32.0)
+- Enable url setting in order to add Visit button in HA UI
+
 ## 1.31.2-1
 - Updated Zigbee2MQTT to version [`1.31.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.31.2)
 
