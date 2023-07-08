@@ -1,3 +1,6 @@
+## 1.32.1-1
+- Updated Zigbee2MQTT to version [`1.32.1`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.32.1)
+
 ## 1.32.0-2
 - Fix issue with configuration URL
 
