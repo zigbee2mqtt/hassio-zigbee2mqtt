@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Zigbee2MQTT issues
-    url: https://github.com/nurikk/z2m-frontend/issues
+    url: https://github.com/Koenkk/zigbee2mqtt/issues
     about: Issues related to the Zigbee2MQTT.
   - name: Frontend issues
     url: https://github.com/nurikk/z2m-frontend/issues
