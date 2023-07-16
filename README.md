@@ -37,8 +37,9 @@
         ```yaml
         server: mqtt://localhost:1883
         user: my_user
-        password: my_password
+        password: "my_password"
         ```
+        Note: If the `password` includes certain special characters (reserved by yaml specification), the enclosing quotes are required. So it is recommended to always quote it when in doubt.
     - Fill in the serial details (e.g. port of your USB coordinator). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
         ```yaml
         port: /dev/ttyUSB0
