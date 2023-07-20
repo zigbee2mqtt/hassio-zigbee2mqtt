@@ -1,4 +1,4 @@
-# Home Assistant - Run multipoint Zigbee2MQTT Coordinator separately from an Official 
+# Home Assistant - Run Zigbee2MQTT Coordinator separately
 
 [![Base Image](https://img.shields.io/badge/Base%20Image-3.16-blue)](https://github.com/home-assistant/docker-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
@@ -9,7 +9,7 @@
 
 ## Disclaimer ###
 
-เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt โดยสามารถแยกการทำงาน Coordinator มากกว่า 1 จุดขึ้นไปได้อย่างอิสระ
+เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt over LAN เพื่อทำงานร่วมกับ zigbee2mqtt official โดยสามารถแยกการทำงาน Coordinator ได้อย่างอิสระ
 
 ## How to Install Add-on
 
@@ -33,7 +33,7 @@
 \
 \
 RACKSYNC COMPANY LIMITED \
-Suratthani, Thailand 84000 \
+Suratthani, Thailand 84000 \w
 Email : devops@racksync.com \
 Tel : +66 85 880 8885 
 
