@@ -33,7 +33,7 @@
 \
 \
 RACKSYNC COMPANY LIMITED \
-Suratthani, Thailand 84000 \
+Suratthani, Thailand 84100 \
 Email : devops@racksync.com \
 Tel : +66 85 880 8885 
 
