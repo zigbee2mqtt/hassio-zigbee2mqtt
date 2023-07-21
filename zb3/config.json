@@ -1,7 +1,7 @@
 {
-  "name": "RACKSYNC ZB #4",
+  "name": "RACKSYNC ZB #3",
   "version": "1.32.1-1",
-  "slug": "racksync-multipoint-zigbee-4",
+  "slug": "racksync-multipoint-zigbee-3",
   "description": "Run multipoint Zigbee2MQTT Coordinator separately from an Official",
   "uart": true,
   "url": "https://github.com/racksync/hass-addons-multipoint-zigbee",
@@ -20,13 +20,13 @@
   "init": false,
   "ingress": true,
   "timeout": 30,
-  "panel_icon": "mdi:numeric-4-circle",
+  "panel_icon": "mdi:numeric-3-circle",
   "map": [
     "share:rw",
     "config:rw"
   ],
   "ports": {
-    "8485/tcp": 8488,
+    "8485/tcp": 8487,
     "8099/tcp": null
   },
   "ports_description": {
@@ -34,7 +34,7 @@
     "8099/tcp": "Frontend tcp-listen port"
   },
   "options": {
-    "data_path": "/config/racksync_z2m_4",
+    "data_path": "/config/racksync_z2m_3",
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
@@ -43,7 +43,7 @@
       "log": false
     },
     "mqtt": { 
-      "base_topic": "racksync_z2m_4" 
+      "base_topic": "racksync_z2m_3" 
     },
     "serial": {}
   },
