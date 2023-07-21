@@ -1,6 +1,6 @@
 {
   "name": "RACKSYNC ZB #3",
-  "version": "1.32.1-1",
+  "version": "1.32.1-2",
   "slug": "racksync-multipoint-zigbee-3",
   "description": "Run multipoint Zigbee2MQTT Coordinator separately from an Official",
   "uart": true,
