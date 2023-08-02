@@ -1,4 +1,4 @@
-# Home Assistant - Run Zigbee2MQTT Coordinator separately
+# Home Assistant - Run multipoint Zigbee2MQTT Coordinator separately from an Official 
 
 [![Base Image](https://img.shields.io/badge/Base%20Image-3.16-blue)](https://github.com/home-assistant/docker-base)  [![alpine-armhf](https://img.shields.io/badge/armhf-yes-brightgreen)](https://alpinelinux.org/releases/) 
 [![alpine-armv7](https://img.shields.io/badge/armv7-yes-brightgreen)](https://alpinelinux.org/releases/) 
@@ -9,14 +9,14 @@
 
 ## Disclaimer ###
 
-เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt over LAN เพื่อทำงานร่วมกับ zigbee2mqtt official โดยสามารถแยกการทำงาน Coordinator ได้อย่างอิสระ
+เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt โดยสามารถแยกการทำงาน Coordinator มากกว่า 1 จุดขึ้นไปได้อย่างอิสระ
 
 ## How to Install Add-on
 
 1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-multipoint-zigbee เข้าไปยัง addon list ตามปกติ
 2. ตั้งค่า addon configuration ดังนี้
 2.1 serial config
-```
+```yaml
 port: tcp://ip-address:6638
 baudrate: 115200
 disable_led: false
@@ -28,7 +28,6 @@ advanced:
 3. แก้ไข topic ในส่วนของ mqtt setting (แก้ไขผ่านหน้า zigbee config หลัก) ที่เมนู **setting -> MQTT** ตรงส่วนของ Base topic จะต้องไม่ซ้ำกัน
 
 4. ทำการรัน Addon ทุกตัวพร้อมกันและเริ่ม Pairing ตามปกติ
-
 
 
 ### Automation Training

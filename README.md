@@ -16,7 +16,7 @@
 1. ติดตั้ง addon ด้วยการ add repository : https://github.com/racksync/hass-addons-multipoint-zigbee เข้าไปยัง addon list ตามปกติ
 2. ตั้งค่า addon configuration ดังนี้
 2.1 serial config
-```
+```yaml
 port: tcp://ip-address:6638
 baudrate: 115200
 disable_led: false
