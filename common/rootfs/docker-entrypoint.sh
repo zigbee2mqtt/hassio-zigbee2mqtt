@@ -54,6 +54,7 @@ if ! bashio::fs.file_exists "$ZIGBEE2MQTT_DATA/configuration.yaml"; then
 homeassistant: true
 advanced:
   network_key: GENERATE
+  pan_id: GENERATE
 EOF
 fi
 
