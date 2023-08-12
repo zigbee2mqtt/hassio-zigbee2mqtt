@@ -55,6 +55,7 @@ homeassistant: true
 advanced:
   network_key: GENERATE
   pan_id: GENERATE
+  ext_pan_id: GENERATE
 EOF
 fi
 
