@@ -20,7 +20,7 @@ jobs:
             env:
                 API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
             with:
-                source_file: "REAMDE.md"
+                source_file: "README.md"
                 destination_repo: 'racksync/hass-addons-suite'
                 destination_folder: 'multipoint-zigbee/'
                 user_email: 'devops@racksync.com'
