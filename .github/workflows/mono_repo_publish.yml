@@ -7,7 +7,7 @@ on:
       - zb3/*
       - zb4/*
       - zigbee2mqtt-proxy/*
-    branches: main
+    branches: master
 
 jobs:
     push-zb1:
@@ -95,6 +95,24 @@ jobs:
                 API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
             with:
                 source_file: "zigbee2mqtt-proxy/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
+
+    push-common:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push Common
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "common/"
                 destination_repo: 'racksync/hass-addons-suite'
                 destination_folder: 'multipoint-zigbee/'
                 user_email: 'devops@racksync.com'
