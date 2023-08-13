@@ -1,0 +1,102 @@
+name: Push to Add-Ons Suite
+on:
+  push:
+    paths:
+      - zb1/*
+      - zb2/*
+      - zb3/*
+      - zb4/*
+      - zigbee2mqtt-proxy/*
+    branches: main
+
+jobs:
+    push-zb1:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push ZB1
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "zb1/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
+
+
+    push-zb2:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push ZB2
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "zb2/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
+          
+    push-zb3:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push ZB3
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "zb3/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
+                      
+    push-zb4:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push ZB4
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "zb4/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
+
+    push-zb-proxy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Push ZB Proxy
+            uses: dmnemec/copy_file_to_another_repo_action@main
+            env:
+                API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+            with:
+                source_file: "zigbee2mqtt-proxy/"
+                destination_repo: 'racksync/hass-addons-suite'
+                destination_folder: 'multipoint-zigbee/'
+                user_email: 'devops@racksync.com'
+                user_name: 'racksync'
+                commit_message: 'multi-point zigbee has been updated from legacy codebase'
