@@ -9,7 +9,7 @@
 
 ## Disclaimer ###
 
-เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt โดยสามารถแยกการทำงาน Coordinator มากกว่า 1 จุดขึ้นไปได้อย่างอิสระ
+เหมาะสำหรับท่านที่ต้องการ run zigbee2mqtt โดยสามารถแยกการทำงาน Coordinator มากกว่า 1 จุด
 
 ## How to Install Add-on
 
