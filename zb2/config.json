@@ -4,7 +4,7 @@
   "slug": "racksync-multipoint-zigbee-2",
   "description": "Run multipoint Zigbee2MQTT Coordinator separately from an Official",
   "uart": true,
-  "url": "https://github.com/racksync/hass-addons-multipoint-zigbee",
+  "url": "https://github.com/racksync/hass-addons-suite/tree/main/multipoint-zigbee/zb2",
   "startup": "application",
   "services": [
     "mqtt:need"
