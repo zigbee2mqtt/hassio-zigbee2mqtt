@@ -1,12 +1,12 @@
 name: Push to Add-Ons Suite
 on:
   push:
-    paths:
-      - zb1/*
-      - zb2/*
-      - zb3/*
-      - zb4/*
-      - zigbee2mqtt-proxy/*
+#    paths:
+#      - zb1/*
+#      - zb2/*
+#      - zb3/*
+#      - zb4/*
+#      - zigbee2mqtt-proxy/*
     branches: master
 
 jobs:
