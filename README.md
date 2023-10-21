@@ -90,11 +90,11 @@ If you're submitting a PR and wish to test it locally:
 ![image](https://user-images.githubusercontent.com/1923186/198087147-7ab2ba1e-1a68-41b8-9a84-76b25b329786.png)
 - Enter the `zigbee2mqtt` container interactively.
 ```
-docker exec -it $(docker ps | grep zigbee2mqtt | cut -d" " -f 1) /bin/bash
+docker exec -it $(docker ps | grep zigbee2mqtt | cut -d" " -f 1) /bin/sh
 ```
 - Edit the file you'd like to test & save. 
 ```
-vi app/node_modules/zigbee-herdsman-converters/converters/toZigbee.js
+vi node_modules/zigbee-herdsman-converters/converters/toZigbee.js
 ```
 - Back on the Home Assistant installation, restart the `zigbee2mqtt` container
 ```
