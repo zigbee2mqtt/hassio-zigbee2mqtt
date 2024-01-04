@@ -35,3 +35,4 @@ jobs:
       with:
         tag: "v${{ steps.version.outputs.addon }}"
         body: "- Updated Zigbee2MQTT to version [`${{ steps.version.outputs.z2m }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ steps.version.outputs.z2m }})"
+        token: ${{secrets.GH_TOKEN}}
