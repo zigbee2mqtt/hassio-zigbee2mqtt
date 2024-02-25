@@ -47,6 +47,7 @@
   },
   "schema": {
     "zigbee_herdsman_debug": "bool?",
+    "disable_tuya_default_response": "bool?",
     "data_path": "str",
     "socat": {
       "enabled": "bool?",

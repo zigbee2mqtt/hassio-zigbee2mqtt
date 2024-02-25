@@ -67,6 +67,11 @@ fi
 export NODE_PATH=/app/node_modules
 export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
 
+if bashio::config.true 'disable_tuya_default_response'; then
+    bashio::log.info "Disabling TuYa default responses"
+    export DISABLE_TUYA_DEFAULT_RESPONSE="true"
+fi
+
 # Expose addon configuration through environment variables.
 function export_config() {
     local key=${1}
