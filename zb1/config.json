@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD:zb1/config.json
   "name": "RACKSYNC ZB #1",
   "version": "1.32.1-1",
   "slug": "racksync-multipoint-zigbee-1",
   "description": "Run multipoint Zigbee2MQTT Coordinator separately from an Official",
+=======
+  "name": "Zigbee2MQTT",
+  "version": "1.36.0-1",
+  "slug": "zigbee2mqtt",
+  "description": "Use your ZigBee devices without the vendor's bridge or gateway",
+>>>>>>> ff786392938cebf8852e7d48bf06122518fcb3e4:zigbee2mqtt/config.json
   "uart": true,
   "url": "https://github.com/racksync/hass-addons-suite/tree/main/multipoint-zigbee/zb1",
   "startup": "application",
@@ -67,7 +74,7 @@
     },
     "serial": {
       "port": "str?",
-      "adapter": "match(zstack|deconz|zigate|ezsp)?",
+      "adapter": "match(zstack|deconz|zigate|ezsp|ember)?",
       "baudrate": "int?",
       "rtscts": "bool?"
     }

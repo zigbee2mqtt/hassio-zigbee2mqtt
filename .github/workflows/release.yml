@@ -1,0 +1,38 @@
+on:
+  repository_dispatch:
+    types: release
+
+name: Release
+
+permissions: {}
+jobs:
+  release:
+    permissions:
+      contents: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: master
+        token: ${{ secrets.GH_TOKEN }}
+    - name: Set variables
+      id: version
+      run: |
+        echo "addon=${{ github.event.client_payload.version }}" >> "$GITHUB_OUTPUT"
+        echo "z2m=$(echo "${{ github.event.client_payload.version }}" | cut -d - -f 1)" >> "$GITHUB_OUTPUT"
+    - name: Set version and update release
+      run: | 
+        jq '.version = "${{ steps.version.outputs.addon }}"' zigbee2mqtt/config.json > zigbee2mqtt/config.json.tmp
+        mv zigbee2mqtt/config.json.tmp zigbee2mqtt/config.json
+        echo -e "## ${{ steps.version.outputs.addon }}\n- Updated Zigbee2MQTT to version [\`${{ steps.version.outputs.z2m }}\`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ steps.version.outputs.z2m }})\n" | cat - zigbee2mqtt/CHANGELOG.md > zigbee2mqtt/CHANGELOG.md.tmp
+        mv zigbee2mqtt/CHANGELOG.md.tmp zigbee2mqtt/CHANGELOG.md
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "v${{ steps.version.outputs.addon }}"
+    - uses: ncipollo/release-action@v1
+      with:
+        tag: "v${{ steps.version.outputs.addon }}"
+        body: "- Updated Zigbee2MQTT to version [`${{ steps.version.outputs.z2m }}`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/${{ steps.version.outputs.z2m }})"
+        token: ${{secrets.GH_TOKEN}}
