@@ -11,13 +11,6 @@ Configuration required to startup Zigbee2MQTT is available from the addon config
 The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
-# Enabling zigbee-herdsman debug logging
-If you want to troubleshoot in more depth problems with your zigbee devices, sometimes you must enable DEBUG option on Zigbee2MQTT startup. To do this you must set `zigbee_herdsman_debug` to `true`.
-
-```yaml
-zigbee_herdsman_debug: true
-```
-
 # Adding Support for New Devices
 If you are interested in adding support for new devices to Zigbee2MQTT see [How to support new devices](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html).
 
