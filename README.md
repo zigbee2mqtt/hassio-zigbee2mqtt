@@ -35,7 +35,7 @@
 5. Click on **Configuration**
     - If you are **not** using the Mosquitto broker addon fill in your MQTT details (leave empty when using the Mosquitto broker addon). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` indent. e.g.: <br>
         ```yaml
-        server: mqtt://localhost:1883
+        server: mqtt://core-mosquitto:1883
         user: my_user
         password: "my_password"
         ```
