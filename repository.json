@@ -1,5 +1,5 @@
 {
   "name": "Home Assistant Add-on: Zigbee2MQTT(1)",
-  "url": "https://github.com/raphael1688dev/hassio-zigbee2mqtt-1/tree/master",
+  "url": "https://github.com/raphael1688dev/hassio-zigbee2mqtt-1",
   "maintainer": "Koen Kanters <koenkanters94@gmail.com>"
 }
