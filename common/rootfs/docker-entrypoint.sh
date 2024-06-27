@@ -59,6 +59,11 @@ advanced:
 EOF
 fi
 
+if bashio::config.has_value 'watchdog'; then
+    export Z2M_WATCHDOG="$(bashio::config 'watchdog')"
+    bashio::log.info "Enabled Zigbee2MQTT watchdog with value '$Z2M_WATCHDOG'"
+fi
+
 export NODE_PATH=/app/node_modules
 export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
 
