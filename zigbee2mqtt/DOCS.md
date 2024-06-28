@@ -12,7 +12,7 @@ The add-on will create a backup of your configuration.yml within your data path:
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
 # Enabling the watchdog
-To automatically restart Zigbee2MQTT in case of a crash, the watchdog can be used. It can be enabled by adding the following to the addon configuration:
+To automatically restart Zigbee2MQTT in case of a soft failure (like "adapter disconnected"), the watchdog can be used. It can be enabled by adding the following to the addon configuration:
 
 ```yaml
 watchdog: default
