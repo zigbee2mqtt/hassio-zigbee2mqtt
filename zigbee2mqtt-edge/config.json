@@ -68,7 +68,8 @@
       "adapter": "match(zstack|deconz|zigate|ezsp|ember)?",
       "baudrate": "int?",
       "rtscts": "bool?"
-    }
+    },
+    "watchdog": "str?"
   },
   "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
 }

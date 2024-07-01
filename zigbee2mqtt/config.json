@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2MQTT",
-  "version": "1.38.0-1",
+  "version": "1.39.0-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
@@ -60,14 +60,16 @@
       "key": "str?",
       "cert": "str?",
       "user": "str?",
-      "password": "str?"
+      "password": "str?",
+      "base_topic": "str?"
     },
     "serial": {
       "port": "str?",
       "adapter": "match(zstack|deconz|zigate|ezsp|ember)?",
       "baudrate": "int?",
       "rtscts": "bool?"
-    }
+    },
+    "watchdog": "str?"
   },
   "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
 }
