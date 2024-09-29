@@ -4,7 +4,7 @@ FROM $BUILD_FROM as base
 ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
-RUN apk add --no-cache socat tini nodejs
+RUN apk add --no-cache socat tini nodejs eudev
 
 # Dependencies and build
 FROM base as dependencies_and_build
