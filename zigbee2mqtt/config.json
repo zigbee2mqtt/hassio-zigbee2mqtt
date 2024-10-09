@@ -23,8 +23,20 @@
   "timeout": 30,
   "panel_icon": "mdi:zigbee",
   "map": [
-    "share:rw",
-    "config:rw"
+    {
+      "type": "share",
+      "read_only": false
+    },
+    {
+      "type": "homeassistant_config",
+      "read_only": false,
+      "path": "/config"
+    },
+    {
+      "type": "addon_config",
+      "read_only": false,
+      "path": "/addon_config"
+    }
   ],
   "ports": {
     "8485/tcp": 8485,
@@ -35,7 +47,7 @@
     "8099/tcp": "Frontend tcp-listen port"
   },
   "options": {
-    "data_path": "/config/zigbee2mqtt",
+    "data_path": "/addon_config/zigbee2mqtt",
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
