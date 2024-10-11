@@ -4,6 +4,7 @@
   "slug": "zigbee2mqtt_edge",
   "description": "Development build of the Zigbee2MQTT add-on",
   "uart": true,
+  "udev": true,
   "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-edge",
   "startup": "application",
   "services": [
@@ -65,7 +66,7 @@
     },
     "serial": {
       "port": "str?",
-      "adapter": "match(zstack|deconz|zigate|ezsp|ember)?",
+      "adapter": "match(zstack|deconz|zigate|ezsp|ember|zboss)?",
       "baudrate": "int?",
       "rtscts": "bool?"
     },
