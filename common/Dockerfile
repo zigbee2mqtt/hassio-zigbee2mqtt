@@ -9,7 +9,8 @@ RUN apk add --no-cache socat tini nodejs eudev
 # Dependencies and build
 FROM base as dependencies_and_build
 
-RUN apk add --no-cache --virtual .buildtools pnpm make gcc g++ linux-headers udev git python3 && \
+RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev git python3 && \
+    npm install -g pnpm && \
     if [ "${BUILD_VERSION}" = "edge" ]; \
     then \
         echo "Installing Edge version" && \
@@ -33,8 +34,7 @@ RUN apk add --no-cache --virtual .buildtools pnpm make gcc g++ linux-headers ude
     rm -rf node_modules && \
     pnpm install --frozen-lockfile --no-optional --unsafe-perm --prod && \
     # Serialport needs to be rebuild for Alpine https://serialport.io/docs/9.x.x/guide-installation#alpine-linux
-    pnpm rebuild && \
-    apk del .buildtools
+    pnpm rebuild
 
 # Release
 FROM base as release
