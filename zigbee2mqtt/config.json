@@ -23,8 +23,20 @@
   "timeout": 30,
   "panel_icon": "mdi:zigbee",
   "map": [
-    "share:rw",
-    "config:rw"
+    {
+      "type": "share",
+      "read_only": false
+    },
+    {
+      "type": "homeassistant_config",
+      "read_only": false,
+      "path": "/config"
+    },
+    {
+      "type": "addon_config",
+      "read_only": false,
+      "path": "/addon_config"
+    }
   ],
   "ports": {
     "8485/tcp": 8485,
