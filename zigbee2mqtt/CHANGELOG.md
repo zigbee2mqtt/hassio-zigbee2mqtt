@@ -1,3 +1,6 @@
+## [Unreleased]
+- Mount addon specific configuration into the addon container (`/addon_config`) 
+    
 ## 1.40.2-1
 - Updated Zigbee2MQTT to version [`1.40.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/1.40.2)
 
