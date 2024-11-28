@@ -20,7 +20,7 @@ When you want to check the impact of developing work, e.g. adjusting devices in 
 
 🚨 Following these directions will make your Home Assistant system more prone to misconfiguration (by yourself) to the extent of rendering it completely useless, so only touch what you're confident to and "know what you do". 
 
-1. install the [Portainer addon](https://github.com/hassio-addons/addon-portainer) from the Add-on store
+1. install the [Portainer add-on](https://github.com/hassio-addons/addon-portainer) from the Add-on store
 2. Make sure to disable its `Protection mode`:
   ![image](https://user-images.githubusercontent.com/1125168/118788032-aa316800-b893-11eb-8567-f2122159f64c.png)
 3. Start Portainer and `Open Web UI`
