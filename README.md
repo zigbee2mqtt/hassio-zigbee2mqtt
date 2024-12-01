@@ -21,20 +21,20 @@
             <img src="https://img.shields.io/discourse/https/zigbee2mqtt.discourse.group/status.svg">
         </a>
     </div>
-    <h1>Official Zigbee2MQTT Home Assistant addon</h1>
+    <h1>Official Zigbee2MQTT Home Assistant add-on</h1>
 </div>
 
 ## Installation
 
-1. If you don't have an MQTT broker yet; in Home Assistant go to **[Settings → Add-ons → Add-on store](https://my.home-assistant.io/redirect/supervisor_store/)** and install the **[Mosquitto broker](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)** addon, then start it.
+1. If you don't have an MQTT broker yet; in Home Assistant go to **[Settings → Add-ons → Add-on store](https://my.home-assistant.io/redirect/supervisor_store/)** and install the **[Mosquitto broker](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)** add-on, then start it.
 1. Go back to the **Add-on store**, click **⋮ → Repositories**, fill in</br> `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close** or click the **Add repository** button below, click **Add → Close** (You might need to enter the **internal IP address** of your Home Assistant instance first).  
    [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fzigbee2mqtt%2Fhassio-zigbee2mqtt)
 1. The repository includes two add-ons:
    - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
    - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
-1. Click on the addon and press **Install** and wait till the addon is installed.
+1. Click on the add-on and press **Install** and wait till the add-on is installed.
 1. Click on **Configuration**
-   - If you are **not** using the Mosquitto broker addon fill in your MQTT details (leave empty when using the Mosquitto broker addon) under the `mqtt` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` indent. e.g.: <br>
+   - If you are **not** using the Mosquitto broker add-on fill in your MQTT details (leave empty when using the Mosquitto broker add-on) under the `mqtt` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` indent. e.g.: <br>
      ```yaml
      server: mqtt://localhost:1883
      user: my_user
@@ -44,11 +44,12 @@
    - Since Zigbee2MQTT automatically attempts to detect the adapter, you can leave the `serial` section empty for now; we may need it later in step 7.
    - Click **Save**
    - **Tip:** it is possible to refer to variables in the Home Assistant `secrets.yaml` file (not the Zigbee2MQTT one!) by using e.g. `password: '!secret mqtt_pass'`
-1. Start the addon by going to **Info** and click **Start**
+   - **CAUTION:** settings configured through the add-on configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in add-on configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used).
+1. Start the add-on by going to **Info** and click **Start**
 1. Wait till Zigbee2MQTT starts and press **OPEN WEB UI** to verify Zigbee2MQTT started correctly.
    - If it shows `502: Bad Gateway` wait a bit more and refresh the page.
    - If this takes too long (e.g. 2 minutes +) check the **Log** tab to see what went wrong.
-   - In case the addon fails to start with the following error: `Error: No path provided and failed to auto detect path`, we need to fill in the `serial` section (which we skipped in step 5). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
+   - In case the add-on fails to start with the following error: `Error: No path provided and failed to auto detect path`, we need to fill in the `serial` section (which we skipped in step 5). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
      ```yaml
      port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00
      adapter: zstack
@@ -60,11 +61,11 @@ For more information see [the documentation](https://github.com/zigbee2mqtt/hass
 ## Restoring data from a standalone installation
 
 1. Ensure that both environments are running the same version
-1. Ensure you can [SSH to your Home Assistant OS](https://community.home-assistant.io/t/howto-how-to-access-the-home-assistant-os-host-itself-over-ssh/263352) (NOT to the SSH Addon)
+1. Ensure you can [SSH to your Home Assistant OS](https://community.home-assistant.io/t/howto-how-to-access-the-home-assistant-os-host-itself-over-ssh/263352) (NOT to the SSH Add-on)
 1. Backup your standalone environment `data` folder (possibly leaving out the `logs/` folder)
-1. Start the Zigbee2MQTT HA addon with a non-existing `tty` device, to create the `data` folder
+1. Start the Zigbee2MQTT HA add-on with a non-existing `tty` device, to create the `data` folder
 1. Restore your `data` folder contents into `/mnt/data/supervisor/homeassistant/zigbee2mqtt`, e.g. via `scp -O -P 22222 -i  PATHTOUSEDSSHKEY ./data/* root@hass:/mnt/data/supervisor/homeassistant/zigbee2mqtt/`
-1. Configure your serial port and MQTT settings using the HA addon configuration UI
+1. Configure your serial port and MQTT settings using the HA add-on configuration UI
 1. Edit the `/usr/share/hassio/homeassistant/zigbee2mqtt/configuration.yaml` file:
    - Ensure that the serial port section matches the one configured with the UI
    - Remove any irrelevant sections from the config (e.g. `mqtt` (if not needed), `advanced/log_syslog`, `frontend`)
@@ -78,7 +79,7 @@ All notable changes to this project will be documented in the [CHANGELOG.md](zig
 
 Version for releases is based on [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt) format: `X.Y.Z`.
 
-Any changes on the addon that do not require a new version of Zigbee2MQTT will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the Zigbee2MQTT release version and `A` is related to the addon.
+Any changes on the add-on that do not require a new version of Zigbee2MQTT will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the Zigbee2MQTT release version and `A` is related to the add-on.
 
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 
