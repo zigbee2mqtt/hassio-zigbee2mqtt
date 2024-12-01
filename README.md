@@ -49,7 +49,7 @@
 1. Wait till Zigbee2MQTT starts and press **OPEN WEB UI** to verify Zigbee2MQTT started correctly.
    - If it shows `502: Bad Gateway` wait a bit more and refresh the page.
    - If this takes too long (e.g. 2 minutes +) check the **Log** tab to see what went wrong.
-   - In case the add-on fails to start with the following error: `Error: No path provided and failed to auto detect path`, we need to fill in the `serial` section (which we skipped in step 5). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
+   - In case the add-on fails to start with the following error: `USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.`, we need to fill in the `serial` section (which we skipped in step 5). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
      ```yaml
      port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00
      adapter: zstack
@@ -64,9 +64,9 @@ For more information see [the documentation](https://github.com/zigbee2mqtt/hass
 1. Ensure you can [SSH to your Home Assistant OS](https://community.home-assistant.io/t/howto-how-to-access-the-home-assistant-os-host-itself-over-ssh/263352) (NOT to the SSH Add-on)
 1. Backup your standalone environment `data` folder (possibly leaving out the `logs/` folder)
 1. Start the Zigbee2MQTT HA add-on with a non-existing `tty` device, to create the `data` folder
-1. Restore your `data` folder contents into `/mnt/data/supervisor/homeassistant/zigbee2mqtt`, e.g. via `scp -O -P 22222 -i  PATHTOUSEDSSHKEY ./data/* root@hass:/mnt/data/supervisor/homeassistant/zigbee2mqtt/`
-1. Configure your serial port and MQTT settings using the HA add-on configuration UI
-1. Edit the `/usr/share/hassio/homeassistant/zigbee2mqtt/configuration.yaml` file:
+1. Restore your `data` folder contents into `/mnt/data/supervisor/addon_configs/45df7312_zigbee2mqtt/zigbee2mqtt`, e.g. via `scp -O -P 22222 -i  PATHTOUSEDSSHKEY ./data/* root@hass:/mnt/data/supervisor/addon_configs/45df7312_zigbee2mqtt/zigbee2mqtt/`
+1. Configure your serial port and MQTT settings using the HA addon configuration UI
+1. Edit the `/mnt/data/supervisor/addon_configs/45df7312_zigbee2mqtt/zigbee2mqtt/configuration.yaml` file:
    - Ensure that the serial port section matches the one configured with the UI
    - Remove any irrelevant sections from the config (e.g. `mqtt` (if not needed), `advanced/log_syslog`, `frontend`)
 1. Start the add-on
