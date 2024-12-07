@@ -1,8 +1,8 @@
 {
-  "name": "Zigbee2MQTT",
+  "name": "Zigbee2MQTT1",
   "version": "1.42.0-2",
-  "slug": "zigbee2mqtt",
-  "description": "Use your ZigBee devices without the vendor's bridge or gateway",
+  "slug": "zigbee2mqtt1",
+  "description": "Clone for the second zigbee2mqtt instance. Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
   "udev": true,
   "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
