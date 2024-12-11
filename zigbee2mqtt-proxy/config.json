@@ -8,8 +8,7 @@
       "aarch64",
       "amd64",
       "armhf",
-      "armv7",
-      "i386"
+      "armv7"
     ],
     "boot": "auto",
     "init": true,
