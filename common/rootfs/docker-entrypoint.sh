@@ -51,7 +51,9 @@ if ! bashio::fs.file_exists "$ZIGBEE2MQTT_DATA/configuration.yaml"; then
     mkdir -p "$ZIGBEE2MQTT_DATA" || bashio::exit.nok "Could not create $ZIGBEE2MQTT_DATA"
 
     cat <<EOF > "$ZIGBEE2MQTT_DATA/configuration.yaml"
-homeassistant: true
+version: 3
+homeassistant:
+  enabled: true
 advanced:
   network_key: GENERATE
   pan_id: GENERATE
@@ -65,7 +67,7 @@ if bashio::config.has_value 'watchdog'; then
 fi
 
 export NODE_PATH=/app/node_modules
-export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
+export ZIGBEE2MQTT_CONFIG_FRONTEND='{"enabled":true,"port": 8099}'
 
 if bashio::config.true 'disable_tuya_default_response'; then
     bashio::log.info "Disabling TuYa default responses"
