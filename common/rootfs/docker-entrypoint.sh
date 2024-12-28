@@ -51,7 +51,7 @@ if ! bashio::fs.file_exists "$ZIGBEE2MQTT_DATA/configuration.yaml"; then
     mkdir -p "$ZIGBEE2MQTT_DATA" || bashio::exit.nok "Could not create $ZIGBEE2MQTT_DATA"
 
     cat <<EOF > "$ZIGBEE2MQTT_DATA/configuration.yaml"
-version: 3
+version: 4
 homeassistant:
   enabled: true
 advanced:
