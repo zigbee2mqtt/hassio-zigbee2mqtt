@@ -87,6 +87,30 @@ Edge version will not maintain a CHANGELOG and doesn't have a version.
 
 If you find any issues with the add-on, please check the [issue tracker](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after Zigbee2MQTT has successfully started, it should likely be reported in the [Zigbee2MQTT issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
 
+### Troubleshooting
+
+`zigbee2mqtt` keeps some configuration in between re-installations of the add-on. It can lead to an error that doesn't prevent the add-on to start but disables a possibility to commision devices.
+Example error log is below and is usually found by the end of the add-on initiation log:
+
+```log
+[2024-10-04 14:54:07] error: 	z2m: Failed to call 'HomeAssistant' 'start' (TypeError: Cannot read properties of undefined (reading 'deviceIeeeAddress')
+    at HomeAssistant.getBridgeEntity (/app/lib/extension/homeassistant.ts:2016:78)
+    at HomeAssistant.start (/app/lib/extension/homeassistant.ts:476:28)
+    at Controller.callExtensions (/app/lib/controller.ts:399:17)
+    at Controller.start (/app/lib/controller.ts:218:9)
+    at start (/app/index.js:154:5))
+[2024-10-04 14:54:07] info: 	z2m: Zigbee2MQTT started!
+```
+
+To fix it, ensure a clean installation of the `zigbee2mqtt` add-on by using the official `ssh` plugin from HomeAssistant.
+Remove remaining configuration files by launching a shell via browser or a direct ssh session and running:
+
+```bash
+[core-ssh ~] rm -rf /config/zigbee2mqtt
+```
+
+Re-install and re-configure the add-on. The error should be gone and in the absense of other issue, device comissioning should now be possible.
+
 Feel free to create a PR for fixes and enhancements.
 
 ### Testing changes locally
