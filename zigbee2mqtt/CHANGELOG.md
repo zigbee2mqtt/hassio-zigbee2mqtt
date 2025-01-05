@@ -1,5 +1,6 @@
 ## 2.0.0-1
 - Updated Zigbee2MQTT to version [`2.0.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/2.0.0)
+- Be aware of [**breaking changes**](https://github.com/Koenkk/zigbee2mqtt/discussions/24198).   .
 
 ## 1.42.0-2
 
