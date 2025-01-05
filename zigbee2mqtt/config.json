@@ -3,6 +3,9 @@
   "version": "2.0.0-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
+  "breaking_versions": [
+    "2.0.0-1",
+  ],
   "uart": true,
   "udev": true,
   "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
