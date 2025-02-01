@@ -1,3 +1,6 @@
+## 2.1.0-1
+- Updated Zigbee2MQTT to version [`2.1.0`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/2.1.0)
+
 ## 2.0.0-2
 
 - Fix addon crashing on serialport open on certain systems (e.g. Rpi4) [#25464](https://github.com/Koenkk/zigbee2mqtt/issues/25464)
