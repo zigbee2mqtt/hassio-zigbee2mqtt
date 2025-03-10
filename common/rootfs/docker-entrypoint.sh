@@ -54,6 +54,8 @@ if bashio::config.has_value 'watchdog'; then
 fi
 
 export Z2M_ONBOARD_URL="http://0.0.0.0:8099"
+# don't show links to frontend or try to redirect to it
+export Z2M_ONBOARD_NO_REDIRECT="1"
 
 if bashio::config.true 'force_onboarding'; then
     export Z2M_ONBOARD_FORCE_RUN="1"
