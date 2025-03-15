@@ -82,18 +82,10 @@ jobs:
         fi
         cp common/build.yaml ${{ matrix.addon }}
 
-    # - name: Build and publish
-    #   uses: home-assistant/builder@master
-    #   with:
-    #     args: |
-    #       --${{ matrix.arch }} \
-    #       - $(pwd)/${{ matrix.addon }} \
-    #       ${{ env.BUILD_ARGS }}
-
-    - name: build
-      run: |
-        docker run --rm --privileged \
-            -v /home/runner/.docker:/root/.docker \
-            -v /run/docker.sock:/run/docker.sock:rw \
-            -v $(pwd)/${{ matrix.addon }}:/data homeassistant/amd64-builder --${{ matrix.arch }} -t /data \
-            ${{ env.BUILD_ARGS }}
+    - name: Build and publish
+      uses: home-assistant/builder@master
+      with:
+        args: |
+          --${{ matrix.arch }} \
+          --target $(pwd)/${{ matrix.addon }} \
+          ${{ env.BUILD_ARGS }}
