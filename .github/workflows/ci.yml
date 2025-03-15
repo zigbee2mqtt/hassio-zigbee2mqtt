@@ -85,8 +85,8 @@ jobs:
 
     - name: Debug
       run: |
-        IMAGE=$(cat config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
-        VERSION=$(cat config.json | jq -r .version)
+        IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
+        VERSION=$(cat ${{ matrix.addon }}/config.json | jq -r .version)
         
         DOCKER_HUB_IMAGE="$IMAGE:$VERSION"
         GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
