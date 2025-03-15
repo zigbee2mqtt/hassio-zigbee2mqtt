@@ -82,10 +82,14 @@ jobs:
         fi
         cp common/build.yaml ${{ matrix.addon }}
 
+
+    - name: Debug
+      run: ls ${{ matrix.addon }}
+
     - name: Build and publish
       uses: home-assistant/builder@master
       with:
         args: |
           --${{ matrix.arch }} \
-          --target $(pwd)/${{ matrix.addon }} \
+          --target ${{ matrix.addon }} \
           ${{ env.BUILD_ARGS }}
