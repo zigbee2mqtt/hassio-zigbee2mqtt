@@ -82,7 +82,7 @@ jobs:
         fi
         cp common/build.yaml ${{ matrix.addon }}
 
-    - name: Build and publish
+    - name: Build
       uses: home-assistant/builder@master
       with:
         args: |
