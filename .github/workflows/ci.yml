@@ -22,7 +22,7 @@ jobs:
 
     - name: "ARGS: default"
       run: |
-        echo "ADDON_LIST=['zigbee2mqtt-proxy']" >> $GITHUB_ENV
+        echo "ADDON_LIST=['zigbee2mqtt', 'zigbee2mqtt-edge']" >> $GITHUB_ENV
         echo "BUILD_ARGS=--no-latest --test" >> $GITHUB_ENV
     - name: "ARGS: zigbee2mqtt-proxy" # Build of addon proxy version
       if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' && github.event.inputs.type == 'proxy')
@@ -59,14 +59,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Log in to the Docker container registry
+    - name: Log in to docker.io
       if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       uses: docker/login-action@v3
       with:
           username: koenkk
           password: ${{ secrets.DOCKER_KEY }}
 
-    - name: Log in to the GitHub container registry
+    - name: Log in to ghcr.io
       # if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       uses: docker/login-action@v3
       with:
@@ -82,13 +82,21 @@ jobs:
         fi
         cp common/build.yaml ${{ matrix.addon }}
 
+    - name: Build and publish
+      uses: home-assistant/builder@master
+      with:
+        args: |
+          --${{ matrix.arch }} \
+          --target ${{ matrix.addon }} \
+          ${{ env.BUILD_ARGS }}
 
-    - name: Debug
+    - name: Push to ghcr.io
+      if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       run: |
         CONFIG_IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
         CONFIG_VERSION=$(cat ${{ matrix.addon }}/config.json | jq -r .version)
 
-        VERSIONS=("latest" "0.2.0")
+        VERSIONS=("latest" "$CONFIG_VERSION")
         for VERSION in "${VERSIONS[@]}"; do
           DOCKER_HUB_IMAGE="$CONFIG_IMAGE:$VERSION"
           GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
@@ -97,12 +105,3 @@ jobs:
           docker tag $DOCKER_HUB_IMAGE $GHCR_IMAGE
           docker push $GHCR_IMAGE
         done
-
-
-    # - name: Build and publish
-    #   uses: home-assistant/builder@master
-    #   with:
-    #     args: |
-    #       --${{ matrix.arch }} \
-    #       --target ${{ matrix.addon }} \
-    #       ${{ env.BUILD_ARGS }}
