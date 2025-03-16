@@ -22,7 +22,7 @@ jobs:
 
     - name: "ARGS: default"
       run: |
-        echo "ADDON_LIST=['zigbee2mqtt-edge']" >> $GITHUB_ENV
+        echo "ADDON_LIST=['zigbee2mqtt-proxy']" >> $GITHUB_ENV
         echo "BUILD_ARGS=--no-latest --test" >> $GITHUB_ENV
     - name: "ARGS: zigbee2mqtt-proxy" # Build of addon proxy version
       if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' && github.event.inputs.type == 'proxy')
@@ -88,7 +88,7 @@ jobs:
         CONFIG_IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
         CONFIG_VERSION=$(cat ${{ matrix.addon }}/config.json | jq -r .version)
 
-        VERSIONS=("latest" "edge")
+        VERSIONS=("latest" "0.2.0")
         for VERSION in "${VERSIONS[@]}"; do
           DOCKER_HUB_IMAGE="$CONFIG_IMAGE:$VERSION"
           GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
