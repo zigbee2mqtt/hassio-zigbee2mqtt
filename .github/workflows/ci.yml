@@ -84,6 +84,7 @@ jobs:
 
     - name: Build
       uses: home-assistant/builder@master
+      # Note: if running without `--test`, image is pushed to docker.io
       with:
         args: |
           --${{ matrix.arch }} \
