@@ -93,6 +93,9 @@ jobs:
           DOCKER_HUB_IMAGE="$CONFIG_IMAGE:$VERSION"
           GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
           echo "Push: $DOCKER_HUB_IMAGE -> $GHCR_IMAGE"
+          docker pull $DOCKER_HUB_IMAGE
+          docker tag $DOCKER_HUB_IMAGE $GHCR_IMAGE
+          docker push $GHCR_IMAGE
         done
 
 
