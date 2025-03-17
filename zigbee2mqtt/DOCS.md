@@ -5,12 +5,23 @@ By default the add-on has `permit_join` set to `false`. To allow devices to join
 Enable `ingress` to have the frontend available in your UI: **Settings → Add-ons → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
 
 # Configuration
-Configuration required to startup Zigbee2MQTT is available from the add-on configuration. The rest of the options can be configured via the Zigbee2MQTT frontend.
 
-**CAUTION:** settings configured through the add-on configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in add-on configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used). _If you want to control the entire configuration through YAML, remove them from the add-on configuration page._
+## Onboarding
+
+[Onboarding](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding) allows you to setup Zigbee2MQTT without having to manually enter the details in the add-on configuration page. When starting the add-on with a brand new install (no configuration present), the frontend will show a quick setup page, allowing you to select various settings for Zigbee2MQTT to be able to start.
+
+Note: Successful detection of adapters, to select from, may vary based on your setup/network. You may have to enter these [details manually](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#basic-configuration) on the page instead.
+
+Tip: You can force the onboarding to re-run (e.g. changing adapter) using the toggle available in the add-on configuration page (visible after checking `Show unused optional configuration options`). This will force onboarding to run even after you have successfully configured it for the first time.
+
+## Manual
+
+Configuration required to startup Zigbee2MQTT is available from the add-on configuration page. The rest of the options can be configured via the Zigbee2MQTT frontend.
+
+**CAUTION:** settings configured through the add-on configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in add-on configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used). The settings configured through the add-on configuration page will always overwrite the corresponding settings in the `configuration.yaml` whenever settings are updated. _If you want to control the entire configuration through YAML, remove them from the add-on configuration page._
 
 # Configuration backup
-The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to repair all of your devices.
+The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to re-pair all of your devices.
 The backup of your configuration is created on add-on startup if no previous backup was found. 
 
 # Enabling the watchdog
