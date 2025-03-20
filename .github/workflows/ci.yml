@@ -23,7 +23,7 @@ jobs:
     - name: "ARGS: default"
       run: |
         echo "ADDON_LIST=['zigbee2mqtt', 'zigbee2mqtt-edge']" >> $GITHUB_ENV
-        echo "BUILD_ARGS=--no-latest --test" >> $GITHUB_ENV
+        echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
     - name: "ARGS: zigbee2mqtt-proxy" # Build of addon proxy version
       if: github.ref == 'refs/heads/master' && (github.event_name == 'workflow_dispatch' && github.event.inputs.type == 'proxy')
       run: |
@@ -91,7 +91,7 @@ jobs:
           --target ${{ matrix.addon }} \
           ${{ env.BUILD_ARGS }}
 
-    - name: Push to ghcr.io
+    - name: Push to docker.io
       if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       run: |
         CONFIG_IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
@@ -99,10 +99,10 @@ jobs:
 
         VERSIONS=("latest" "$CONFIG_VERSION")
         for VERSION in "${VERSIONS[@]}"; do
-          DOCKER_HUB_IMAGE="$CONFIG_IMAGE:$VERSION"
-          GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
-          echo "Push: $DOCKER_HUB_IMAGE -> $GHCR_IMAGE"
-          docker pull $DOCKER_HUB_IMAGE
-          docker tag $DOCKER_HUB_IMAGE $GHCR_IMAGE
-          docker push $GHCR_IMAGE
+          GHCR_IMAGE="$CONFIG_IMAGE:$CONFIG_VERSION"
+          DOCKER_IO_IMAGE=$(echo "$GHCR_IMAGE" | sed 's|ghcr\.io\/||')
+          echo "Push: $GHCR_IMAGE -> $DOCKER_IO_IMAGE"
+          docker pull $GHCR_IMAGE
+          docker tag $GHCR_IMAGE $DOCKER_IO_IMAGE
+          docker push $DOCKER_IO_IMAGE
         done
