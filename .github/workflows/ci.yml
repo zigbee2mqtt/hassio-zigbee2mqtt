@@ -94,7 +94,7 @@ jobs:
     # Keep pushing to docker.io as it is unclear how
     # HA handles config.json updates (especially for the unversioned edge)
     - name: Push to docker.io
-      if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      # if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       run: |
         CONFIG_IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
         CONFIG_VERSION=$(cat ${{ matrix.addon }}/config.json | jq -r .version)
