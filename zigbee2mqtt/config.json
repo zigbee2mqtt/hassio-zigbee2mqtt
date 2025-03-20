@@ -87,5 +87,5 @@
     },
     "watchdog": "str?"
   },
-  "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-{arch}"
+  "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
 }

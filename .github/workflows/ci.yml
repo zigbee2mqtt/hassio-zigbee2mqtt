@@ -91,9 +91,7 @@ jobs:
           --target ${{ matrix.addon }} \
           ${{ env.BUILD_ARGS }}
 
-    # Keep pushing to docker.io as it is unclear how
-    # HA handles config.json updates (especially for the unversioned edge)
-    - name: Push to docker.io
+    - name: Push to ghcr.io
       if: (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')) && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       run: |
         CONFIG_IMAGE=$(cat ${{ matrix.addon }}/config.json | jq -r '.image | sub("{arch}"; "${{ matrix.arch }}")')
@@ -101,10 +99,10 @@ jobs:
 
         VERSIONS=("latest" "$CONFIG_VERSION")
         for VERSION in "${VERSIONS[@]}"; do
-          GHCR_IMAGE="$CONFIG_IMAGE:$CONFIG_VERSION"
-          DOCKER_IO_IMAGE=$(echo "$GHCR_IMAGE" | sed 's|ghcr\.io\/||')
-          echo "Push: $GHCR_IMAGE -> $DOCKER_IO_IMAGE"
-          docker pull $GHCR_IMAGE
-          docker tag $GHCR_IMAGE $DOCKER_IO_IMAGE
-          docker push $DOCKER_IO_IMAGE
+          DOCKER_HUB_IMAGE="$CONFIG_IMAGE:$VERSION"
+          GHCR_IMAGE="ghcr.io/$DOCKER_HUB_IMAGE"
+          echo "Push: $DOCKER_HUB_IMAGE -> $GHCR_IMAGE"
+          docker pull $DOCKER_HUB_IMAGE
+          docker tag $DOCKER_HUB_IMAGE $GHCR_IMAGE
+          docker push $GHCR_IMAGE
         done
