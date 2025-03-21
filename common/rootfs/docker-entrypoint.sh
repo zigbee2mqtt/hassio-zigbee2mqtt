@@ -53,6 +53,8 @@ if bashio::config.has_value 'watchdog'; then
     bashio::log.info "Enabled Zigbee2MQTT watchdog with value '$Z2M_WATCHDOG'"
 fi
 
+# TODO: temporary - remove me once fully tested
+export Z2M_ONBOARD_NO_SERVER="1"
 export Z2M_ONBOARD_URL="http://0.0.0.0:8099"
 # don't show links to frontend or try to redirect to it
 export Z2M_ONBOARD_NO_REDIRECT="1"
