@@ -53,8 +53,13 @@ if bashio::config.has_value 'watchdog'; then
     bashio::log.info "Enabled Zigbee2MQTT watchdog with value '$Z2M_WATCHDOG'"
 fi
 
-# TODO: temporary - remove me once fully tested
-export Z2M_ONBOARD_NO_SERVER="1"
+# TODO: temporary - remove me once fully tested (also remove config in 2 json)
+if bashio::config.true 'use_onboarding'; then
+    bashio::log.info "Using onboarding"
+else
+    export Z2M_ONBOARD_NO_SERVER="1"
+fi
+
 export Z2M_ONBOARD_URL="http://0.0.0.0:8099"
 # don't show links to frontend or try to redirect to it
 export Z2M_ONBOARD_NO_REDIRECT="1"
