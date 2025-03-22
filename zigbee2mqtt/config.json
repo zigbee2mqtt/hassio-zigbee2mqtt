@@ -89,5 +89,5 @@
     "use_onboarding": "bool?",
     "force_onboarding": "bool?"
   },
-  "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
+  "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-{arch}"
 }

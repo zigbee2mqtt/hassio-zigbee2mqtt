@@ -34,5 +34,5 @@
       "server": "url",
       "auth_token": "str?"
     },
-    "image": "zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
+    "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-proxy-{arch}"
 }
