@@ -83,7 +83,6 @@
       "rtscts": "bool?"
     },
     "watchdog": "str?",
-    "use_onboarding": "bool?",
     "force_onboarding": "bool?"
   },
   "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-edge-{arch}"

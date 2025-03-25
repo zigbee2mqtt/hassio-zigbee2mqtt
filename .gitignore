@@ -109,4 +109,9 @@ venv.bak/
 secrets.json
 
 zigbee2mqtt/rootfs
+zigbee2mqtt/Dockerfile
+zigbee2mqtt/build.yaml
 zigbee2mqtt-edge/rootfs
+zigbee2mqtt-edge/Dockerfile
+zigbee2mqtt-edge/build.yaml
+zigbee2mqtt-local/*
