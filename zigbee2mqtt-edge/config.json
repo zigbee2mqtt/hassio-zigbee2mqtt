@@ -10,6 +10,7 @@
   "services": [
     "mqtt:need"
   ],
+  "hassio_api": true,
   "arch": [
     "aarch64",
     "amd64",
