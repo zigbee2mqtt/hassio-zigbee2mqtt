@@ -10,6 +10,7 @@
   "services": [
     "mqtt:need"
   ],
+  "hassio_api": true,
   "arch": [
     "aarch64",
     "amd64",
@@ -82,7 +83,8 @@
       "baudrate": "int?",
       "rtscts": "bool?"
     },
-    "watchdog": "str?"
+    "watchdog": "str?",
+    "force_onboarding": "bool?"
   },
-  "image": "zigbee2mqtt/zigbee2mqtt-edge-{arch}"
+  "image": "ghcr.io/zigbee2mqtt/zigbee2mqtt-edge-{arch}"
 }

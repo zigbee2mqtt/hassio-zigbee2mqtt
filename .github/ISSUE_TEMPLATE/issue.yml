@@ -19,8 +19,8 @@ body:
     id: platform
     attributes:
       label: Platform
-      description: Details from Suypervisor > System
-      placeholder: "Core: core-2021.2.2\nSupervisor: supervisor-2021.02.6\nOperating System: HassOS 5.4"
+      description: Details from Settings > About
+      placeholder: "Core 2025.4.3\nSupervisor 2025.05.1\nOperating System 15.2"
     validations:
       required: true
   - type: textarea

@@ -10,6 +10,7 @@ RUN apk add --no-cache socat tini nodejs eudev
 FROM base as dependencies_and_build
 
 RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev git python3 && \
+    npm install -g pnpm@10.4.1 && \
     if [ "${BUILD_VERSION}" = "edge" ]; \
     then \
         echo "Installing Edge version" && \
@@ -28,13 +29,13 @@ RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev
     fi; \
     echo "Installed Zigbee2MQTT @ version $(cat /app/dist/.hash)" && \
     cd /app && \
-    npm ci --no-audit --no-optional --no-update-notifier --unsafe-perm && \
-    npm run build && \
+    pnpm install --frozen-lockfile --no-optional --unsafe-perm && \
+    pnpm run build && \
     rm -rf node_modules && \
-    npm ci --no-audit --no-optional --no-update-notifier --production --unsafe-perm && \
-    # Serialport needs to be rebuild for Alpine https://serialport.io/docs/9.x.x/guide-installation#alpine-linux
-    npm rebuild --build-from-source && \
-    apk del .buildtools
+    pnpm install --frozen-lockfile --no-optional --unsafe-perm --prod && \
+    # serialport has outdated prebuilds that appear to fail on some archs, force build on target platform
+    rm -rf `find ./node_modules/.pnpm/ -wholename "*/@serialport/bindings-cpp/prebuilds" -type d` && \
+    pnpm rebuild @serialport/bindings-cpp
 
 # Release
 FROM base as release

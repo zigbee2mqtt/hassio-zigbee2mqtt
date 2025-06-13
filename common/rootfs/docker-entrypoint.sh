@@ -47,17 +47,7 @@ else
 fi
 
 export ZIGBEE2MQTT_DATA="$(bashio::config 'data_path')"
-if ! bashio::fs.file_exists "$ZIGBEE2MQTT_DATA/configuration.yaml"; then
-    mkdir -p "$ZIGBEE2MQTT_DATA" || bashio::exit.nok "Could not create $ZIGBEE2MQTT_DATA"
-
-    cat <<EOF > "$ZIGBEE2MQTT_DATA/configuration.yaml"
-homeassistant: true
-advanced:
-  network_key: GENERATE
-  pan_id: GENERATE
-  ext_pan_id: GENERATE
-EOF
-fi
+mkdir -p "$ZIGBEE2MQTT_DATA" || bashio::exit.nok "Could not create $ZIGBEE2MQTT_DATA"
 
 if bashio::config.has_value 'watchdog'; then
     export Z2M_WATCHDOG="$(bashio::config 'watchdog')"
@@ -65,7 +55,15 @@ if bashio::config.has_value 'watchdog'; then
 fi
 
 export NODE_PATH=/app/node_modules
-export ZIGBEE2MQTT_CONFIG_FRONTEND='{"port": 8099}'
+export ZIGBEE2MQTT_CONFIG_FRONTEND_ENABLED='true'
+export ZIGBEE2MQTT_CONFIG_FRONTEND_PORT='8099'
+export ZIGBEE2MQTT_CONFIG_HOMEASSISTANT_ENABLED='true'
+export Z2M_ONBOARD_URL='http://0.0.0.0:8099'
+
+if bashio::config.true 'force_onboarding'; then
+    export Z2M_ONBOARD_FORCE_RUN="1"
+    bashio::log.info "Forcing onboard to run"
+fi
 
 if bashio::config.true 'disable_tuya_default_response'; then
     bashio::log.info "Disabling TuYa default responses"
@@ -88,6 +86,8 @@ function export_config() {
 
 export_config 'mqtt'
 export_config 'serial'
+
+export TZ="$(bashio::supervisor.timezone)"
 
 if (bashio::config.is_empty 'mqtt' || ! (bashio::config.has_value 'mqtt.server' || bashio::config.has_value 'mqtt.user' || bashio::config.has_value 'mqtt.password')) && bashio::var.has_value "$(bashio::services 'mqtt')"; then
     if bashio::var.true "$(bashio::services 'mqtt' 'ssl')"; then

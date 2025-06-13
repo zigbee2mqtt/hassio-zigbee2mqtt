@@ -28,8 +28,17 @@ When you want to check the impact of developing work, e.g. adjusting devices in 
     1. head to `Settings` > section *Hidden Containers* and remove `io.hass.type`: `addon`
     2. go to `Containers`, `addon_[…]_zigbee2mqtt`, `Console`, `Connect`
 5. ℹ️ the location of zigbee-herdsman-converters for example is `/app/node_modules/zigbee-herdsman-converters`
-6. make your adjustments by copying or `vi`'ing
+6. make your adjustments by copying or `vi`'ing 
 7. Still in portainer, go back to the add-on's container and `Restart`
+
+## Alternative (without portainer)
+
+1. Install and setup `Advanced SSH & Web Terminal` with disabled safe mode
+2. run `docker ps` and see which container name is the zigbee2mqtt one. (eg. `addon_45df7312_zigbee2mqtt`)
+3. build your whole application with `npm run build`
+4. upload the resulting build to your HA instance (eg. vscode server via drag n drop)
+5. execute `docker cp` (eg. `docker cp <the location of your build>/. <container_name>:/app/node_modules/zigbee-herdsman-converters`)
+6. execute `docker restart <container name>`
 
 ⚠️ Note that restarting the add-on via Supervisor or further down the stack will revert the file changes.
 
