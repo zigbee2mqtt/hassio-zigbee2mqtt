@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2MQTT",
-  "version": "2.4.0-1",
+  "version": "2.5.0-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "breaking_versions": [
