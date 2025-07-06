@@ -17,9 +17,6 @@
         <a href="https://discord.gg/dadfWYE">
             <img src="https://img.shields.io/discord/556563650429583360.svg">
         </a>
-        <a href="http://zigbee2mqtt.discourse.group/">
-            <img src="https://img.shields.io/discourse/https/zigbee2mqtt.discourse.group/status.svg">
-        </a>
     </div>
     <h1>Official Zigbee2MQTT Home Assistant add-on</h1>
 </div>
@@ -36,23 +33,15 @@
    - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
    - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
 1. Click on the add-on and press **Install** and wait till the add-on is installed.
-1. Click on **Configuration**
-   - If you are **not** using the Mosquitto broker add-on fill in your MQTT details (leave empty when using the Mosquitto broker add-on) under the `mqtt` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/mqtt.html#server-connection), but skip the initial `mqtt:` indent. e.g.: <br>
-     ```yaml
-     server: mqtt://localhost:1883
-     user: my_user
-     password: "my_password"
-     ```
-     Note: If the `password` includes certain special characters (reserved by yaml specification), the enclosing quotes are required. So it is recommended to always quote it when in doubt.
-   - Since Zigbee2MQTT automatically attempts to detect the adapter, you can leave the `serial` section empty for now; we may need it later in step 7.
-   - Click **Save**
-   - **Tip:** it is possible to refer to variables in the Home Assistant `secrets.yaml` file (not the Zigbee2MQTT one!) by using e.g. `password: '!secret mqtt_pass'`
-   - **CAUTION:** settings configured through the add-on configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in add-on configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used).
 1. Start the add-on by going to **Info** and click **Start**
-1. Wait till Zigbee2MQTT starts and press **OPEN WEB UI** to verify Zigbee2MQTT started correctly.
+1. Wait a few seconds and press **OPEN WEB UI**, you will now see the onboarding page. More information about the onboarding can be found [here](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding).
+1. Fill in the desired settings, for most setups changing the following is enough:
+   - Select your adapter under _Found Devices_, this will configure the _Coordinator/Adapter Port/Path_ and _Coordinator/Adapter Type/Stack/Driver_.
+   - Fill in the _Closests WiFi Channel_ to select the most optimal Zigbee channel.
+1. Press **Submit**, Zigbee2MQTT will now start, wait a few seconds and refresh the page. You should now see the Zigbee2MQTT frontend.
    - If it shows `502: Bad Gateway` wait a bit more and refresh the page.
    - If this takes too long (e.g. 2 minutes +) check the **Log** tab to see what went wrong.
-   - In case the add-on fails to start with the following error: `USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.`, we need to fill in the `serial` section (which we skipped in step 5). Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
+   - In case the add-on fails to start with the following error: `USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.`, we need to fill in the `serial` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
      ```yaml
      adapter: zstack
      port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00
