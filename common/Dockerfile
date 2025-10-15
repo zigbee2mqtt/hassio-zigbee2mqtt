@@ -49,4 +49,10 @@ COPY --from=dependencies_and_build /app/package.json /app/LICENSE /app/index.js 
 
 ENV NODE_ENV production
 
+# Validation to confirm that CURL is installed in the final image.
+RUN curl --version
+
+HEALTHCHECK --interval=1m --timeout=3s \
+  CMD curl -f http://localhost:8099/ || exit 1
+  
 ENTRYPOINT [ "/sbin/tini", "--", "/docker-entrypoint.sh"]
