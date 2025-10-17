@@ -4,7 +4,9 @@ FROM $BUILD_FROM as base
 ENV LANG C.UTF-8
 ARG BUILD_VERSION
 
-RUN apk add --no-cache socat tini nodejs eudev
+RUN apk add --no-cache socat tini nodejs eudev && \
+    # Validation to confirm that curl is installed in the base image.
+    curl --version || (echo "curl missing" && exit 1)
 
 # Dependencies and build
 FROM base as dependencies_and_build
@@ -48,5 +50,8 @@ COPY --from=dependencies_and_build /app/dist ./dist
 COPY --from=dependencies_and_build /app/package.json /app/LICENSE /app/index.js ./
 
 ENV NODE_ENV production
+
+HEALTHCHECK --interval=1m --timeout=3s \
+  CMD curl -f http://localhost:8099/
 
 ENTRYPOINT [ "/sbin/tini", "--", "/docker-entrypoint.sh"]
