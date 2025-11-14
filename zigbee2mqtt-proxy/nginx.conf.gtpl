@@ -61,6 +61,13 @@ http {
             proxy_send_timeout          86400s;
             proxy_max_temp_file_size    0;
 
+            proxy_no_cache     1;
+            proxy_cache_bypass 1;
+
+            add_header Cache-Control "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0";
+            add_header Pragma "no-cache";
+            add_header Expires 0;
+
             proxy_set_header Accept-Encoding "";
             proxy_set_header Connection $connection_upgrade;
             proxy_set_header Host $http_host;
