@@ -13,10 +13,7 @@
   "hassio_api": true,
   "arch": [
     "aarch64",
-    "amd64",
-    "armhf",
-    "armv7",
-    "i386"
+    "amd64"
   ],
   "boot": "auto",
   "init": false,
