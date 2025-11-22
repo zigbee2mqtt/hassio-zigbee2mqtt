@@ -6,10 +6,7 @@
     "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt-proxy",
     "arch": [
       "aarch64",
-      "amd64",
-      "armhf",
-      "armv7",
-      "i386"
+      "amd64"
     ],
     "boot": "auto",
     "init": true,
