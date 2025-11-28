@@ -1,0 +1,44 @@
+---
+configuration:
+  # @deprecated for migration purpose only
+  data_path:
+    name: Data path (deprecated)
+    description: Used to migrate from previous version's folder to new backup-supporting addon_config folder, after which, this is no longer needed.
+  watchdog:
+    name: Watchdog
+    description: >-
+      Automatically restart Zigbee2MQTT in case of a soft failure (like 'adapter disconnected').
+      Using `default` will use the retry delays 1min, 5min, 15min, 30min, 60min.
+      Custom delays are also supported, e.g. `5,10,30` will start Zigbee2MQTT with the watchdog's retry delays set to 5min, 10min, 30min.
+      https://www.zigbee2mqtt.io/guide/installation/15_watchdog.html
+  force_onboarding:
+    name: Force onboarding
+    description: >-
+      Force the onboarding to run even if it was previously done.
+      Can be used for e.g. when changing adapter to update the serial port.
+      Make sure to disable once done.
+  socat_enabled:
+    name: Enable Socat
+    description: >-
+      Socat can be used to forward a serial device over TCP to Zigbee2MQTT.
+      The defaults values will make sure that socat listens on port `8485` and redirects its output to `/dev/ttyZ2M`.
+      https://linux.die.net/man/1/socat
+  socat_master:
+    name: Socat Master
+    description: >-
+      Master or first address used in socat command line (mandatory if socat enabled).
+      Example: `pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777`
+  socat_slave:
+    name: Socat Slave
+    description: >-
+      Slave or second address used in socat command line (mandatory if socat enabled).
+      Example: `tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5`
+  socat_options:
+    name: Socat Options
+    description: >-
+      Extra options added to the socat command line.
+      Example: `-d -d`
+  socat_log:
+    name: Socat Enable Logging
+    description: >-
+      Log the socat stdout/stderr to /config/socat.log

@@ -1,0 +1,69 @@
+name: Manual Builder
+
+env:
+  REGISTRY: ghcr.io
+
+on:
+  workflow_dispatch:
+    inputs:
+      addon_folder:
+        description: "The folder of the add-on to build"
+        required: true
+        default: "zigbee2mqtt-edge"
+        type: choice
+        options: ["zigbee2mqtt", "zigbee2mqtt-edge", "zigbee2mqtt-proxy"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build ${{ matrix.arch }} ${{ inputs.addon_folder }} add-on
+    strategy:
+      matrix:
+        arch: ["aarch64", "amd64"]
+    permissions:
+      packages: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ inputs.addon_folder }}"
+
+      - name: Check if add-on should be built
+        id: check
+        run: |
+          if [[ "${{ steps.info.outputs.image }}" == "null" ]]; then
+            echo "Image property is not defined, skipping build"
+            echo "build_arch=false" >> $GITHUB_OUTPUT;
+          elif [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
+            echo "build_arch=true" >> $GITHUB_OUTPUT;
+            echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
+          else
+            echo "${{ matrix.arch }} is not a valid arch for ${{ inputs.addon_folder }}, skipping build";
+            echo "build_arch=false" >> $GITHUB_OUTPUT;
+          fi
+
+      - name: Login to GitHub Container Registry
+        if: steps.check.outputs.build_arch == 'true'
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build ${{ inputs.addon_folder }} add-on
+        if: steps.check.outputs.build_arch == 'true'
+        uses: home-assistant/builder@2025.09.0
+        with:
+          args: |
+            --${{ matrix.arch }} \
+            --target /data/${{ inputs.addon_folder }} \
+            --image "${{ steps.check.outputs.image }}" \
+            --docker-hub "${{ env.REGISTRY }}/${{ github.repository_owner }}" \
+            --addon
