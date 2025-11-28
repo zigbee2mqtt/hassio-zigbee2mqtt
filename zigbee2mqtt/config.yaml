@@ -1,0 +1,49 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Zigbee2MQTT
+version: "2.8.0"
+breaking_versions: ["2.8.0"]
+slug: zigbee2mqtt
+description: Use your ZigBee devices without the vendor's bridge or gateway
+url: "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt"
+panel_icon: "mdi:zigbee"
+arch:
+  - aarch64
+  - amd64
+image: "ghcr.io/zigbee2mqtt/zigbee2mqtt-{arch}"
+init: false
+ingress: true
+uart: true
+udev: true
+hassio_api: true
+timeout: 30
+services:
+  - mqtt:need
+map:
+  # @deprecated for migration purpose only
+  - type: homeassistant_config
+    read_only: false
+    path: /config
+  - type: addon_config
+    read_only: false
+    path: /addon_config
+ports:
+  "8099/tcp": null
+  "8485/tcp": 8485
+options:
+  watchdog: default
+  force_onboarding: false
+  socat_enabled: false
+  socat_master: "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777"
+  socat_slave: "tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5"
+  socat_options: "-d -d"
+  socat_log: false
+schema:
+  # @deprecated for migration purpose only
+  data_path: "str?"
+  watchdog: "str?"
+  force_onboarding: bool
+  socat_enabled: "bool?"
+  socat_master: "str?"
+  socat_slave: "str?"
+  socat_options: "str?"
+  socat_log: "bool?"

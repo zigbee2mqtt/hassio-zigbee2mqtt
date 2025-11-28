@@ -1,0 +1,93 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start the nginx service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+# shellcheck disable=SC2155
+
+set -e
+
+bashio::log.info "Configuring Zigbee2MQTT..."
+
+export ZIGBEE2MQTT_DATA="/addon_config"
+
+mkdir -p "$ZIGBEE2MQTT_DATA" || bashio::exit.nok "Could not create $ZIGBEE2MQTT_DATA"
+
+if bashio::var.has_value "$(bashio::services 'mqtt')"; then
+    if bashio::var.true "$(bashio::services 'mqtt' 'ssl')"; then
+        export ZIGBEE2MQTT_CONFIG_MQTT_SERVER="mqtts://$(bashio::services 'mqtt' 'host'):$(bashio::services 'mqtt' 'port')"
+    else
+        export ZIGBEE2MQTT_CONFIG_MQTT_SERVER="mqtt://$(bashio::services 'mqtt' 'host'):$(bashio::services 'mqtt' 'port')"
+    fi
+    export ZIGBEE2MQTT_CONFIG_MQTT_USER="$(bashio::services 'mqtt' 'username')"
+    export ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD="$(bashio::services 'mqtt' 'password')"
+else
+    bashio::log.warning "MQTT service configuration unavailable"
+fi
+
+# Socat
+if bashio::config.true 'socat_enabled'; then
+    bashio::log.info "Socat enabled"
+    SOCAT_MASTER=$(bashio::config 'socat_master')
+    SOCAT_SLAVE=$(bashio::config 'socat_slave')
+
+    # Validate input
+    if bashio::var.is_empty "$SOCAT_MASTER"; then
+        bashio::exit.nok "Socat is enabled but not started because no master address specified"
+    fi
+
+    if bashio::var.is_empty "$SOCAT_SLAVE"; then
+        bashio::exit.nok "Socat is enabled but not started because no slave address specified"
+    fi
+
+    bashio::log.info "Starting socat"
+
+    SOCAT_OPTIONS=$(bashio::config 'socat_options')
+
+    # Socat start configuration
+    bashio::log.blue "Socat startup parameters:"
+    bashio::log.blue "Options: $SOCAT_OPTIONS"
+    bashio::log.blue "Master:  $SOCAT_MASTER"
+    bashio::log.blue "Slave:   $SOCAT_SLAVE"
+
+    bashio::log.info "Starting socat process ..."
+    exec socat "$SOCAT_OPTIONS" "$SOCAT_MASTER" "$SOCAT_SLAVE" &
+
+    bashio::log.debug "Modifying process for logging if required"
+
+    if bashio::config.true 'socat_log'; then
+        bashio::log.debug "Socat loggin enabled, setting file path to $ZIGBEE2MQTT_DATA/socat.log"
+        exec &>"$ZIGBEE2MQTT_DATA/socat.log" 2>&1
+    else
+        bashio::log.debug "No logging required"
+    fi
+else
+    bashio::log.info "Socat not enabled"
+fi
+
+if bashio::config.has_value 'watchdog'; then
+    export Z2M_WATCHDOG="$(bashio::config 'watchdog')"
+    bashio::log.info "Enabled Zigbee2MQTT watchdog with value '$Z2M_WATCHDOG'"
+fi
+
+if bashio::config.true 'force_onboarding'; then
+    export Z2M_ONBOARD_FORCE_RUN="1"
+    bashio::log.info "Forcing onboarding to run"
+fi
+
+export TZ="$(bashio::supervisor.timezone)"
+export ZIGBEE2MQTT_CONFIG_FRONTEND_ENABLED='true'
+export ZIGBEE2MQTT_CONFIG_FRONTEND_PORT='8099'
+export ZIGBEE2MQTT_CONFIG_HOMEASSISTANT_ENABLED='true'
+export Z2M_ONBOARD_URL='http://0.0.0.0:8099'
+
+cd /app
+
+if [ -d "$ZIGBEE2MQTT_DATA/app_overrides" ]; then
+    bashio::log.info "Applying app overrides..."
+    cp -R "$ZIGBEE2MQTT_DATA/app_overrides/." ./ || bashio::exit.nok "Could not apply app overrides"
+fi
+
+bashio::log.info "Starting Zigbee2MQTT..."
+exec node index.js

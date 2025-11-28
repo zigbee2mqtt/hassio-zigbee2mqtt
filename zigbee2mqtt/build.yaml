@@ -1,0 +1,11 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+build_from:
+  aarch64: "ghcr.io/home-assistant/aarch64-base:3.22"
+  amd64: "ghcr.io/home-assistant/amd64-base:3.22"
+labels:
+  org.opencontainers.image.title: "Home Assistant Add-on: Zigbee2MQTT"
+  org.opencontainers.image.description: "Use your ZigBee devices without the vendor's bridge or gateway"
+  org.opencontainers.image.source: "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt"
+  org.opencontainers.image.licenses: "Apache License 2.0"
+args:
+  ZIGBEE2MQTT_VERSION: "2.8.0"
