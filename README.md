@@ -2,37 +2,31 @@
     <a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt">
         <img width="150" height="150" src="zigbee2mqtt/logo.png">
     </a>
-    <br>
-    <br>
-    <div style="display: flex;">
-        <a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/actions?query=workflow%3ACI">
-            <img src="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/workflows/CI/badge.svg">
-        </a>
-        <a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/releases">
-            <img src="https://img.shields.io/github/release/zigbee2mqtt/hassio-zigbee2mqtt.svg">
-        </a>
-        <a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/stargazers">
-            <img src="https://img.shields.io/github/stars/zigbee2mqtt/hassio-zigbee2mqtt.svg">
-        </a>
-        <a href="https://discord.gg/dadfWYE">
-            <img src="https://img.shields.io/discord/556563650429583360.svg">
-        </a>
-    </div>
     <h1>Official Zigbee2MQTT Home Assistant add-on</h1>
 </div>
+
+[![CI](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/workflows/CI/badge.svg)](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/actions?query=workflow%3ACI)
+[![Release](https://img.shields.io/github/release/zigbee2mqtt/hassio-zigbee2mqtt.svg)](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/releases)
+[![Stars](https://img.shields.io/github/stars/zigbee2mqtt/hassio-zigbee2mqtt.svg)](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/stargazers)
+[![Discord](https://img.shields.io/discord/556563650429583360.svg)](https://discord.gg/dadfWYE)
 
 > [!CAUTION]
 > If you're using a Raspberry Pi, ensure you have at least a Raspberry Pi 4, as running it on a Raspberry Pi 3 may cause instability due to its limited resources.
 
+## Installing this repository in your add-on store
+
+The repository includes two add-ons:
+   - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
+   - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
+
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fzigbee2mqtt%2Fhassio-zigbee2mqtt)
+
+For more details: https://www.home-assistant.io/common-tasks/os#installing-a-third-party-add-on-repository
+
 ## Installation
 
 1. If you don't have an MQTT broker yet; in Home Assistant go to **[Settings → Add-ons → Add-on store](https://my.home-assistant.io/redirect/supervisor_store/)** and install the **[Mosquitto broker](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)** add-on, then start it.
-1. Go back to the **Add-on store**, click **⋮ → Repositories**, fill in</br> `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close** or click the **Add repository** button below, click **Add → Close** (You might need to enter the **internal IP address** of your Home Assistant instance first).  
-   [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fzigbee2mqtt%2Fhassio-zigbee2mqtt)
-1. The repository includes two add-ons:
-   - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
-   - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
-1. Click on the add-on and press **Install** and wait till the add-on is installed.
+1. Click on the desired Zigbee2MQTT add-on in **[Settings → Add-ons → Add-on store](https://my.home-assistant.io/redirect/supervisor_store/)** and press **Install**. Wait until the add-on is installed.
 1. Start the add-on by going to **Info** and click **Start**
 1. Wait a few seconds and press **OPEN WEB UI**, you will now see the onboarding page. More information about the onboarding can be found [here](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding).
 1. Fill in the desired settings, for most setups changing the following is enough:

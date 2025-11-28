@@ -1,3 +1,14 @@
+<!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
+## 2.8.0
+
+- [Zigbee2MQTT release notes](https://github.com/Koenkk/zigbee2mqtt/releases/tag/2.8.0)
+- **ADD-ON BREAKING CHANGES**
+- Remove add-on configs that are available through onboarding
+- Improve add-on configs with labels
+- Migrate to new add-on builder
+- Migrate to addon_config
+
 ## 2.6.3-1
 - Updated Zigbee2MQTT to version [`2.6.3`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/2.6.3)
 
