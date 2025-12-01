@@ -59,7 +59,7 @@ jobs:
 
       - name: Build ${{ inputs.addon_folder }} add-on
         if: steps.check.outputs.build_arch == 'true'
-        uses: home-assistant/builder@2025.09.0
+        uses: home-assistant/builder@2025.11.0
         with:
           args: |
             --${{ matrix.arch }} \
