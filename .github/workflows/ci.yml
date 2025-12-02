@@ -83,13 +83,12 @@ jobs:
         cp common/build.yaml ${{ matrix.addon }}
 
     - name: Build
-      uses: home-assistant/builder@master
+      uses: Wandalen/wretry.action@master
       # Note: if running without `--test`, image is pushed to docker.io
       with:
-        args: |
-          --${{ matrix.arch }} \
-          --target ${{ matrix.addon }} \
-          ${{ env.BUILD_ARGS }}
+        action: home-assistant/builder@master
+        with: |
+          args: --${{ matrix.arch }} --target ${{ matrix.addon }} ${{ env.BUILD_ARGS }}
 
     # Keep pushing to docker.io as it is unclear how
     # HA handles config.json updates (especially for the unversioned edge)
