@@ -1,0 +1,73 @@
+name: Bump version
+
+on:
+  workflow_dispatch:
+    inputs:
+      addon_folder:
+        description: "The folder of the add-on to version bump"
+        required: true
+        default: "zigbee2mqtt"
+        type: choice
+        options: ["zigbee2mqtt"]
+      arg_name:
+        description: "The name of the version to bump (without '_VERSION')"
+        required: true
+        default: "ZIGBEE2MQTT"
+        type: string
+      version:
+        description: "The new version"
+        required: true
+        type: string
+      changelog:
+        description: "The changelog to write if needed"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Bump ${{ inputs.addon_folder }} add-on ${{ inputs.arg_name }} to ${{ inputs.version }}
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Bump version & write changelog
+        run: |
+          sed -i -E 's/^  ${{ inputs.arg_name }}_VERSION: .*$/  ${{ inputs.arg_name }}_VERSION: "${{ inputs.version }}"/g' ./${{ inputs.addon_folder }}/build.yaml
+
+          addonFolderLower=$(echo "${{ inputs.addon_folder }}" | tr '[:upper:]' '[:lower:]')
+          argNameLower=$(echo "${{ inputs.arg_name }}" | tr '[:upper:]' '[:lower:]')
+
+          if [[ "$addonFolderLower" == "$argNameLower" ]]; then
+            sed -i -E 's/^version: .*$/version: "${{ inputs.version }}"/g' ./${{ inputs.addon_folder }}/config.yaml
+          fi
+
+          if [[ -z "${{ inputs.changelog }}" ]]; then
+            echo "No changelog to write"
+          else
+            echo -e "${{ inputs.changelog }}\n\n$(cat ./${{ inputs.addon_folder }}/CHANGELOG.md)" > ./${{ inputs.addon_folder }}/CHANGELOG.md
+          fi
+
+          branch="${{ inputs.addon_folder }}-${{ inputs.arg_name }}-${{ inputs.version }}"
+          title="fix: bump ${{ inputs.addon_folder }} add-on ${{ inputs.arg_name }} to ${{ inputs.version }}"
+
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$branch"
+          git add .
+          git commit -m "$title" || echo 'Nothing to commit'
+          git push origin "$branch"
+
+          echo -e "${{ inputs.changelog }}" | gh pr create \
+            --fill \
+            --base master \
+            --head $branch \
+            --title "$title" \
+            --body-file -
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
