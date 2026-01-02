@@ -1,24 +1,10 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
 FROM $BUILD_FROM
-RUN apk add --no-cache --update nginx
 
-# Copy root filesystem
-ADD nginx.conf.gtpl /
-ADD entrypoint.sh /
+RUN \
+    apk --no-cache add nginx tzdata \
+    && mkdir -p /run/nginx \
+    && rm -rf /tmp/* /etc/nginx
 
-ENTRYPOINT ["/bin/sh", "-c", "/entrypoint.sh"]
-# Build arguments
-ARG BUILD_ARCH
-ARG BUILD_DESCRIPTION
-ARG BUILD_NAME
-ARG BUILD_VERSION
-
-# Labels
-LABEL \
-    io.hass.name="${BUILD_NAME}" \
-    io.hass.description="${BUILD_DESCRIPTION}" \
-    io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION}
-
-ENTRYPOINT ["/entrypoint.sh"]
+COPY rootfs /
