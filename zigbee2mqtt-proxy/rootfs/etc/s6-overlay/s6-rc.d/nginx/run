@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start the nginx service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+# shellcheck disable=SC2155
+
+set -e
+
+bashio::config.require 'server'
+
+bashio::log.info "Configuring nginx..."
+
+tempio \
+    -conf /data/options.json \
+    -template /etc/nginx/nginx.gtpl \
+    -out /etc/nginx/nginx.conf
+
+bashio::log.info "Starting nginx..."
+exec nginx -c /etc/nginx/nginx.conf < /dev/null

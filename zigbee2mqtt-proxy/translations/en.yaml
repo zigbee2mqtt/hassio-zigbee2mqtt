@@ -1,0 +1,8 @@
+---
+configuration:
+  server:
+    name: Server
+    description: Should be the local URL on which the Zigbee2MQTT frontend is running, e.g. `http://192.168.2.43:8080`. Make sure there is no trailing slash!
+  auth_token:
+    name: Auth Token
+    description: Only use when you have an `auth_token` set for the frontend in the Zigbee2MQTT configuration.
