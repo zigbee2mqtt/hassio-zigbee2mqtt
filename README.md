@@ -18,7 +18,7 @@
             <img src="https://img.shields.io/discord/556563650429583360.svg">
         </a>
     </div>
-    <h1>Official Zigbee2MQTT Home Assistant add-on</h1>
+    <h1>Official Zigbee2MQTT Home Assistant app</h1>
 </div>
 
 > [!CAUTION]
@@ -26,14 +26,14 @@
 
 ## Installation
 
-1. If you don't have an MQTT broker yet; in Home Assistant go to **[Settings → Add-ons → Add-on store](https://my.home-assistant.io/redirect/supervisor_store/)** and install the **[Mosquitto broker](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)** add-on, then start it.
-1. Go back to the **Add-on store**, click **⋮ → Repositories**, fill in</br> `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close** or click the **Add repository** button below, click **Add → Close** (You might need to enter the **internal IP address** of your Home Assistant instance first).  
-   [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fzigbee2mqtt%2Fhassio-zigbee2mqtt)
-1. The repository includes two add-ons:
+1. If you don't have an MQTT broker yet; in Home Assistant go to **[Settings → Apps → App store](https://my.home-assistant.io/redirect/supervisor_store/)** and install the **[Mosquitto broker](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)** app, then start it.
+1. Go back to the **App store**, click **⋮ → Repositories**, fill in</br> `https://github.com/zigbee2mqtt/hassio-zigbee2mqtt` and click **Add → Close** or click the **Add repository** button below, click **Add → Close** (You might need to enter the **internal IP address** of your Home Assistant instance first).
+   [![Open your Home Assistant instance and show the add app repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fzigbee2mqtt%2Fhassio-zigbee2mqtt)
+1. The repository includes two apps:
    - **Zigbee2MQTT** is the stable release that tracks the released versions of Zigbee2MQTT. (**recommended for most users**)
    - **Zigbee2MQTT Edge** tracks the `dev` branch of Zigbee2MQTT such that you can install the edge version if there are features or fixes in the Zigbee2MQTT dev branch that are not yet released.
-1. Click on the add-on and press **Install** and wait till the add-on is installed.
-1. Start the add-on by going to **Info** and click **Start**
+1. Click on the app and press **Install** and wait till the app is installed.
+1. Start the app by going to **Info** and click **Start**
 1. Wait a few seconds and press **OPEN WEB UI**, you will now see the onboarding page. More information about the onboarding can be found [here](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding).
 1. Fill in the desired settings, for most setups changing the following is enough:
    - Select your adapter under _Found Devices_, this will configure the _Coordinator/Adapter Port/Path_ and _Coordinator/Adapter Type/Stack/Driver_.
@@ -41,7 +41,7 @@
 1. Press **Submit**, Zigbee2MQTT will now start, wait a few seconds and refresh the page. You should now see the Zigbee2MQTT frontend.
    - If it shows `502: Bad Gateway` wait a bit more and refresh the page.
    - If this takes too long (e.g. 2 minutes +) check the **Log** tab to see what went wrong.
-   - In case the add-on fails to start with the following error: `USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.`, we need to fill in the `serial` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
+   - In case the app fails to start with the following error: `USB adapter discovery error (No valid USB adapter found). Specify valid 'adapter' and 'port' in your configuration.`, we need to fill in the `serial` section. Format can be found [here](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#adapter-settings), but skip the initial `serial:` indent. e.g.: <br>
      ```yaml
      adapter: zstack
      port: /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00
@@ -53,15 +53,15 @@ For more information see [the documentation](https://github.com/zigbee2mqtt/hass
 ## Restoring data from a standalone installation
 
 1. Ensure that both environments are running the same version
-1. Ensure you can [SSH to your Home Assistant OS](https://community.home-assistant.io/t/howto-how-to-access-the-home-assistant-os-host-itself-over-ssh/263352) (NOT to the SSH Add-on)
+1. Ensure you can [SSH to your Home Assistant OS](https://community.home-assistant.io/t/howto-how-to-access-the-home-assistant-os-host-itself-over-ssh/263352) (NOT to the SSH App)
 1. Backup your standalone environment `data` folder (possibly leaving out the `logs/` folder)
-1. Start the Zigbee2MQTT HA add-on with a non-existing `tty` device, to create the `data` folder
+1. Start the Zigbee2MQTT HA app with a non-existing `tty` device, to create the `data` folder
 1. Restore your `data` folder contents into `/mnt/data/supervisor/homeassistant/zigbee2mqtt`, e.g. via `scp -O -P 22222 -i  PATHTOUSEDSSHKEY ./data/* root@hass:/mnt/data/supervisor/homeassistant/zigbee2mqtt/`
-1. Configure your serial port and MQTT settings using the HA add-on configuration UI
+1. Configure your serial port and MQTT settings using the HA app configuration UI
 1. Edit the `/usr/share/hassio/homeassistant/zigbee2mqtt/configuration.yaml` file:
    - Ensure that the serial port section matches the one configured with the UI
    - Remove any irrelevant sections from the config (e.g. `mqtt` (if not needed), `advanced/log_syslog`, `frontend`)
-1. Start the add-on
+1. Start the app
 
 ## Changelog
 
@@ -71,13 +71,13 @@ All notable changes to this project will be documented in the [CHANGELOG.md](zig
 
 Version for releases is based on [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt) format: `X.Y.Z`.
 
-Any changes on the add-on that do not require a new version of Zigbee2MQTT will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the Zigbee2MQTT release version and `A` is related to the add-on.
+Any changes on the app that do not require a new version of Zigbee2MQTT will use the format: `X.Y.Z-A` where `X.Y.Z` is fixed on the Zigbee2MQTT release version and `A` is related to the app.
 
 Edge version will not maintain a CHANGELOG and doesn't have a version.
 
 ## Issues
 
-If you find any issues with the add-on, please check the [issue tracker](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after Zigbee2MQTT has successfully started, it should likely be reported in the [Zigbee2MQTT issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
+If you find any issues with the app, please check the [issue tracker](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/issues) for similar issues before creating one. If your issue is regarding specific devices or, more generally, an issue that arises after Zigbee2MQTT has successfully started, it should likely be reported in the [Zigbee2MQTT issue tracker](https://github.com/Koenkk/zigbee2mqtt/issues).
 
 Feel free to create a PR for fixes and enhancements.
 
@@ -86,7 +86,7 @@ Feel free to create a PR for fixes and enhancements.
 If you're submitting a PR and wish to test it locally:
 
 - Gain root access to your Home Assistant installation
-- In the Add-on Settings, Ensure "Watchdog" is turned off so the container isn't automatically restarted when it's stopped via the CLI
+- In the App Settings, Ensure "Watchdog" is turned off so the container isn't automatically restarted when it's stopped via the CLI
 
 ![image](https://user-images.githubusercontent.com/1923186/198087147-7ab2ba1e-1a68-41b8-9a84-76b25b329786.png)
 

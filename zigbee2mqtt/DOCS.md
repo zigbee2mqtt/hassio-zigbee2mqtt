@@ -1,29 +1,29 @@
 # Pairing
 
-By default the add-on has `permit_join` set to `false`. To allow devices to join you need to activate this after the add-on has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
+By default the app has `permit_join` set to `false`. To allow devices to join you need to activate this after the app has started. You can now use the [built-in frontend](https://www.zigbee2mqtt.io/information/frontend.html) to achieve this. For details on how to enable the built-in frontent see the next section.
 
 # Enabling the built-in frontend
 
-Enable `ingress` to have the frontend available in your UI: **Settings → Add-ons → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
+Enable `ingress` to have the frontend available in your UI: **Settings → Apps → Zigbee2MQTT → Show in sidebar**. You can find more details about the feature on the [Zigbee2MQTT documentation](https://www.zigbee2mqtt.io/information/frontend.html).
 
 # Configuration
 
 ## Onboarding
 
-[Onboarding](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding) allows you to setup Zigbee2MQTT without having to manually enter the details in the add-on configuration page. When starting the add-on with a brand new install (no configuration present), the frontend will show a quick setup page, allowing you to select various settings for Zigbee2MQTT to be able to start.
+[Onboarding](https://www.zigbee2mqtt.io/guide/getting-started/#onboarding) allows you to setup Zigbee2MQTT without having to manually enter the details in the app configuration page. When starting the app with a brand new install (no configuration present), the frontend will show a quick setup page, allowing you to select various settings for Zigbee2MQTT to be able to start.
 
 > [!NOTE]
 > Successful detection of adapters, to select from, may vary based on your setup/network. You may have to enter these [details manually](https://www.zigbee2mqtt.io/guide/configuration/adapter-settings.html#basic-configuration) on the page instead.
 
 > [!TIP]
-> You can force the onboarding to re-run (e.g. changing adapter) using the toggle available in the add-on configuration page (visible after checking `Show unused optional configuration options`). This will force onboarding to run even after you have successfully configured it for the first time. Make sure to disable it once done.
+> You can force the onboarding to re-run (e.g. changing adapter) using the toggle available in the app configuration page (visible after checking `Show unused optional configuration options`). This will force onboarding to run even after you have successfully configured it for the first time. Make sure to disable it once done.
 
 ## Manual
 
-Configuration required to startup Zigbee2MQTT is available from the add-on configuration. The rest of the options can be configured via the Zigbee2MQTT frontend.
+Configuration required to startup Zigbee2MQTT is available from the app configuration. The rest of the options can be configured via the Zigbee2MQTT frontend.
 
 > [!CAUTION]
-> Settings configured through the add-on configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in add-on configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used). _If you want to control the entire configuration through YAML, remove them from the add-on configuration page._
+> Settings configured through the app configuration page will take precedence over settings in the `configuration.yaml` page (e.g. you set `rtscts: false` in app configuration page and `rtscts: true` in `configuration.yaml`, `rtscts: false` will be used). _If you want to control the entire configuration through YAML, remove them from the app configuration page._
 
 #### Examples for each configuration section
 
@@ -49,12 +49,12 @@ Configuration required to startup Zigbee2MQTT is available from the add-on confi
 
 # Configuration backup
 
-The add-on will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to re-pair all of your devices.
-The backup of your configuration is created on add-on startup if no previous backup was found.
+The app will create a backup of your configuration.yml within your data path: `$DATA_PATH/configuration.yaml.bk`. When upgrading, you should use this to fill in the relevant values into your new config, particularly the network key, to avoid breaking your network and having to re-pair all of your devices.
+The backup of your configuration is created on app startup if no previous backup was found.
 
 # Enabling the watchdog
 
-To automatically restart Zigbee2MQTT in case of a soft failure (like "adapter disconnected"), the watchdog can be used. It can be enabled by adding the following to the add-on configuration:
+To automatically restart Zigbee2MQTT in case of a soft failure (like "adapter disconnected"), the watchdog can be used. It can be enabled by adding the following to the app configuration:
 
 ```yaml
 watchdog: default
@@ -68,7 +68,7 @@ If you are interested in adding support for new devices to Zigbee2MQTT see [How 
 
 # Notes
 
-- Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto add-on.
+- Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto app.
 - To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
 
 # Socat
