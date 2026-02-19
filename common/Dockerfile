@@ -34,11 +34,10 @@ RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev
     pnpm install --frozen-lockfile --no-optional --unsafe-perm && \
     pnpm run build && \
     rm -rf node_modules && \
-    pnpm install --frozen-lockfile --no-optional --unsafe-perm --prod
-    # && \
+    pnpm install --frozen-lockfile --no-optional --unsafe-perm --prod && \
     # force serialport to rebuild on current platform instead of using prebuilds
-    # rm -rf `find ./node_modules/.pnpm/ -wholename "*/@serialport/bindings-cpp/prebuilds" -type d` && \
-    # pnpm rebuild @serialport/bindings-cpp
+    rm -rf `find ./node_modules/.pnpm/ -wholename "*/@serialport/bindings-cpp/prebuilds" -type d` && \
+    pnpm rebuild @serialport/bindings-cpp
 
 # Release
 FROM base as release
