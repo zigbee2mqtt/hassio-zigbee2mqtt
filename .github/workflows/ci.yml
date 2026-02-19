@@ -83,7 +83,7 @@ jobs:
         cp common/build.yaml ${{ matrix.addon }}
 
     - name: Build
-      uses: home-assistant/builder@2025.11.0
+      uses: home-assistant/builder@075e69c00d1f048dac5f59e3a9a6eae2d5aa5e4d
       # Note: if running without `--test`, image is pushed to docker.io
       with:
         args: |
