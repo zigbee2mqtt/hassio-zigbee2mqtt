@@ -39,7 +39,6 @@ RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev
     rm -rf `find ./node_modules/.pnpm/ -wholename "*/@serialport/bindings-cpp/prebuilds" -type d` && \
     pnpm rebuild @serialport/bindings-cpp
 
-    #3ljkasdf
 # Release
 FROM base as release
 
