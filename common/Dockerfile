@@ -31,7 +31,7 @@ RUN apk add --no-cache --virtual .buildtools npm make gcc g++ linux-headers udev
     echo "Installed Zigbee2MQTT @ version $(cat /app/dist/.hash)" && \
     cd /app && \
     npm install -g $(jq -r '.packageManager' package.json) && \
-    pnpm install --frozen-lockfile --no-optional --unsafe-perm && \
+    pnpm install --frozen-lockfile --unsafe-perm && \
     pnpm run build && \
     rm -rf node_modules && \
     pnpm install --frozen-lockfile --no-optional --unsafe-perm --prod && \
