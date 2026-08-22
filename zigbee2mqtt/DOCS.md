@@ -69,7 +69,7 @@ If you are interested in adding support for new devices to Zigbee2MQTT see [How 
 # Notes
 
 - Depending on your configuration, the MQTT server config may need to include the port, typically `1883` or `8883` for SSL communications. For example, `mqtt://core-mosquitto:1883` for Home Assistant's Mosquitto app.
-- To find out which serial ports you have exposed go to **Supervisor → System → Host system → ⋮ → Hardware**
+- To find out which serial ports you have exposed go to **Settings → System → Hardware → ⋮ → System hardware** and type the device name in the search bar.
 
 # Socat
 
