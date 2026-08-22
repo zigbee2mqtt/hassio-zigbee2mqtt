@@ -1,14 +1,14 @@
 {
-  "name": "Zigbee2MQTT",
+  "name": "Zigbee2MQTT 2",
   "version": "2.13.0-1",
-  "slug": "zigbee2mqtt",
-  "description": "Use your ZigBee devices without the vendor's bridge or gateway",
+  "slug": "zigbee2mqtt_2",
+  "description": "Second Zigbee2MQTT instance (fork of the official add-on)",
   "breaking_versions": [
     "2.0.0-1"
   ],
   "uart": true,
   "udev": true,
-  "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
+  "url": "https://github.com/janholb/hassio-zigbee2mqtt-fork/tree/master/zigbee2mqtt",
   "startup": "application",
   "services": [
     "mqtt:need"
@@ -40,7 +40,7 @@
     }
   ],
   "ports": {
-    "8485/tcp": 8485,
+    "8485/tcp": null,
     "8099/tcp": null
   },
   "ports_description": {
@@ -48,7 +48,7 @@
     "8099/tcp": "Frontend tcp-listen port"
   },
   "options": {
-    "data_path": "/config/zigbee2mqtt",
+    "data_path": "/config/zigbee2mqtt_2",
     "socat": {
       "enabled": false,
       "master": "pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777",
@@ -56,7 +56,9 @@
       "options": "-d -d",
       "log": false
     },
-    "mqtt": {},
+    "mqtt": {
+      "base_topic": "zigbee2mqtt_2"
+    },
     "serial": {}
   },
   "schema": {
