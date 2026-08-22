@@ -1,0 +1,44 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull upstream files
+        run: |
+          git fetch https://github.com/zigbee2mqtt/hassio-zigbee2mqtt.git master
+          git checkout FETCH_HEAD -- zigbee2mqtt common
+
+      - name: Re-apply fork overrides
+        run: |
+          jq '.name = "Zigbee2MQTT 2"
+              | .slug = "zigbee2mqtt_2"
+              | .description = "Second Zigbee2MQTT instance (fork of the official add-on)"
+              | .url = "https://github.com/janholb/hassio-zigbee2mqtt-fork/tree/master/zigbee2mqtt"
+              | .ports["8485/tcp"] = null
+              | .options.data_path = "/config/zigbee2mqtt_2"
+              | .options.mqtt.base_topic = "zigbee2mqtt_2"' \
+            zigbee2mqtt/config.json > config.tmp
+          mv config.tmp zigbee2mqtt/config.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Already up to date"
+          else
+            git commit -m "Sync upstream $(date +%F)"
+            git push
+          fi
