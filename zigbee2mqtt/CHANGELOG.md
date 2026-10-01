@@ -1,3 +1,6 @@
+## 2.14.2-1
+- Updated Zigbee2MQTT to version [`2.14.2`](https://github.com/Koenkk/zigbee2mqtt/releases/tag/2.14.2)
+
 ## [Unreleased]
 
 - Mount the Home Assistant SSL directory into the addon container read-only (`/ssl`), so certificates managed by addons such as Let's Encrypt can be used for MQTT TLS and the frontend [#835](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/issues/835)
