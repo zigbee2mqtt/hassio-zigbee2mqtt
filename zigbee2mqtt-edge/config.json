@@ -31,7 +31,7 @@
       "path": "/config"
     },
     {
-      "type": "addon_config",
+      "type": "app_config",
       "read_only": false,
       "path": "/addon_config"
     },
