@@ -1,6 +1,6 @@
 {
   "name": "Zigbee2MQTT",
-  "version": "2.13.0-1",
+  "version": "2.14.2-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "breaking_versions": [
@@ -34,9 +34,13 @@
       "path": "/config"
     },
     {
-      "type": "addon_config",
+      "type": "app_config",
       "read_only": false,
       "path": "/addon_config"
+    },
+    {
+      "type": "ssl",
+      "read_only": true
     }
   ],
   "ports": {
