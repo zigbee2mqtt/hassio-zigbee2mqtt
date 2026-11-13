@@ -101,10 +101,8 @@ jobs:
 
         VERSIONS=("latest" "$CONFIG_VERSION")
         for VERSION in "${VERSIONS[@]}"; do
-          GHCR_IMAGE="$CONFIG_IMAGE:$CONFIG_VERSION"
+          GHCR_IMAGE="$CONFIG_IMAGE:$VERSION"
           DOCKER_IO_IMAGE=$(echo "$GHCR_IMAGE" | sed 's|ghcr\.io\/||')
           echo "Push: $GHCR_IMAGE -> $DOCKER_IO_IMAGE"
-          docker pull $GHCR_IMAGE
-          docker tag $GHCR_IMAGE $DOCKER_IO_IMAGE
-          docker push $DOCKER_IO_IMAGE
+          docker buildx imagetools create -t "$DOCKER_IO_IMAGE" "$GHCR_IMAGE"
         done
